@@ -237,3 +237,33 @@ section {
     width: 100%;
   }
 }
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+/*PAGINA CONTATO*/
+
+#imagem-cadastro{
+  width: 98%;
+  height: 95%;
+  position: relative;
+}
+
+#botao{
+  position: relative;
+  cursor: pointer;
+  background-color: black;
+  font-weight: 700;
+  border-radius: 12%;
+  max-width: 150px;
+  padding: 12px;
+  color: white;
+  text-align:center;
+}
+#botao-cadastro-suporte{
+  text-decoration: none;
+  color: white;
+}
+#cadastro-Form{
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
