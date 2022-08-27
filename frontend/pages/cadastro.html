@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/contactR.css">
     <link rel="stylesheet" href="../styles/navbar.css">
-    <script src="../js/cadastro.js"></script>
+    <script src="../js/cadastro.js" defer></script>
     <title>Pagina Cadastro</title>
 </head>
 <body>
@@ -43,10 +43,6 @@
             <h2>Cadastro</h2>
             <div class="formBox">
                 <div class="inputBox w50">
-                    <input type="text" class="inputRazaoSocial" required>
-                    <span>Razão Social</span>
-                </div>
-                <div class="inputBox w50">
                     <input type="text" class="inputNomeFantasia" required>
                     <span>Nome Fantasia</span>
                 </div>
@@ -59,31 +55,39 @@
                     <span>Email</span>
                 </div>
                 <div class="inputBox w50">
-                    <input type="password" class="inputSenha" required>
+                    <input type="password" class="inputSenha" name="senha" required>
                     <span>Senha</span>
                 </div>
                 <div class="inputBox w50">
-                    <input type="text" required >
+                    <input type="text" class="inputTelefone" required >
                     <span>Telefone Comercial</span>
                 </div>
                 <div class="inputBox w50">
-                    <input type="text" required>
+                    <input type="text" class="inputEnderecoEmpresa" required>
                     <span>Endereço Empresa </span>
                 </div>
                 <div class="inputBox w50">
-                    <input type="number" required>
-                    <span>Numero</span>
+                    <input type="text" class="inputEstado" required>
+                    <span>Estado</span>
                 </div>
                 <div class="inputBox w50">
-                    <input type="text" required>
+                    <input type="text" class="inputCidade" required>
+                    <span>Cidade</span>
+                </div>
+                <div class="inputBox w50">
+                    <input type="text" class="inputBairro" required>
                     <span>Bairro</span>
                 </div>
                 <div class="inputBox w50">
-                    <input type="text" required>
+                    <input type="number" class="inputNumero" required>
+                    <span>Numero</span>
+                </div>
+                <div class="inputBox w50">
+                    <input type="text" class="inputSite" required>
                     <span>Site</span>
                 </div>
                 <div class="inputBox w100" >
-                    <input type="submit" value="Enviar">
+                    <input type="submit" class="inputSubmit" value="Enviar">
                 </div>
             </div>
         </div>
