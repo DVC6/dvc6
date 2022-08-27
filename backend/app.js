@@ -8,7 +8,7 @@ var PORTA = 3333;
 var app = express();
 
 var indexRouter = require('./src/routes/index');
-var usuarioRouter = require('./src/routes/usuarios');
+var usuarioRouter = require('./src/routes/hospitalRouter');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
