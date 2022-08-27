@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var usuarioController = require('../controllers/usuarioController');
+var usuarioController = require('../controller/usuarioController');
 
 router.get('/', function (req, res) {
   usuarioController.testar(req, res);

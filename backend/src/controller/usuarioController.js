@@ -57,17 +57,57 @@ function entrar(req, res) {
 }
 
 function cadastrar(req, res) {
-  const { nome, sobrenome, email, senha } = req.body;
+  console.log(req.body);
+  const {
+    nomeFantasia,
+    cnpj,
+    email,
+    senha,
+    site,
+    logradouro,
+    cidade,
+    estado,
+    bairro,
+    numero,
+    telefone,
+  } = req.body;
 
-  if (nome == undefined) {
+  if (nomeFantasia == undefined) {
     res.status(400).send('Seu nome está undefined!');
   } else if (email == undefined) {
     res.status(400).send('Seu email está undefined!');
   } else if (senha == undefined) {
     res.status(400).send('Sua senha está undefined!');
+  } else if (cnpj == undefined) {
+    res.status(400).send('Seu CNPJ está undefined!');
+  } else if (telefone == undefined) {
+    res.status(400).send('Telefone está undefined!');
+  } else if (logradouro == undefined) {
+    res.status(400).send('Endereco da empresa está undefined!');
+  } else if (numero == undefined) {
+    res.status(400).send('Numero está undefined!');
+  } else if (bairro == undefined) {
+    res.status(400).send('Bairro está undefined!');
+  } else if (site == undefined) {
+    res.status(400).send('Site está undefined!');
+  } else if (estado == undefined) {
+    res.status(400).send('Estado está undefined!');
+  } else if (cidade == undefined) {
+    res.status(400).send('Cidade está undefined!');
   } else {
     usuarioModel
-      .cadastrar(nome, sobrenome, email, senha)
+      .cadastrar(
+        nomeFantasia,
+        cnpj,
+        email,
+        senha,
+        telefone,
+        logradouro,
+        numero,
+        bairro,
+        estado,
+        site
+      )
       .then(function (resultado) {
         res.json(resultado);
       })
