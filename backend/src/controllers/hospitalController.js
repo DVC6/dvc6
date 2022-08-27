@@ -1,9 +1,11 @@
-var usuarioModel = require('../models/hospitalModel');
+var hospitalModel = require('../models/hospitalModel');
+// const authConfig = require('../configs/auth.mjs');
+const { sign } = require('jsonwebtoken');
 
 var sessoes = [];
 
 function listar(req, res) {
-  usuarioModel
+  hospitalModel
     .listar()
     .then(function (resultado) {
       if (resultado.length > 0) {
@@ -13,25 +15,20 @@ function listar(req, res) {
       }
     })
     .catch(function (erro) {
-      console.log(erro);
-      console.log(
-        'Houve um erro ao realizar a consulta! Erro: ',
-        erro.sqlMessage
-      );
       res.status(500).json(erro.sqlMessage);
     });
 }
 
 function entrar(req, res) {
-  const { email, senha } = req.body;
+  const { email, senha, id } = req.body;
 
   if (email == undefined) {
     res.status(400).send('Seu email está undefined!');
   } else if (senha == undefined) {
     res.status(400).send('Sua senha está indefinida!');
   } else {
-    usuarioModel
-      .entrar(email, senha)
+    hospitalModel
+      .entrar(email, senha, id)
       .then(function (resultado) {
         console.log(`\nResultados encontrados: ${resultado.length}`);
         console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
@@ -54,22 +51,27 @@ function entrar(req, res) {
         res.status(500).json(erro.sqlMessage);
       });
   }
+
+  // const { secret, expiresIn } = authConfig.jwt;
+
+  // const token = sign({}, secret, {
+  //   subject: String(hospitalModel)
+  // })
 }
 
 function cadastrar(req, res) {
-  console.log(req.body);
   const {
     nomeFantasia,
     cnpj,
     email,
     senha,
-    site,
+    telefone,
     logradouro,
+    numero,
+    bairro,
     cidade,
     estado,
-    bairro,
-    numero,
-    telefone,
+    site,
   } = req.body;
 
   if (nomeFantasia == undefined) {
@@ -78,24 +80,22 @@ function cadastrar(req, res) {
     res.status(400).send('Seu email está undefined!');
   } else if (senha == undefined) {
     res.status(400).send('Sua senha está undefined!');
-  } else if (cnpj == undefined) {
-    res.status(400).send('Seu CNPJ está undefined!');
   } else if (telefone == undefined) {
-    res.status(400).send('Telefone está undefined!');
+    res.status(400).send('Sua senha está undefined!');
   } else if (logradouro == undefined) {
-    res.status(400).send('Endereco da empresa está undefined!');
+    res.status(400).send('Sua senha está undefined!');
   } else if (numero == undefined) {
-    res.status(400).send('Numero está undefined!');
+    res.status(400).send('Sua senha está undefined!');
   } else if (bairro == undefined) {
-    res.status(400).send('Bairro está undefined!');
-  } else if (site == undefined) {
-    res.status(400).send('Site está undefined!');
-  } else if (estado == undefined) {
-    res.status(400).send('Estado está undefined!');
+    res.status(400).send('Sua senha está undefined!');
   } else if (cidade == undefined) {
-    res.status(400).send('Cidade está undefined!');
+    res.status(400).send('Sua senha está undefined!');
+  } else if (estado == undefined) {
+    res.status(400).send('Sua senha está undefined!');
+  } else if (site == undefined) {
+    res.status(400).send('Sua senha está undefined!');
   } else {
-    usuarioModel
+    hospitalModel
       .cadastrar(
         nomeFantasia,
         cnpj,
@@ -105,6 +105,7 @@ function cadastrar(req, res) {
         logradouro,
         numero,
         bairro,
+        cidade,
         estado,
         site
       )
@@ -128,7 +129,7 @@ function alterarSenha(req, res) {
   if (!email || email == undefined) {
     res.status(404).send('Insira um e-mail valido!');
   } else {
-    usuarioModel
+    hospitalModel
       .alterarSenha(senha, email)
       .then((resultado) => res.json(resultado))
       .catch((error) => {
@@ -148,7 +149,7 @@ function deletar(req, res) {
   if (!email || email == undefined) {
     res.status(404).send('Email nao encontrado!');
   } else {
-    usuarioModel
+    hospitalModel
       .deletar(email)
       .then((resultado) => res.json(resultado))
       .catch((error) => {
