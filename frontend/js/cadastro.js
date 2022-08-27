@@ -18,13 +18,13 @@ async function cadastrar() {
   const cnpj = $cnpj.value;
   const email = $email.value;
   const senha = $senha.value;
-  const site = $site.value;
-  const logradouro = $enderecoEmpresa.value;  
+  const logradouro = $enderecoEmpresa.value;
   const numero = $numero.value;
   const cidade = $inputCidade.value;
   const estado = $estado.value;
   const bairro = $bairro.value;
   const telefone = $telefone.value;
+  const site = $site.value;
 
   try {
     const response = await fetch(`${URL}/usuarios/cadastrar`, {
