@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+const checkAuth = require('../config/auth').checkAuth;
+
 var usuarioController = require('../controllers/hospitalController');
 
 router.get('/', function (req, res) {

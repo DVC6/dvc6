@@ -1,15 +1,10 @@
 var hospitalModel = require('../models/hospitalModel');
-// const authConfig = require('../configs/auth.mjs');
-const { sign } = require('jsonwebtoken');
-
-var sessoes = [];
 
 function listar(req, res) {
   hospitalModel
     .listar()
     .then(function (resultado) {
       if (resultado.length > 0) {
-        res.status(200).json(resultado);
       } else {
         res.status(204).send('Nenhum resultado encontrado!');
       }
@@ -20,7 +15,7 @@ function listar(req, res) {
 }
 
 function entrar(req, res) {
-  const { email, senha, id } = req.body;
+  const { email, senha } = req.body;
 
   if (email == undefined) {
     res.status(400).send('Seu email está undefined!');
@@ -28,7 +23,7 @@ function entrar(req, res) {
     res.status(400).send('Sua senha está indefinida!');
   } else {
     hospitalModel
-      .entrar(email, senha, id)
+      .entrar(email, senha)
       .then(function (resultado) {
         console.log(`\nResultados encontrados: ${resultado.length}`);
         console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
@@ -51,12 +46,6 @@ function entrar(req, res) {
         res.status(500).json(erro.sqlMessage);
       });
   }
-
-  // const { secret, expiresIn } = authConfig.jwt;
-
-  // const token = sign({}, secret, {
-  //   subject: String(hospitalModel)
-  // })
 }
 
 function cadastrar(req, res) {
@@ -111,6 +100,12 @@ function cadastrar(req, res) {
       )
       .then(function (resultado) {
         res.json(resultado);
+
+        req.session.hospId = email;
+        console.log('Usuario cadastrado');
+        req.session.save(() => {
+          res.redirect('/');
+        });
       })
       .catch(function (erro) {
         console.log(erro);

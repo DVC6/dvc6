@@ -5,20 +5,20 @@ function listar() {
     "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()"
   );
   var instrucao = `
-        SELECT * from usuario;
+        SELECT * from hospital;
     `;
   console.log('Executando a instrução SQL: \n' + instrucao);
   return database.executar(instrucao);
 }
 
-function entrar(email, senha, id) {
+function entrar(email, senha) {
   console.log(
     "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ",
     email,
     senha
   );
   var instrucao = `
-        SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}';
+        SELECT * FROM hospital WHERE email = '${email}' AND senha = '${senha}';
     `;
   console.log('Executando a instrução SQL: \n' + instrucao);
   return database.executar(instrucao);
@@ -30,10 +30,10 @@ function cadastrar(
   email,
   senha,
   telefone,
-  logradouro  ,
-  cidade,
+  logradouro,
   numero,
   bairro,
+  cidade,
   estado,
   site
 ) {
@@ -43,16 +43,20 @@ function cadastrar(
     cnpj,
     email,
     senha,
-    site,
+    telefone,
     logradouro,
+    numero,
+    bairro,
     cidade,
     estado,
-    bairro,
-    numero,
-    telefone
+    site
   );
+  console.log('O SITE: ' + site);
   var instrucao = `
-        INSERT INTO hospital (nomeFantasia, cnpj, email, senha, site, logradouro, cidade, estado, bairro, numero, telefone) VALUES ('${nomeFantasia}', '${cnpj}' ,'${email}', '${senha}', '${site}', '${logradouro}', '${cidade}', '${estado}', '${bairro}', '${numero}', '${telefone}');
+INSERT INTO hospital (nomeFantasia, cnpj, email, senha, site, logradouro, numero, cidade, estado, bairro,
+                      telefone)
+VALUES ('${nomeFantasia}', '${cnpj}', '${email}', '${senha}', '${site}', '${logradouro}', '${numero}', '${cidade}',
+        '${estado}', '${bairro}', '${telefone}');
     `;
   console.log('Executando a instrução SQL: \n' + instrucao);
   return database.executar(instrucao);
@@ -60,7 +64,7 @@ function cadastrar(
 
 function alterarSenha(senha, email) {
   var instrucao = `
-        UPDATE usuario SET senha = '${senha}' WHERE email = '${email}';
+        UPDATE hospital SET senha = '${senha}' WHERE email = '${email}';
     `;
 
   console.log('Executando a instrucao SQL: \n' + instrucao);
@@ -69,10 +73,18 @@ function alterarSenha(senha, email) {
 
 function deletar(email) {
   var query = `
-        DELETE FROM usuario WHERE email = '${email}'
+        DELETE FROM hospital WHERE email = '${email}'
     `;
 
   console.log('Executando a instrucao SQL: \n' + query);
+  return database.executar(query);
+}
+
+function validarHospital(email) {
+  const query = `
+    SELECT * FROM hospital WHERE email = '${email}'
+  `;
+
   return database.executar(query);
 }
 
