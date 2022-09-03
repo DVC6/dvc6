@@ -303,3 +303,47 @@ section {
   color: #fa1e4e;
   font-size: 5vh;
 }
+
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+/*PAGINA SOBRE*/
+
+.Div-card-sobre{
+    display: flex;
+    /* border:2px solid floralwhite; */
+    width: 100%;
+    height: 110%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.Div-card-sobre h1 {
+  color: #fa1e4e;
+  padding-top: 6%;
+
+}
+
+.Div-card-sobre h3 {
+  color: #fa1e4e;
+}
+
+.Div-card-sobre-animacao{
+  /* border:2px solid rgb(225, 157, 20); */
+  width: 100%;
+  height: 110%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container #card-copiaContact-sobre{
+  display: flex;
+  flex-direction: row;
+  padding-left: 5%;
+  margin-left: 100px;
+}
+
+.container #imagem_fundo_sobre{
+  width: 140%;
+  height: 80%;
+}
