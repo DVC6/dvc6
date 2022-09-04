@@ -281,3 +281,36 @@ margin-left: 100px;
 width: 140%;
 height: 80%;
 }
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+/*PAGINA Login*/
+
+
+#login-form{
+  top: 12%;
+  width: 45%;
+  height: 85%;
+  margin-left: 25%;
+  background: #1c1726;
+  box-shadow: 0 0 1em rgb(114, 113, 111);
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  justify-items: center;
+  position: absolute;
+} 
+
+.contactForm #formBox-Login{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* box-shadow: 0 0 1em rgb(114, 113, 111); */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.contactForm #formBox-Login h1{
+  color: #fa1e4e;
+  font-size: 5vh;
+}
+
