@@ -34,9 +34,11 @@
   font-size: 1.125rem;
   font-weight: 200;
   cursor: pointer;
+  border-radius: 25px;
+
 }
 .hero-button:hover {
-  background-color: #cf1254;
+  background-color: #79042d;
   border: 1px solid #2b0311;
 }
 
