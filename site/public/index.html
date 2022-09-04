@@ -1,49 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/navbar.css">
-    <title>DVC6-Home</title>
+    <link rel="stylesheet" href="./styles/footer.css">
+    <script src="https://kit.fontawesome.com/67c66657c7.js"></script>
+    <title>Document</title>
 </head>
 
 <body>
     <nav>
         <input type="checkbox" id="check">
         <label for="check" class="checkbtn">
-
-            <i></i><img src="./img/more.png"></i>
+            <i></i><img src="../img/more.png"></i>
         </label>
-        <label class="logo"><img src="./img/image.png" style="width: 110px;"></label>
-        <ul>
-            <li><a href="#" style="color: #fa1e4e;">Home</a></li>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="#">Serviço</a></li>
-            <li><a href="#">Contato</a></li>
-            <li><a href="#">Feedback</a></li>
+        <label class="logo"><img src="../img/image.png" style="width: 110px;"></label>
+        <ul class="navbar">
+            <li><a href="home.html" style="color: #fa1e4e;">Home</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contact.html">Contato</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li>
+                <hr><a class="btnnavcadastro" href="cadastro.html">Cadastro</a>
+            </li>
+            <li><a class="navlogin" href="login.html">Login</a></li>
         </ul>
+        <a class="navbtncadastro" href="cadastro.html"> Cadastro </a>
     </nav>
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <h1 class="hero-title">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    <div class="bannerIndex">
+        <div class="text-boxIndex">
+            <h1>
+                Lorem ipsum dolor sit amet consectetur<br> adipisicing elit.
             </h1>
-
-            <h2 class="hero-subtitle">
+            <h2>
                 Lorem ipsum dolor sit amet.
             </h2>
-
             <button type="button" class="hero-button" onclick="location.href='tours.html'">
                 Saiba mais &raquo;
             </button>
         </div>
-    </section>
+    </div>
+
     <div class="slider">
         <input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav" />
         <input type="radio" name="slider" title="slide2" class="slider__nav" />
@@ -71,6 +72,129 @@
                     possimus illo quos, corporis minima!</p>
             </div>
         </div>
+    </div>
+    <div class="bannerIndex2">
+        <div class="text-boxIndex2">
+            <h1>
+                O que fazemos
+            </h1>
+            <h2>
+                A DVC6 é uma ferramenta que oferece monitoramento<br> de hardwares de totem de hospitais, dando
+                segurança e desempenho.
+            </h2>
+        </div>
+        <div class="oquefazemos">
+            <div class="containerFaz">
+                <img src="img/cpu.png">
+                <div class="fazemosText">
+                    <h2>Monitoramento de CPU e RAM</h2>
+                    <p>Um monitoramento de CPU e da capacidade de memória de acesso aleatório (RAM) é necessário para
+                        que você possa ser alertado a tempo, antes que uma das cargas do seu servidor torne-se elevada
+                        demais. Isso permitirá que você possa redistribuir a carga antes que servidores se engarrafem ou
+                        caiam.</p>
+                </div>
+            </div>
+            <div class="containerFaz2">
+                <img src="img/disco-rigido.png">
+                <div class="fazemosText2">
+                    <h2>Monitoramento de Disco Rígido</h2>
+                    <p>Monitoramento de disco rígido também é importante: O PRTG fornece um alerta, se a quantidade de
+                        espaço livre em disco se torna muito baixo, registra alterações nos dados, e pode até mesmo
+                        determinar se um determinado arquivo está disponível. Perdas de dados são evitadas. E discos
+                        rígidos podem ser rapidamente substituídos ou complementados.</p>
+                </div>
+            </div>
+            <div style="margin-top: 70px;" class="text-boxIndex2">
+                <h1>
+                    Nossos serviços
+                </h1>
+                <h2>
+                    A DVC6 oferece serviços<br>que ajudarão o seu hospital chegar em outro nível.
+                </h2>
+            </div>
+            <div class="boxlistservice">
+                <div class="dolistservice">
+                    <div class="doimgservice">
+                        <img src="img/bar-chart.png" alt="">
+                    </div>
+                    <h3>Dashboard</h3>
+                    <p>Dashboard direcionado a profissionais das áreas dos hospiatais, e que surge automaticamente na entrada do sistema, permitindo apresentar de forma gráfica as informações dos processos dos hardwares.</p>
+                </div>
+                <div class="dolistservice">
+                    <div class="doimgservice">
+                        <img src="img/computer.png" alt="">
+                    </div>
+                    <h3>Alerta</h3>
+                    <p>Sistemas de alertas e notificações a equipe sobre mudanças, ações de alto risco ou falhas nos hardwares.</p>
+                </div>
+                    <div class="dolistservice">
+                        <div class="doimgservice">
+                            <img src="img/alerta.png" alt="">
+                        </div>
+                        <h3>Alerta</h3>
+                        <p>Receber alertas de<br> movimentações em<br> hardware</p>
+                    </div>
+                    <div class="dolistservice">
+                        <div class="doimgservice">
+                            <img src="img/alerta.png" alt="">
+                        </div>
+                        <h3>Alerta</h3>
+                        <p>Receber alertas de<br> movimentações em<br> hardware</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="containerFeed">
+                <div class="sec contact">
+                    <h2>Informações de contato</h2>
+                    <ul class="info">
+                        <li>
+                            <span><img src="../img/map.png"></span>
+                            <span>Rua Haddock Lobo, 595<br>
+                                Cerqueira César, SP<br>
+                                01414-001</span>
+                        </li>
+                        <li>
+                            <span><img src="../img/email.png"></span>
+                            <span>lorem@ipsum.com</span>
+                        </li>
+                        <li>
+                            <span><img src="../img/call.png"></span>
+                            <span>11-93864-1623</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="quickLinks">
+                    <h2>Links rápidos</h2>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Cadastro</a></li>
+                    </ul>
+                </div>
+                <div class="sec aboutus">
+                    <label class="logoFooter"><img src="../img/image.png" style="width: 110px;"></label>
+                    <hr>
+                    <p>Inove e inspire, descubra o<br> inseperado, suporte<br> padrões abertos</p>
+                    <hr>
+                    <p class="siga">Siga o DVC6</p>
+                    <ul class="sci">
+                        <li><a href="#"><img src="../img/github.png"></a></li>
+                        <li><a href="#"><img src="../img/instagram.png"></a></li>
+                        <li><a href="#"><img src="../img/twitter.png"></a></li>
+                        <li><a href="#"><img src="../img/facebook.png"></a></li>
+                        <li><a href="#"><img src="../img/linkedin.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyrightText">
+                <p>Copyright © 2022 DVC6<br> Todos os direitos reservados</p>
+            </div>
+        </footer>
 </body>
 
 </html>
