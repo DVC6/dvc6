@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.cadastro {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(../img/background-banner.jpg);
+  background-position: center;
+  background-size: cover;
+  padding: 70px 100px 0 100px;
+}
+.bannerCadastro {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  background-color: #010105;
+  border-radius: 15px;
+}
+.containerCadastro {
+  background: #1c1726;
+  width: 100%;
+  padding: 35px 50px;
+  border-radius: 15px;
+}
+.cardImg {
+  height: 550px;
+  width: 30%;
+  background: url(../img/banner-cadastro1.png);
+  background-position: center;
+  background-size: cover;
+  filter: hue-rotate(35deg);
+  border-radius: 15px 0 0 15px;
+}
+.headerCadastro ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.btnHeaderCadastro ul li a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fa1e4e;
+  text-decoration: none;
+}
+.btnHeaderCadastro ul li button {
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #fa1e4e;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.btnHeaderCadastro ul li button:hover {
+  background-color: #be1b3f;
+}
+.cardcadastroText {
+  display: flex;
+}
+.cardCadastro1 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.cardCadastro1 p {
+  font-size: 12px;
+  color: #beb6d2;
+  margin-bottom: 8px;
+  font-weight: 600;
+  opacity: 50%;
+}
+.cardCadastro1 h2 {
+  font-size: 27px;
+  color: #beb6d2;
+  font-weight: 600;
+  line-height: 40px;
+}
+.cardCadastro1 span {
+  font-size: 12px;
+  color: #beb6d2;
+  font-weight: 600;
+  opacity: 50%;
+}
+.cardCadastro2 {
+  width: 50%;
+}
+.cadastroformBox {
+  display: flex;
+  flex-direction: column;
+}
+.cadastroformBox input {
+  color: rgba(255, 255, 255, 0.734);
+  border: none;
+  border-bottom: 1px solid #fa1e4e;
+  outline: none;
+  padding: 5px;
+  margin-bottom: 12px;
+  background-color: #00000038;
+  border-radius: 2px;
+}
+.cadastroformBox input:focus::placeholder {
+  padding-left: 4px;
+  color: #fa1e4e;
+  transition: all 0.3s ease;
+}
+.cadastroformBox hr {
+  width: 100%;
+  height: 1px;
+  margin: 9px 0 15px 0;
+}
+.tituloCadastro {
+  color: #beb6d2;
+  text-align: center;
+  margin-bottom: 20px;
+  display: none;
+}
+.btnCadastro {
+  display: none;
+}
+@media (max-width: 1000px) {
+  .cardImg {
+    display: none;
+  }
+}
+@media (max-width: 830px) {
+  .cardCadastro1 {
+    display: none;
+  }
+  .cardCadastro2 {
+    width: 100%;
+  }
+  .bannerCadastro {
+    width: 100%;
+    margin: 40px 0 40px 0;
+  }
+  .headerCadastro ul {
+    display: none;
+  }
+  .tituloCadastro {
+    display: block;
+  }
+  .cadastroformBox input {
+    padding: 8px;
+    margin-bottom: 14px;
+  }
+  .btnCadastro {
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 15px 0;
+  }
+  .btnCadastro {
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .cadastro {
+    padding: 70px 25px 0px 25px;
+  }
+  .containerCadastro {
+    padding: 35px 35px;
+  }
+}

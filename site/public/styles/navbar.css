@@ -43,8 +43,8 @@ nav ul li {
   font-size: 12px;
   font-weight: 600;
 }
-nav a.active,
-nav a::after {
+nav li.active,
+nav li::after {
   content: "";
   width: 0%;
   height: 1px;
@@ -55,7 +55,7 @@ nav a::after {
   transition: 0.5s;
   float: right;
 }
-nav a:hover::after {
+nav li:hover::after {
   float: left;
   width: 100%;
 }
@@ -89,7 +89,7 @@ nav a:hover::after {
   display: none;
 }
 @media (max-width: 1030px) {
-  nav label.logo{
+  nav label.logo {
     padding: 0 0 0 40px;
   }
   nav a.active,
