@@ -70,7 +70,7 @@ nav li:hover::after {
 }
 .navbtncadastro {
   margin-right: 100px;
-  color: #000000;
+  color: white;
   background-color: #fa1e4e;
   padding: 17px 50px;
   font-size: 12px;
