@@ -26,25 +26,69 @@ async function cadastrar() {
   const telefone = $telefone.value;
   const site = $site.value;
 
+  if (
+    nomeFantasia === '' ||
+    cnpj === '' ||
+    email === '' ||
+    senha === '' ||
+    logradouro === '' ||
+    numero === '' ||
+    cidade === '' ||
+    estado === '' ||
+    bairro === '' ||
+    telefone === '' ||
+    site === ''
+  ) {
+    alert('Preencha todos os campos');
+    return;
+  }
+
+  if (!email.includes('@')) {
+    alert('Email inválido');
+    return;
+  }
+
+  if (senha.length < 8) {
+    alert('Senha deve ter no mínimo 8 caracteres');
+    return;
+  }
+
+  if (cnpj.length < 14) {
+    alert('CNPJ inválido');
+    return;
+  }
+
+  if (telefone.length < 11) {
+    alert('Telefone inválido');
+    return;
+  }
+
+  if (!site.includes('http://') && !site.includes('https://')) {
+    alert('Site inválido');
+    return;
+  }
+
+  const data = {
+    nomeFantasia,
+    cnpj,
+    email,
+    senha,
+    logradouro,
+    numero,
+    cidade,
+    estado,
+    bairro,
+    telefone,
+    site,
+  };
+
   try {
     const response = await fetch(`${URL}/hospitais/cadastrar`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        nomeFantasia,
-        cnpj,
-        email,
-        senha,
-        telefone,
-        logradouro,
-        numero,
-        bairro,
-        cidade,
-        estado,
-        site,
-      }),
+      body: JSON.stringify(data),
     });
     if ((response.status = 200)) {
       console.log('Cadastro realizado com sucesso!');
