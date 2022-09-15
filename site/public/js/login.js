@@ -8,6 +8,22 @@ async function login() {
   const email = $inputEmail.value;
   const senha = $inputSenha.value;
 
+  if (email === '' || senha === '') {
+    alert('Preencha todos os campos');
+    return;
+  }
+
+  if (!email.includes('@')) {
+    alert('Email inválido');
+    return;
+  }
+
+  if (senha.length < 8) {
+    alert('Senha deve ter no mínimo 8 caracteres');
+    return;
+  }
+
+
   try {
     const response = await fetch(`${URL}/hospitais/autenticar`, {
       method: 'POST',
