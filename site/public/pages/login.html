@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../styles/login.css">
     <link rel="stylesheet" href="../styles/navbar.css">
     <link rel="stylesheet" href="../styles/footer.css">
-    <script src="../js/login.js" defer></script>
     <title>Login</title>
 </head>
 <body>
@@ -34,16 +33,17 @@
                    
                     <div class="formBox" id="formBox-Login">
                         <h1>Login</h1>
-                    <div class="inputBox w50">
+                    <div class="inputBox w50 ">
                         <input type="text" class="inputEmail" required>
                         <span>Email: </span>
                     </div>
+
                     <div class="inputBox w50">
                         <input type="text" class="inputSenha" required>
                         <span>Senha: </span>
                     </div>
                     <div class="inputBox w100" >
-                        <input type="submit" class="loginSubmit" value="Enviar" id="botao-login">
+                        <input type="submit" class="loginSubmit" value="Enviar" id="botao-login" onclick="login()">
                     </div>
                     </div>
                 </div>
@@ -103,4 +103,6 @@
         </div>
     </footer>
 </body>
+
+    <script src="../js/login.js" defer></script>
 </html>

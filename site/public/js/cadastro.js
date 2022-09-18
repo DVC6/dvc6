@@ -26,47 +26,103 @@ async function cadastrar() {
   const telefone = $telefone.value;
   const site = $site.value;
 
-  if (
-    nomeFantasia === '' ||
-    cnpj === '' ||
-    email === '' ||
-    senha === '' ||
-    logradouro === '' ||
-    numero === '' ||
-    cidade === '' ||
-    estado === '' ||
-    bairro === '' ||
-    telefone === '' ||
-    site === ''
-  ) {
-    alert('Preencha todos os campos');
-    return;
+  function validarCadastro() {
+    if (
+      nomeFantasia === '' ||
+      cnpj === '' ||
+      email === '' ||
+      senha === '' ||
+      logradouro === '' ||
+      numero === '' ||
+      cidade === '' ||
+      estado === '' ||
+      bairro === '' ||
+      telefone === '' ||
+      site === ''
+    ) {
+      if (site === '') {
+        $site.classList.add('inputError');
+      } else if (!site.includes('www') && !site.includes('.com')) {
+        $site.classList.add('inputError');
+      } else {
+        $site.classList.remove('inputError');
+      }
+
+      if (nomeFantasia === '') {
+        $nomeFantasia.classList.add('inputError');
+      } else {
+        $nomeFantasia.classList.remove('inputError');
+      }
+
+      if (cnpj === '') {
+        $cnpj.classList.add('inputError');
+      } else if (cnpj.length < 18) {
+        $cnpj.classList.add('inputError');
+      } else {
+        $cnpj.classList.remove('inputError');
+      }
+
+      if (email === '') {
+        $email.classList.add('inputError');
+      } else if (!email.includes('@')) {
+        $email.classList.add('inputError');
+      } else {
+        $email.classList.remove('inputError');
+      }
+
+      if (senha === '') {
+        $senha.classList.add('inputError');
+      } else if (senha.length < 8) {
+        $senha.classList.add('inputError');
+      } else {
+        $senha.classList.remove('inputError');
+      }
+
+      if (logradouro === '') {
+        $enderecoEmpresa.classList.add('inputError');
+      } else {
+        $enderecoEmpresa.classList.remove('inputError');
+      }
+
+      if (numero === '') {
+        $numero.classList.add('inputError');
+      } else {
+        $numero.classList.remove('inputError');
+      }
+
+      if (cidade === '') {
+        $inputCidade.classList.add('inputError');
+      } else {
+        $inputCidade.classList.remove('inputError');
+      }
+
+      if (estado === '') {
+        $estado.classList.add('inputError');
+      } else {
+        $estado.classList.remove('inputError');
+      }
+
+      if (bairro === '') {
+        $bairro.classList.add('inputError');
+      } else {
+        $bairro.classList.remove('inputError');
+      }
+
+      if (telefone === '') {
+        $telefone.classList.add('inputError');
+        return;
+      } else if (telefone.length < 11) {
+        $telefone.classList.add('inputError');
+        return;
+      } else {
+        $telefone.classList.remove('inputError');
+      }
+
+      return;
+    }
   }
 
-  if (!email.includes('@')) {
-    alert('Email inválido');
-    return;
-  }
-
-  if (senha.length < 8) {
-    alert('Senha deve ter no mínimo 8 caracteres');
-    return;
-  }
-
-  if (cnpj.length < 14) {
-    alert('CNPJ inválido');
-    return;
-  }
-
-  if (telefone.length < 11) {
-    alert('Telefone inválido');
-    return;
-  }
-
-  if (!site.includes('http://') && !site.includes('https://')) {
-    alert('Site inválido');
-    return;
-  }
+  validarCadastro();
 
   const data = {
     nomeFantasia,

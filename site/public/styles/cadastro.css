@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 .cadastro {
   display: flex;
@@ -126,6 +126,12 @@
 .btnCadastro {
   display: none;
 }
+
+
+.inputError {
+  border-bottom: 2px solid red !important;
+}
+
 @media (max-width: 1000px) {
   .cardImg {
     display: none;

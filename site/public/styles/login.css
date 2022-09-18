@@ -2,8 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
+
+.msg_error {
+  color: #fa1e4e;
+
+  display: none;
+}
+
 section {
   display: flex;
   justify-content: center;
@@ -159,7 +166,7 @@ section {
   letter-spacing: 1px;
   color: #fa1e4e;
 }
-.container .contactForm .formBox .inputBox input[type="submit"] {
+.container .contactForm .formBox .inputBox input[type='submit'] {
   position: relative;
   cursor: pointer;
   background-color: #fa1e4e;
@@ -169,7 +176,7 @@ section {
   max-width: 150px;
   padding: 12px;
 }
-.container .contactForm .formBox .inputBox input[type="submit"]:hover {
+.container .contactForm .formBox .inputBox input[type='submit']:hover {
   background: #d0264b;
 }
 section .copyrightText {
@@ -222,8 +229,13 @@ section .copyrightText {
     align-items: center;
   }
 }
+
+.inputError {
+  border-bottom: 2px solid red !important;
+}
+
 @media (max-width: 600px) {
-  .container .contactForm .formBox .inputBox input[type="submit"] {
+  .container .contactForm .formBox .inputBox input[type='submit'] {
     max-width: none;
     width: 100%;
   }

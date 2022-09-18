@@ -9,20 +9,48 @@ async function login() {
   const senha = $inputSenha.value;
 
   if (email === '' || senha === '') {
-    alert('Preencha todos os campos');
+    if (email === '') {
+      $inputEmail.classList.add('inputError');
+    } else {
+      $inputEmail.classList.remove('inputError');
+    }
+
+    if (senha === '') {
+      $inputSenha.classList.add('inputError');
+    } else if (senha.length < 8) {
+      $inputSenha.classList.add('inputError');
+    } else {
+      $inputSenha.classList.remove('inputError');
+    }
     return;
   }
 
   if (!email.includes('@')) {
     alert('Email inválido');
+
+    if (email === '') {
+      $inputEmail.classList.add('inputError');
+      $inputEmail.previousElementSibling.classList.add('labelError');
+    } else {
+      $inputEmail.classList.remove('inputError');
+      $inputEmail.previousElementSibling.classList.remove('labelError');
+    }
     return;
   }
 
   if (senha.length < 8) {
     alert('Senha deve ter no mínimo 8 caracteres');
+
+    if (senha === '') {
+      $inputSenha.classList.add('inputError');
+      $inputSenha.previousElementSibling.classList.add('labelError');
+    } else {
+      $inputSenha.classList.remove('inputError');
+      $inputSenha.previousElementSibling.classList.remove('labelError');
+    }
+
     return;
   }
-
 
   try {
     const response = await fetch(`${URL}/hospitais/autenticar`, {
