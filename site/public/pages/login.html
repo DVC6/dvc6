@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../styles/login.css">
     <link rel="stylesheet" href="../styles/navbar.css">
     <link rel="stylesheet" href="../styles/footer.css">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="../js/cadastro.js" defer></script>
     <title>Login</title>
 </head>
 <body>
@@ -22,87 +24,53 @@
             <li><a href="contact.html">Contato</a></li>
             <li><a href="feedback.html">Feedback</a></li>
             <li><hr><a class="btnnavcadastro" href="cadastro.html">Cadastro</a></li>
-            <li><a class="navlogin" href="login.html" style="color: #fa1e4e;">Login</a></li>
+            <li><a class="navlogin" href="login.html">Login</a></li>
         </ul>
-    <a class="navbtncadastro" href="cadastro.html"> Cadastro </a>
+    <a class="navbtncadastro" href="cadastro.html">Cadastro</a>
     </nav>
-    <section>
-        <div class="container">
-            
-                <div class="contactForm" id="login-form">
-                   
-                    <div class="formBox" id="formBox-Login">
-                        <h1>Login</h1>
-                    <div class="inputBox w50 ">
-                        <input type="text" class="inputEmail" required>
-                        <span>Email: </span>
-                    </div>
-
-                    <div class="inputBox w50">
-                        <input type="text" class="inputSenha" required>
-                        <span>Senha: </span>
-                    </div>
-                    <div class="inputBox w100" >
-                        <input type="submit" class="loginSubmit" value="Enviar" id="botao-login" onclick="login()">
-                    </div>
+    <div class="login">
+        <div class="bannerLogin">
+            <div class="cardImg">
+                <div class="textBoasvindas">
+                    <div class="containerText">
+                        <div class="col1">
+                            <h4>-DVC6-</h4>
+                            <h5>Seja bem-vindo</h5>
+                        </div>
+                        <span>Não tem uma conta?<br><a href="cadastro.html">Cadastrar</a></span>
                     </div>
                 </div>
-                
             </div>
-        </div>
-    </section>
-    <footer>
-        <div class="containerFeed">
-            <div class="sec contact">
-                <h2>Informações de contato</h2>
-                <ul class="info">
-                    <li>
-                        <span><img src="../img/map.png"></span>
-                        <span>Rua Haddock Lobo, 595<br>
-                            Cerqueira César, SP<br>
-                            01414-001</span>
-                    </li>
-                    <li>
-                        <span><img src="../img/email.png"></span>
-                        <span>monitoramento@DVC6.com</span>
-                    </li>
-                    <li>
-                        <span><img src="../img/call.png"></span>
-                        <span>11-93864-1623</span>
-                    </li>
-                </ul>
+            <div class="containerLogin">
+                <form>
+                    <h1>Login</h1>
+                    <br>
+        <span>Faça seu login</span>
+        <hr>
+                    <div class="id">
+                        <input type="email" placeholder="Email">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="id">
+                        <input type="password" placeholder="Senha">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <button>Entrar</button>
+                    <hr>
+                    <div class="footerlogoCad2">
+                        <span>Rede social</span>
+                    <ul class="sci">
+                        <li><a href="#"><img src="../img/github.png"></a></li>
+                        <li><a href="#"><img src="../img/instagram.png"></a></li>
+                        <li><a href="#"><img src="../img/twitter.png"></a></li>
+                        <li><a href="#"><img src="../img/facebook.png"></a></li>
+                        <li><a href="#"><img src="../img/linkedin.png"></a></li>
+                    </ul>
+                </div>
+                </form>
             </div>
-            <div class="quickLinks">
-                <h2>Links rápidos</h2>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="contact.html">Contato</a></li>
-                    <li><a href="feedback.html">Feedback</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
-                </ul>
-            </div>
-            <div class="sec aboutus">
-                <label class="logoFooter"><img src="../img/image.png" style="width: 110px;"></label>
-                <hr>
-                <p>Inove e inspire, descubra o<br> inesperado, suporte<br> padrões abertos</p>
-                <hr>
-                <p class="siga">Siga o DVC6</p>
-                <ul class="sci">
-                    <li><a href="#"><img src="../img/github.png"></a></li>
-                    <li><a href="#"><img src="../img/instagram.png"></a></li>
-                    <li><a href="#"><img src="../img/twitter.png"></a></li>
-                    <li><a href="#"><img src="../img/facebook.png"></a></li>
-                    <li><a href="#"><img src="../img/linkedin.png"></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyrightText">
-            <p>Copyright © 2022 DVC6<br> Todos os direitos reservados</p>
-        </div>
-    </footer>
+    </div>
+</div>
+    </div>
 </body>
-
-    <script src="../js/login.js" defer></script>
 </html>

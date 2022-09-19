@@ -43,8 +43,8 @@ nav ul li {
   font-size: 12px;
   font-weight: 600;
 }
-nav li.active,
-nav li::after {
+nav a.active,
+nav a::after {
   content: "";
   width: 0%;
   height: 1px;
@@ -55,7 +55,7 @@ nav li::after {
   transition: 0.5s;
   float: right;
 }
-nav li:hover::after {
+nav a:hover::after {
   float: left;
   width: 100%;
 }
@@ -69,6 +69,7 @@ nav li:hover::after {
   color: #fa1e4e;
 }
 .navbtncadastro {
+  display: grid;
   margin-right: 100px;
   color: white;
   background-color: #fa1e4e;
@@ -137,7 +138,7 @@ nav li:hover::after {
     backdrop-filter: blur(5px);
   }
   nav ul li {
-    display: block;
+    display: grid;
     margin: 50px 0;
     line-height: 30px;
   }
