@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -57,11 +57,15 @@
             </ul>
         </div>
 
-        <div class="contactForm">
+        <form class="contactForm"
+
+          action="https://formspree.io/f/xbjboozp"
+            method="POST"
+        >
             <h2>Envie sua Mensagem</h2>
             <div class="formBox">
                 <div class="inputBox w50">
-                    <input type="text" required>
+                    <input type="text" name="nome" required>
                     <span>Nome</span>
                 </div>
                 <div class="inputBox w50">
@@ -69,22 +73,22 @@
                     <span>Sobrenome</span>
                 </div>
                 <div class="inputBox w50">
-                    <input type="email" required>
+                    <input type="email" name="email" required>
                     <span>Email</span>
                 </div>
                 <div class="inputBox w50">
-                    <input type="text" required>
+                    <input type="text" name="telefone" required>
                     <span>Telefone</span>
                 </div>
                 <div class="inputBox w100">
-                    <textarea required></textarea>
+                    <textarea name="message" required></textarea>
                     <span>Escreva sua mensagem aqui...</span>
                 </div>
                 <div class="inputBox w100">
                     <input type="submit" value="Enviar">
                 </div>
             </div>
-        </div>
+        </form>
     </div>
     <div class="copyrightText">
         <p>Copyright © 2022 DVC6<br> Todos os direitos reservados</p>
