@@ -94,4 +94,5 @@ module.exports = {
   listar,
   alterarSenha,
   deletar,
+  validarHospital
 };

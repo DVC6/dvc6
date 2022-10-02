@@ -1,5 +1,5 @@
 {
-  "name": "projeto-acquatec",
+  "name": "projeto-dvc6",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "dev": "nodemon --exec node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Feito pelos desenvolvedores @ Bandtec Digital School",
+  "author": "Feito pelos DVC6 @ Bandtec Digital School",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",

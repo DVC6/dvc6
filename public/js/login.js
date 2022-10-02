@@ -72,7 +72,7 @@ async function login() {
         })
       );
       setInterval(() => {
-        window.location.href = '/';
+        window.location.href = "dashboardAdm.html";
       }, 2000);
     }
 
@@ -97,4 +97,8 @@ function validarSessao() {
   }
 }
 
-$loginSubmit.addEventListener('click', login);
+// $loginSubmit.addEventListener('click', login);
+
+function deslogar() {
+  delete sessionStorage.LOGIN_HOSPITAL;
+}
