@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/feedback.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <script src="https://kit.fontawesome.com/67c66657c7.js"></script>
+    <title>Feedback</title>
+</head>
+<body>
+<!-- Start of dvc6 Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=a09dd733-6ca6-415b-b162-e8a1967ee841"> </script>
+<!-- End of dvc6 Zendesk Widget script -->
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i></i><img src="../img/more.png"></i>
+        </label>
+        <label class="logo"><img src="../img/image.png" style="width: 110px;"></label>
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contact.html">Contato</a></li>
+            <li><a href="feedback.html" style="color: #fa1e4e;">Feedback</a></li>
+            <li><hr><a class="btnnavcadastro" href="cadastro.html">Cadastro</a></li>
+            <li><a class="navlogin" href="login.html">Login</a></li>
+        </ul>
+    <a class="navbtncadastro" href="cadastro.html"> Cadastro </a>
+    </nav>
+    <div class="bannerFeed">
+        <div class="text-box">
+      <h1>
+        Feedback
+      </h1>
+      <p>
+        <span class="p0">O melhor investimento que</span><br><span class="p1">podemos fazer é saber a</span><br><span class="p2">satisfação dos nossos clientes.</span><br><span class="p3">
+        Ajude-nos a melhorar a sua</span><br><span class="p4">navegação e serviços, envie</span><br><span class="p5"> seu feedback logo abaixo.</span></p>
+    </div>
+    </div>
+    <div class="avaliacao">
+        <h1>Dê seu feedback</h1>
+        <div class="container">
+            <div class="post">
+                <div class="text">Obrigado por nos avaliar!</div>
+                <div class="edit">EDIT</div>
+            </div>
+            <div class="star-widget">
+                <input type="radio" name="rate" id="rate-5">
+                <label for="rate-5" class="fa fa-star"></label>
+                <input type="radio" name="rate" id="rate-4">
+                <label for="rate-4" class="fa fa-star"></label>
+                <input type="radio" name="rate" id="rate-3">
+                <label for="rate-3" class="fa fa-star"></label>
+                <input type="radio" name="rate" id="rate-2">
+                <label for="rate-2" class="fa fa-star"></label>
+                <input type="radio" name="rate" id="rate-1">
+                <label for="rate-1" class="fa fa-star"></label>
+                <form action="#">
+                    <header></header>
+                    <div class="textarea">
+                        <textarea cols="30" placeholder="Descreva sua experiência.."></textarea>
+                    </div>
+                    <div class="btn">
+                        <button type="submit">Publicar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="containerFeed">
+            <div class="sec contact">
+                <h2>Informações de contato</h2>
+                <ul class="info">
+                    <li>
+                        <span><img src="../img/map.png"></span>
+                        <span>Rua Haddock Lobo, 595<br>
+                            Cerqueira César, SP<br>
+                            01414-001</span>
+                    </li>
+                    <li>
+                        <span><img src="../img/email.png"></span>
+                        <span>lorem@ipsum.com</span>
+                    </li>
+                    <li>
+                        <span><img src="../img/call.png"></span>
+                        <span>11-93864-1623</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="quickLinks">
+                <h2>Links rápidos</h2>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contact.html">Contato</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                </ul>
+            </div>
+            <div class="sec aboutus">
+                <label class="logoFooter"><img src="../img/image.png" style="width: 110px;"></label>
+                <hr>
+                <p>Inove e inspire, descubra o<br> inesperado, suporte<br> padrões abertos</p>
+                <hr>
+                <p class="siga">Siga o DVC6</p>
+                <ul class="sci">
+                    <li><a href="#"><img src="../img/github.png"></a></li>
+                    <li><a href="#"><img src="../img/instagram.png"></a></li>
+                    <li><a href="#"><img src="../img/twitter.png"></a></li>
+                    <li><a href="#"><img src="../img/facebook.png"></a></li>
+                    <li><a href="#"><img src="../img/linkedin.png"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyrightText">
+            <p>Copyright © 2022 DVC6<br> Todos os direitos reservados</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script>
+    const btn = document.querySelector("button");
+    const post = document.querySelector(".post");
+    const widget = document.querySelector(".star-widget");
+    const editBtn = document.querySelector(".edit");
+    btn.onclick = ()=>{
+        widget.style.display = "none";
+        post.style.display = "block";
+      editBtn.onclick = ()=>{
+          widget.style.display = "block";
+          post.style.display = "none";
+        }
+        return false;
+    }
+</script>
