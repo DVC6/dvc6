@@ -1,32 +1,26 @@
 var express = require('express');
 var router = express.Router();
 
-const checkAuth = require('../config/auth').checkAuth;
+var hospitalController = require('../controllers/hospitalController');
 
-var usuarioController = require('../controllers/hospitalController');
-
-router.get('/', function (req, res) {
-  usuarioController.testar(req, res);
+router.get('/hospital/listar', function (req, res) {
+  hospitalController.listar(req, res);
 });
 
-router.get('/listar', function (req, res) {
-  usuarioController.listar(req, res);
+router.post('/hospital/cadastrar', function (req, res) {
+  hospitalController.cadastrar(req, res);
 });
 
-router.post('/cadastrar', function (req, res) {
-  usuarioController.cadastrar(req, res);
+router.post('/hospital/autenticar', function (req, res) {
+  hospitalController.entrar(req, res);
 });
 
-router.post('/autenticar', function (req, res) {
-  usuarioController.entrar(req, res);
+router.put('/hospital/alterar-senha', function (req, res) {
+  hospitalController.alterarSenha(req, res);
 });
 
-router.put('/alterarSenha', function (req, res) {
-  usuarioController.alterarSenha(req, res);
-});
-
-router.delete('/deletar', (req, res) => {
-  usuarioController.deletar(req, res);
+router.delete('/hospital/deletar', function (req, res) {
+  hospitalController.deletar(req, res);
 });
 
 module.exports = router;
