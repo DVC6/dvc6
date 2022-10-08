@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-const checkAuth = require('../config/auth').checkAuth;
-
 var hospitalController = require('../controllers/hospitalController');
 
 router.get('/hospital/listar', function (req, res) {
