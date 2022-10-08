@@ -6,7 +6,11 @@ function listar(req, res) {
     .then(function (resultado) {
       if (resultado.length > 0) {
       } else {
+<<<<<<< HEAD
         res.status(404).send('Nenhum resultado encontrado!');
+=======
+        res.status(204).send('Nenhum resultado encontrado!');
+>>>>>>> develop
       }
     })
     .catch(function (erro) {
@@ -153,7 +157,11 @@ function deletar(req, res) {
           '\n Houve um erro ao tentar deletar o usuario! Erro: ',
           error.sqlMessage
         );
+<<<<<<< HEAD
         res.status(500).json(error.sqlMessage);
+=======
+        res.status(500).json(errpr.sqlMessage);
+>>>>>>> develop
       });
   }
 }
