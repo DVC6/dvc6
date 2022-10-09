@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/feedback.css">
-    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/top&sideBar.css">
     <link rel="stylesheet" href="../styles/footer.css">
     <script src="https://kit.fontawesome.com/67c66657c7.js"></script>
     <title>Feedback</title>
@@ -14,22 +14,60 @@
 <!-- Start of dvc6 Zendesk Widget script -->
 <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=a09dd733-6ca6-415b-b162-e8a1967ee841"> </script>
 <!-- End of dvc6 Zendesk Widget script -->
-    <nav>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <i></i><img src="../img/more.png"></i>
-        </label>
-        <label class="logo"><img src="../img/image.png" style="width: 110px;"></label>
-        <ul class="navbar">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="contact.html">Contato</a></li>
-            <li><a href="feedback.html" style="color: #fa1e4e;">Feedback</a></li>
-            <li><hr><a class="btnnavcadastro" href="cadastro.html">Cadastro</a></li>
-            <li><a class="navlogin" href="login.html">Login</a></li>
-        </ul>
-    <a class="navbtncadastro" href="cadastro.html"> Cadastro </a>
-    </nav>
+<div class="topbar">
+    <div class="logo">
+        <img src="../img/image.png" style="width: 110px; margin-top: 3px;" >
+    </div>
+    <div class="info">
+        <p>Olá, <b><span id="nomeUsuario"></span></b>!</p>
+    </div>
+    <div class="user">
+        <img src="../img/user.png">
+    </div>
+</div>
+<div class="sidebar">
+    <ul>
+        <li>
+            <a href="#">
+                <i class="fas fa-th-large"></i>
+                <div>Dashboard</div>
+            </a>
+        </li>
+        <li>
+            <a href="dashboardHardwares.html">
+                <i class="fas fa-chart-area"></i>
+                <div>Analytics</div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fas fa-users"></i>
+                <div>Funcionários</div>
+            </a>
+        </li>
+        <li style="border-left: 2px solid #fa1e4e;">
+            <a style="color: #fa1e4e;" href="#">
+                <i class="fas fa-comments"></i>
+                <div>Feedback</div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fas fa-question"></i>
+                <div>Ajuda</div>
+            </a>
+        </li>
+    </ul>
+    <ul>
+        <li onclick="limparSessao()">
+            <a href="#">
+                <i class="fas fa-sign-out-alt"></i>
+                <div>Sair</div>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="main">
     <div class="bannerFeed">
         <div class="text-box">
       <h1>
@@ -70,61 +108,19 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="containerFeed">
-            <div class="sec contact">
-                <h2>Informações de contato</h2>
-                <ul class="info">
-                    <li>
-                        <span><img src="../img/map.png"></span>
-                        <span>Rua Haddock Lobo, 595<br>
-                            Cerqueira César, SP<br>
-                            01414-001</span>
-                    </li>
-                    <li>
-                        <span><img src="../img/email.png"></span>
-                        <span>lorem@ipsum.com</span>
-                    </li>
-                    <li>
-                        <span><img src="../img/call.png"></span>
-                        <span>11-93864-1623</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="quickLinks">
-                <h2>Links rápidos</h2>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="contact.html">Contato</a></li>
-                    <li><a href="feedback.html">Feedback</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
-                </ul>
-            </div>
-            <div class="sec aboutus">
-                <label class="logoFooter"><img src="../img/image.png" style="width: 110px;"></label>
-                <hr>
-                <p>Inove e inspire, descubra o<br> inesperado, suporte<br> padrões abertos</p>
-                <hr>
-                <p class="siga">Siga o DVC6</p>
-                <ul class="sci">
-                    <li><a href="#"><img src="../img/github.png"></a></li>
-                    <li><a href="#"><img src="../img/instagram.png"></a></li>
-                    <li><a href="#"><img src="../img/twitter.png"></a></li>
-                    <li><a href="#"><img src="../img/facebook.png"></a></li>
-                    <li><a href="#"><img src="../img/linkedin.png"></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyrightText">
-            <p>Copyright © 2022 DVC6<br> Todos os direitos reservados</p>
-        </div>
-    </footer>
+</div>
 </body>
 </html>
 
 <script>
+    /*-----USUARIO-----*/
+    if (sessionStorage == sessionStorage.NOME_HOSPITAL) {
+        nomeUsuario.innerHTML = sessionStorage.NOME_HOSPITAL;
+    } else {
+        nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO;
+    }
+    /*-----------------*/
+    
     const btn = document.querySelector("button");
     const post = document.querySelector(".post");
     const widget = document.querySelector(".star-widget");

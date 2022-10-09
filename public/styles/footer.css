@@ -37,6 +37,8 @@ footer hr {
   height: 1px;
   width: 100%;
   margin: 15px 0 15px 0;
+  background: #2e273f;
+  border: none;
 }
 footer .containerFeed h2 {
   font-size: 14px;
@@ -84,6 +86,7 @@ footer .containerFeed a {
 }
 .quickLinks ul li {
   margin: 12px 0;
+  list-style: none;
 }
 footer .containerFeed .quickLinks ul li a.active,
 .quickLinks ul li a::after {

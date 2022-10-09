@@ -1,12 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+.main {
+  position: absolute;
+  top: 60px;
+  width: calc(100% - 260px);
+  left: 260px;
+  min-height: calc(100vh - 60px);
 }
 .bannerFeed {
   display: flex;
-  padding: 70px 0 0 0px;
   min-height: 100vh;
   background-image: url(../img/new1-background.jpg);
   background-size: cover;
@@ -173,7 +173,13 @@ form .btn button {
 form .btn button:hover {
   background: #b61235;
 }
-@media (max-width: 500px) {
+@media (max-width: 1115px) {
+  .main {
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+}
+@media (max-width: 547px) {
   .text-box {
     padding: 0;
     align-items: center;
@@ -197,13 +203,15 @@ form .btn button:hover {
   }
   .avaliacao h1 {
     font-size: 30px;
+    text-align: center;
   }
   .container {
-    padding: 15px 8px;
+    padding: 35px 28px;
     width: 90%;
   }
   .star-widget label {
-    font-size: xx-large;
+    font-size: 34px;
+    padding: 4px 7px;
   }
   form header {
     font-size: 14px;
@@ -219,9 +227,29 @@ form .btn button:hover {
     font-size: 14px;
   }
 }
+@media (max-width: 400px) {
+  .star-widget label {
+    font-size: 25px;
+    padding: 4px 7px;
+  }
+}
+@media (max-width: 300px) {
+  .star-widget label {
+    font-size: inherit;
+    padding: 4px 7px;
+  }
+  .container .edit {
+    right: 5px;
+    top: 5px;
+    font-size: 6px;
+  }
+  .container .text {
+    font-size: 12px;
+  }
+}
 @media (max-width: 280px) {
   .star-widget label {
-    font-size: 29px;
+    font-size: 12px;
     padding: 4px 7px;
   }
   .container .edit {

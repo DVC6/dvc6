@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="../styles/dashboardHardware.css">
+    <link rel="stylesheet" href="../styles/top&sideBar.css">
+    <script src="../js/funcoes.js"></script>
+    <title>Dashboard</title>
+
+     <link rel="canonical" href="https://codepen.io/chartjs/pen/YVWZbz">
+     <script
+     src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+        <div class="logo">
+            <img src="../img/image.png" style="width: 110px; margin-top: 3px;" >
+        </div>
+        <div class="info">
+            <p>Olá, <b><span id="nomeUsuario">Guilherme</span></b>!</p>
+        </div>
+        <div class="user">
+            <img src="../img/user.png">
+        </div>
+    </div>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="#">
+                    <i class="fas fa-th-large"></i>
+                    <div>Dashboard</div>
+                </a>
+            </li>
+            <li style="border-left: 2px solid #fa1e4e;">
+                <a style="color: #fa1e4e;" href="#">
+                    <i class="fas fa-chart-area"></i>
+                    <div>Analytics</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-users"></i>
+                    <div>Funcionários</div>
+                </a>
+            </li>
+            <li>
+                <a href="feedback.html">
+                    <i class="fas fa-comments"></i>
+                    <div>Feedback</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-question"></i>
+                    <div>Ajuda</div>
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li onclick="limparSessao()">
+                <a href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <div>Sair</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="infoTotem">
+            <h2>Totem - <span id="nomeTotem"></span></h2>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div class="card-content">
+                    <div class="number" id="discoUsadoID">0%</div>
+                    <div class="card-name">Disco Usado</div>
+                </div>
+                <div class="icon-box">
+                    <img src="../img/disco-rigido.png" height="45px">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="number" id="ramkpiID">0%</div>
+                    <div class="card-name">Último dado da RAM</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-memory"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="number" id="cpukpiID">0%</div>
+                    <div class="card-name">Último dado da CPU</div>
+                </div>
+                <div class="icon-box">
+                    <img src="../img/cpu.png" height="45px">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="number" id="contadorIncidentes">0</div>
+                    <div class="card-name">Incidentes</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+            </div>
+        </div>
+        <div class="charts">
+            <div class="chart">
+                <h2>Consumo de RAM</h2>
+                <canvas id="memoria"></canvas>
+            </div>
+            <div class="chart" id="chartCPU">
+                <h2>Consumo de CPU</h2>
+                <canvas id="cpu"></canvas>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
+<script src="../js/chart.js"></script>
