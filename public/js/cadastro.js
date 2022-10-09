@@ -146,14 +146,14 @@ async function cadastrar() {
       },
       body: JSON.stringify(data),
     });
-    if ((response.status = 200)) {
+    if ((response.status == 200)) {
       console.log('Cadastro realizado com sucesso!');
       setInterval(() => {
         window.location.href = '/pages/login.html';
       }, 2000);
     }
 
-    if ((response.status = 500)) {
+    if ((response.status == 500)) {
       console.log('Houve um erro ao realizar o cadastro', response);
     }
   } catch (error) {
