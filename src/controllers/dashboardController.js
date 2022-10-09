@@ -189,7 +189,7 @@ function cadastrarUsuario(req, res) {
     var senha = req.body.senha;
     var email = req.body.email;
     var cargo = req.body.cargo;
-   
+
 
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -219,25 +219,25 @@ function cadastrarUsuario(req, res) {
     }
 }
 
-function  deletarUsuario(req, res) {
+ function deletarUsuario(req, res) {
     var idFuncionario = req.params.idFuncionario;
-  
-    if (idFuncionario == undefined) {
-      res.status(404).send("ID nao encontrado!");
+    
+    if (idFuncionario === undefined) {
+        res.status(404).send("ID nao encontrado!");
     } else {
-      dashboardModel
-        .deletarUsuario(idFuncionario)
-        .then((resultado) => res.json(resultado))
-        .catch((error) => {
-          console.log(error);
-          console.log(
-            "\n Houve um erro ao tentar deletar o usuario! Erro: ",
-            error.sqlMessage
-          );
-          res.status(500).json(error.sqlMessage);
-        });
+        dashboardModel.deletarUsuario(idFuncionario)
+            .then( function (resultado) {
+                return  resultado;
+            }).catch((error) => {
+                console.log(error);
+                console.log(
+                    "\n Houve um erro ao tentar deletar o usuario! Erro: ",
+                    error.sqlMessage
+                );
+                res.status(500).json(error.sqlMessage);
+            });
     }
-  }
+}
 
 module.exports = {
     buscarMedidasCPUKPI,
