@@ -4,7 +4,7 @@ const $loginSubmit = document.querySelector('.loginSubmit');
 
 const URL = 'http://localhost:3334';
 
-async function login() {
+function login() {
   const email = $inputEmail.value;
   const senha = $inputSenha.value;
 
@@ -52,41 +52,32 @@ async function login() {
     return;
   }
 
-  try {
-    const response = await fetch(`${URL}/hospitais/autenticar`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+  console.log("passei nas validacoes")
+  console.log(email + "\t" + senha)
+  fetch(`${URL}/hospitais/autenticar`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         email,
         senha,
-      }),
-    });
-
-    if (response.ok) {
-      console.log(
-        response.json().then((json) => {
-          sessionStorage.LOGIN_HOSPITAL = json.nomeFantasia;
-          sessionStorage.ID_HOSPITAL = json.idHospital;
-        })
-      );
-      setInterval(() => {
-        window.location.href = "dashboardAdm.html";
-      }, 2000);
-    }
-
-    if (response.status === 403) {
-      console.log('Usuario nao existe ou ja cadastrado!');
-      return;
-    }
-  } catch (error) {
-    if (error) {
-      console.log(error);
-      return;
-    }
-  }
+        }),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("entrei no then")
+        if (data.error) {
+          alert(data.error);
+          return;
+        }
+        window.location.href = 'http://localhost:3334/pages/dashboardAdm.html';
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 }
+
 
 function validarSessao() {
   const nomeFantasia = sessionStorage.LOGIN_HOSPITAL;
