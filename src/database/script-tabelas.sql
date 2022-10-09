@@ -30,6 +30,18 @@ CREATE TABLE medida (
 	fk_aquario INT
 );
 
+CREATE TABLE hospital (
+	id_hospital INT PRIMARY KEY AUTO_INCREMENT,
+    nome_fantasia VARCHAR(60),
+    cnpj VARCHAR(14),
+    email VARCHAR(100),
+    senha VARCHAR(60),
+    cep CHAR(8),
+    numero INT,
+    telefone CHAR(9),
+    site VARCHAR(100)
+)
+
 
 
 
