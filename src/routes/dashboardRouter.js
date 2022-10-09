@@ -34,5 +34,18 @@ router.get("/buscarTotensEmRisco/:idTotem", function(req, res) {
 router.get("/listarTotens/:idHospital", function (req, res) {
     dashboardController.listarTotens(req, res);
 });
+
+router.get("/listarFuncionarios/:idHospital", function (req, res) {
+    dashboardController.listarFuncionarios(req, res);
+});
+
+router.post("/cadastrarUsuario/:idHospital", function(req, res) {
+    dashboardController.cadastrarUsuario(req, res);
+});
+
+router.post("/deletarUsuario/:idFuncionario", function(req, res) {
+    dashboardController.deletarUsuario(req, res);
+});
+
   
 module.exports = router;

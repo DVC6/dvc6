@@ -2,26 +2,26 @@ var database = require("../database/config");
 
 function buscarUltimaData(idTotem) {
     instrucaoSql = `select top 1
-    DATEPART(DAY, data_uso) as 'dia'
+    DATEPART(DAY, data_hora_atual) as 'dia'
                             from leitura
-                            JOIN componente ON fkComponente = idComponente
-                            JOIN totem ON fkTotem = idTotem
-                            where idTotem = ${idTotem}
-                            order by idHistorico desc;`;
+                            JOIN componente ON fkComponente = id_componente
+                            JOIN totem ON fkTotem = id_totem
+                            where id_totem = ${idTotem}
+                            order by id_leitura desc;`;
     console.log("Executando a instrução SQL: \n"+instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
 function buscarMedidasRAMKPI(idTotem) {
     instrucaoSql = `select top 1
-                        DATEPART(HOUR,data_uso) as 'hora' ,
-                        DATEPART(MINUTE,data_uso) as 'minuto',
-                        DATEPART(SECOND,data_uso) as 'segundo',
+                        DATEPART(HOUR,data_hora_atual) as 'hora' ,
+                        DATEPART(MINUTE,data_hora_atual) as 'minuto',
+                        DATEPART(SECOND,data_hora_atual) as 'segundo',
                         consumo
                         from leitura
-                        JOIN componente ON fkComponente = idComponente
-                        JOIN totem ON fkTotem = idTotem
-                        where idTotem = ${idTotem}
+                        JOIN componente ON fkComponente = id_componente
+                        JOIN totem ON fkTotem = id_totem
+                        where id_totem = ${idTotem}
                         AND tipoComponente = 'RAM'
                         order by idLeitura desc`;
     console.log("Executando a instrução SQL: \n"+instrucaoSql);
@@ -30,14 +30,14 @@ function buscarMedidasRAMKPI(idTotem) {
 
 function buscarMedidasCPUKPI(idTotem) {
     instrucaoSql = `select top 1
-                        DATEPART(HOUR,data_uso) as 'hora' ,
-                        DATEPART(MINUTE,data_uso) as 'minuto',
-                        DATEPART(SECOND,data_uso) as 'segundo',
+                        DATEPART(HOUR,data_hora_atual) as 'hora' ,
+                        DATEPART(MINUTE,data_hora_atual) as 'minuto',
+                        DATEPART(SECOND,data_hora_atual) as 'segundo',
                         consumo
                         from leitura
-                        JOIN componente ON fkComponente = idComponente
-                        JOIN totem ON fkTotem = idTotem
-                        where idTotem = ${idTotem}
+                        JOIN componente ON fkComponente = id_componente
+                        JOIN totem ON fkTotem = id_totem
+                        where id_totem = ${idTotem}
                         AND tipoComponente = 'CPU'
                         order by idLeitura desc`;
     console.log("Executando a instrução SQL: \n"+instrucaoSql);
@@ -46,14 +46,14 @@ function buscarMedidasCPUKPI(idTotem) {
 
 function buscarMedidasDisco(idTotem) {
     instrucaoSql = `select top 1
-                        DATEPART(HOUR,data_uso) as 'hora' ,
-                        DATEPART(MINUTE,data_uso) as 'minuto',
-                        DATEPART(SECOND,data_uso) as 'segundo',
+                        DATEPART(HOUR,data_hora_atual) as 'hora' ,
+                        DATEPART(MINUTE,data_hora_atual) as 'minuto',
+                        DATEPART(SECOND,data_hora_atual) as 'segundo',
                         consumo
                         from leitura
-                        JOIN componente ON fkComponente = idComponente
-                        JOIN totem ON fkTotem = idTotem
-                        where idTotem = ${idTotem}
+                        JOIN componente ON fkComponente = id_componente
+                        JOIN totem ON fkTotem = id_totem
+                        where id_totem = ${idTotem}
                         AND tipo = 'DISCO'
                         order by idLeitura desc`;
     console.log("Executando a instrução SQL: \n"+instrucaoSql);
@@ -62,14 +62,14 @@ function buscarMedidasDisco(idTotem) {
 
 function buscarMedidasRAM(idTotem) {
 instrucaoSql = `select top 7
-                    DATEPART(HOUR,data_uso) as 'hora' ,
-                    DATEPART(MINUTE,data_uso) as 'minuto',
-                    DATEPART(SECOND,data_uso) as 'segundo',
+                    DATEPART(HOUR,data_hora_atual) as 'hora' ,
+                    DATEPART(MINUTE,data_hora_atual) as 'minuto',
+                    DATEPART(SECOND,data_hora_atual) as 'segundo',
                     consumo
                     from leitura
-                    JOIN componente ON fkComponente = idComponente
-                    JOIN totem ON fkTotem = idTotem
-                    where idTotem = ${idTotem}
+                    JOIN componente ON fkComponente = id_componente
+                    JOIN totem ON fkTotem = id_totem
+                    where id_totem = ${idTotem}
                     AND tipo = 'RAM'
                     order by idLeitura desc`;
     console.log("Executando a instrução SQL: \n"+instrucaoSql);
@@ -78,14 +78,14 @@ instrucaoSql = `select top 7
 
 function buscarMedidasCPU(idTotem) {
     instrucaoSql = `select top 7
-                        DATEPART(HOUR,data_uso) as 'hora' ,
-                        DATEPART(MINUTE,data_uso) as 'minuto',
-                        DATEPART(SECOND,data_uso) as 'segundo',
+                        DATEPART(HOUR,data_hora_atual) as 'hora' ,
+                        DATEPART(MINUTE,data_hora_atual) as 'minuto',
+                        DATEPART(SECOND,data_hora_atual) as 'segundo',
                         consumo
                         from leitura
-                        JOIN componente ON fkComponente = idComponente
-                        JOIN totem ON fkTotem = idTotem
-                        where idTotem = ${idTotem}
+                        JOIN componente ON fkComponente = id_componente
+                        JOIN totem ON fkTotem = id_totem
+                        where id_totem = ${idTotem}
                         AND tipo = 'CPU'
                         order by idLeitura desc`;
     console.log("Executando a instrução SQL: \n"+instrucaoSql);
@@ -96,7 +96,7 @@ function listarTotens(idHospital) {
     console.log("Listando todos os totens cadastrados em seu Hospital");
     var instrucao = `
         SELECT 
-            idTotem,
+            id_totem,
             nome_maquina
         FROM totem
         WHERE fkHospital = '${idHospital}';
@@ -105,6 +105,37 @@ function listarTotens(idHospital) {
     return database.executar(instrucao);
 }
 
+function listarFuncionarios(idHospital) {
+    console.log("Listando todos os funcionários cadastrados para o seu Hospital");
+    var instrucao = `
+        SELECT 
+            id_funcionario,
+            nome_funcionario
+        FROM funcionario
+        WHERE fkhospital = '${idHospital}';
+    `;
+    console.log("Executando a instrução SQL: \n"+instrucao);
+    return database.executar(instrucao);
+}
+
+function cadastrarUsuario(nome, senha, email, cargo, idHospital) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarUsuario():", nome, senha, email, cargo, idHospital);
+    var instrucao = `
+        INSERT INTO funcionario (nome_funcionario, senha, email, cargo, fkHospital
+             ) VALUES ('${nome}','${senha}','${email}','${cargo}', '${idHospital}');`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function deletarUsuario(idFuncionario) {
+    var query = `
+          DELETE FROM funcionario WHERE id_funcionario = '${idFuncionario}'
+      `;
+  
+    console.log('Executando a instrucao SQL: \n' + query);
+    return database.executar(query);
+  }
+
 module.exports = {
     buscarMedidasCPUKPI,
     buscarMedidasRAMKPI,
@@ -112,5 +143,8 @@ module.exports = {
     buscarMedidasRAM,
     buscarMedidasCPU,
     listarTotens,
-    buscarUltimaData
+    buscarUltimaData,
+    listarFuncionarios,
+    cadastrarUsuario,
+    deletarUsuario
 }

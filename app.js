@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.use('/', indexRouter);
-// app.use('/hospitais', hospitalRouter);
+app.use('/hospitais', hospitalRouter);
 app.use('/dashboard', dashboardRouter);
 
 app.listen(PORTA, function () {

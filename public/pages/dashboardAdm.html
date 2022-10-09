@@ -149,13 +149,13 @@
                     <button onclick="esconderModal()">Voltar</button>
                 </div>
                 <button id="criarNovoUsuario" onclick="abrirCadastro()">Novo Usuário</button>
-                <div id="listaUsuarios">
 
+                <div id="listaUsuarios">
                     <table>
                         <thead>
                             <tr>
                                 <th class="tt">ID</th>
-                                <th class="tt2">Hostname</th>
+                                <th class="tt2">Nome</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -167,7 +167,6 @@
                             </tr>
                         </tbody>
                     </table>
-
                 </div>
             </div>
 
@@ -182,28 +181,8 @@
                         </div>
                         <div>
 
-                            <h5>Nome completo</h5>
-                            <input class="inp" type="text" name="nome_comp">
-                        </div>
-                    </div>
-
-                    <div class="input-div dois">
-                        <div class="i">
-                            <i class="fa fa-user-circle"></i>
-                        </div>
-                        <div>
-                            <h5>Nome usuário</h5>
-                            <input class="inp" type="text" name="usuario">
-                        </div>
-                    </div>
-
-                    <div class="input-div tres">
-                        <div class="i">
-                            <i class="fa fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h5>E-mail</h5>
-                            <input class="inp" type="text" name="email_usu">
+                            <h5>Nome</h5>
+                            <input class="inp" type="text" name="nome" value = "">
                         </div>
                     </div>
 
@@ -213,25 +192,31 @@
                         </div>
                         <div>
                             <h5>Senha</h5>
-                            <input class="inp" type="password" name="senha">
+                            <input class="inp" type="password" name="senha" value = "">
                         </div>
                     </div>
 
-                    <div class="input-div cinco">
+                    <div class="input-div tres">
                         <div class="i">
-                            <i class="fa fa-lock"></i>
+                            <i class="fa fa-envelope"></i>
                         </div>
                         <div>
-                            <select class="inp" name="tipoUsuario" id="tipo_Usuario">
-                                <option selected disabled value="">Tipo de Usuário</option>
-                                <option name="tipoAdm" value="adm">Administrador</option>
-                                <option name="tipoComum" value="comum">Comum</option>
-                            </select>
+                            <h5>E-mail</h5>
+                            <input class="inp" type="text" name="email" value = "">
+                        </div>
+                    </div>
+
+                    <div class="input-div tres">
+                        <div class="i">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h5>Cargo</h5>
+                            <input class="inp" type="text" name="cargo" value = "">
                         </div>
                     </div>
 
                     <button class="buton" onclick="cadastrarUsuario()">Cadastrar</button>
-                    <a class="volt2" href="DashboardAdm.html">Voltar</a>
 
                 </form>
             </div>
