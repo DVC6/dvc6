@@ -53,7 +53,7 @@ function cadastrar(
   );
   console.log('O SITE: ' + site);
   var instrucao = `
-INSERT INTO hospital (nomeFantasia, cnpj, email, senha, site, logradouro, numero, cidade, estado, bairro,
+INSERT INTO hospital (nome_fantasia, cnpj, email, senha, site, logradouro, numero, cidade, estado, bairro,
                       telefone)
 VALUES ('${nomeFantasia}', '${cnpj}', '${email}', '${senha}', '${site}', '${logradouro}', '${numero}', '${cidade}',
         '${estado}', '${bairro}', '${telefone}');

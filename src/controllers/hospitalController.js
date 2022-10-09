@@ -101,7 +101,6 @@ function cadastrar(req, res) {
       .then(function (resultado) {
         res.json(resultado);
 
-        req.session.hospId = email;
         console.log('Usuario cadastrado');
         req.session.save(() => {
           res.redirect('/');
