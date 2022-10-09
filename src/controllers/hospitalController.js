@@ -63,25 +63,25 @@ function cadastrar(req, res) {
     site,
   } = req.body;
 
-  if (nomeFantasia == undefined) {
+  if (nomeFantasia == undefined || nomeFantasia == '') {
     res.status(400).send('Seu nome está undefined!');
-  } else if (email == undefined) {
+  } else if (email == undefined || email == '') {
     res.status(400).send('Seu email está undefined!');
-  } else if (senha == undefined) {
+  } else if (senha == undefined || senha == '') {
     res.status(400).send('Sua senha está undefined!');
-  } else if (telefone == undefined) {
+  } else if (telefone == undefined || telefone == '') {
     res.status(400).send('Sua senha está undefined!');
-  } else if (logradouro == undefined) {
+  } else if (logradouro == undefined || logradouro == '') {
     res.status(400).send('Sua senha está undefined!');
-  } else if (numero == undefined) {
+  } else if (numero == undefined || numero == '') {
     res.status(400).send('Sua senha está undefined!');
-  } else if (bairro == undefined) {
+  } else if (bairro == undefined || bairro == '') {
     res.status(400).send('Sua senha está undefined!');
-  } else if (cidade == undefined) {
+  } else if (cidade == undefined || cidade == '') {
     res.status(400).send('Sua senha está undefined!');
-  } else if (estado == undefined) {
+  } else if (estado == undefined || estado == '') {
     res.status(400).send('Sua senha está undefined!');
-  } else if (site == undefined) {
+  } else if (site == undefined || site == '') {
     res.status(400).send('Sua senha está undefined!');
   } else {
     hospitalModel

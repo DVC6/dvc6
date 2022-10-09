@@ -30,33 +30,25 @@ function cadastrar(
   email,
   senha,
   telefone,
-  logradouro,
   numero,
-  bairro,
-  cidade,
-  estado,
+  complemento,
   site
 ) {
   console.log(
     "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():",
-    nomeFantasia,
-    cnpj,
-    email,
-    senha,
-    telefone,
-    logradouro,
-    numero,
-    bairro,
-    cidade,
-    estado,
-    site
+  nomeFantasia,
+  cnpj,
+  email,
+  senha,
+  telefone,
+  numero,
+  complemento,
+  site
   );
   console.log('O SITE: ' + site);
   var instrucao = `
-INSERT INTO hospital (nome_fantasia, cnpj, email, senha, site, logradouro, numero, cidade, estado, bairro,
-                      telefone)
-VALUES ('${nomeFantasia}', '${cnpj}', '${email}', '${senha}', '${site}', '${logradouro}', '${numero}', '${cidade}',
-        '${estado}', '${bairro}', '${telefone}');
+INSERT INTO hospital (nome_fantasia, cnpj, email, senha, site, numero, complemento, telefone)
+VALUES ('${nomeFantasia}', '${cnpj}', '${email}', '${senha}', '${site}', '${numero}', '${complemento}', '${telefone}');
     `;
   console.log('Executando a instrução SQL: \n' + instrucao);
   return database.executar(instrucao);
