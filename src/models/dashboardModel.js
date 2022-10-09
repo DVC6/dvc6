@@ -8,7 +8,7 @@ function buscarUltimaData(idTotem) {
                             JOIN totem ON fkTotem = id_totem
                             where id_totem = ${idTotem}
                             order by id_leitura desc;`;
-    console.log("Executando a instrução SQL: \n"+instrucaoSql);
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -24,7 +24,7 @@ function buscarMedidasRAMKPI(idTotem) {
                         where id_totem = ${idTotem}
                         AND tipoComponente = 'RAM'
                         order by idLeitura desc`;
-    console.log("Executando a instrução SQL: \n"+instrucaoSql);
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -40,7 +40,7 @@ function buscarMedidasCPUKPI(idTotem) {
                         where id_totem = ${idTotem}
                         AND tipoComponente = 'CPU'
                         order by idLeitura desc`;
-    console.log("Executando a instrução SQL: \n"+instrucaoSql);
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -56,12 +56,12 @@ function buscarMedidasDisco(idTotem) {
                         where id_totem = ${idTotem}
                         AND tipo = 'DISCO'
                         order by idLeitura desc`;
-    console.log("Executando a instrução SQL: \n"+instrucaoSql);
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
 function buscarMedidasRAM(idTotem) {
-instrucaoSql = `select top 7
+    instrucaoSql = `select top 7
                     DATEPART(HOUR,data_hora_atual) as 'hora' ,
                     DATEPART(MINUTE,data_hora_atual) as 'minuto',
                     DATEPART(SECOND,data_hora_atual) as 'segundo',
@@ -72,7 +72,7 @@ instrucaoSql = `select top 7
                     where id_totem = ${idTotem}
                     AND tipo = 'RAM'
                     order by idLeitura desc`;
-    console.log("Executando a instrução SQL: \n"+instrucaoSql);
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -88,7 +88,7 @@ function buscarMedidasCPU(idTotem) {
                         where id_totem = ${idTotem}
                         AND tipo = 'CPU'
                         order by idLeitura desc`;
-    console.log("Executando a instrução SQL: \n"+instrucaoSql);
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -101,7 +101,7 @@ function listarTotens(idHospital) {
         FROM totem
         WHERE fkHospital = '${idHospital}';
     `;
-    console.log("Executando a instrução SQL: \n"+instrucao);
+    console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
@@ -114,7 +114,7 @@ function listarFuncionarios(idHospital) {
         FROM funcionario
         WHERE fkhospital = '${idHospital}';
     `;
-    console.log("Executando a instrução SQL: \n"+instrucao);
+    console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
@@ -127,14 +127,14 @@ function cadastrarUsuario(nome, senha, email, cargo, idHospital) {
     return database.executar(instrucao);
 }
 
-function deletarUsuario(idFuncionario) {
+ function deletarUsuario(idFuncionario) {
     var query = `
-          DELETE FROM funcionario WHERE id_funcionario = '${idFuncionario}'
+         DELETE FROM funcionario WHERE id_funcionario = '${idFuncionario}';
       `;
-  
+
     console.log('Executando a instrucao SQL: \n' + query);
     return database.executar(query);
-  }
+}
 
 module.exports = {
     buscarMedidasCPUKPI,

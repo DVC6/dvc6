@@ -43,8 +43,9 @@ router.post("/cadastrarUsuario/:idHospital", function(req, res) {
     dashboardController.cadastrarUsuario(req, res);
 });
 
-router.post("/deletarUsuario/:idFuncionario", function(req, res) {
+router.delete("/deletar/:idFuncionario", function(req, res) {
     dashboardController.deletarUsuario(req, res);
+    window.location = "dashboardAdm.html"
 });
 
   

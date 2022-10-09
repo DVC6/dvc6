@@ -124,9 +124,11 @@ async function pegarUltimaData(idTotem) {
 
 
 function controleCadastro() {
+    console.log("Quero atualizarr")
+
     const fade = document.getElementById("fade")
     const listaUsuario = document.getElementById("cadastroUsuarios")
-    
+
     var idHospital = sessionStorage.ID_HOSPITAL;
     atualizarFuncionarios(idHospital);
 
@@ -135,6 +137,7 @@ function controleCadastro() {
 }
 
 function esconderModal() {
+    console.log("Quero escoconder")
     const fade = document.getElementById("fade")
     const listaUsuario = document.getElementById("cadastroUsuarios")
     const novoUsuario = document.getElementById("novoUsuario")
@@ -199,7 +202,7 @@ function atualizarFuncionarios(idHospital) {
                     divFuncionario.appendChild(divButtons);
                     feed.appendChild(divFuncionario);
 
-                    divButtons.addEventListener("click", deletarUsuario);
+                    divButtons.addEventListener("click", deletar);
                 }
             });
         } else {
@@ -211,24 +214,21 @@ function atualizarFuncionarios(idHospital) {
 
 }
 
-function deletarUsuario(idFuncionario) {
+function deletar() {
     var dadoFuncionario = this.id.split(",");
-        var idFuncionario = dadoFuncionario[0];
-    fetch(`/dashboard/deletarUsuario/${idFuncionario}`).then(function (resposta) {
+    var idFuncionario = dadoFuncionario[0];
 
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-            window.alert("Usuário deletado com sucesso!");
-            window.location = "dashboardAdm.html";
-
-        } else {
-            throw ("Houve um erro ao tentar deletar este usuário!");
-        }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-
-    });
+    (async () => {
+        await fetch(`/dashboard/deletar/${idFuncionario}`, { method: 'DELETE' })
+            .then(() => {
+                console.log("Usuário deletado com sucesso!")
+                alert("Usuário deletado com sucesso!")
+                esconderModal();
+        })
+            .catch(() => {
+                console.error("Erro ao deletar usuário")
+            });
+    })();
 }
 
 function cadastrarUsuario() {
