@@ -27,13 +27,13 @@ right .photoProfile span {
     color: var(--color-dark);
 }
 
-.dark-theme-variables{
---color-background: #181a1e;
---color-white: #202528;
---color-dark: #edeffd;
---color-dark-variant: #a3bdcc;
---color-light: rgba(0, 0, 0, 0.4);
---box-shadow: 0 2rem 3rem var(--color-light);
+.dark-theme-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
 .corpo {
@@ -102,17 +102,17 @@ small {
     color: var(--color-dark-variant);
 }
 
-.container6 .leg{
+.container6 .leg {
     font-size: 1.4rem;
 }
 
-.container6 .pe{
+.container6 .pe {
     font-weight: 800;
     font-size: 1.8rem;
     color: var(--color-dark);
 }
 
-.container6 .pe2{
+.container6 .pe2 {
     font-size: 1rem;
 }
 
@@ -242,17 +242,17 @@ main .date {
     padding: 0.5rem 1.6rem;
 }
 
-main .date2{
+main .date2 {
     background: red;
     color: var(--color-white);
 }
 
-main .date3{
+main .date3 {
     background: #dfdf00;
     color: var(--color-white);
 }
 
-main .date4{
+main .date4 {
     background: #03a9f4;
     color: var(--color-white);
     /* margin-left: 24rem; */
@@ -298,17 +298,17 @@ main .insights>div span {
     font-size: 2rem;
 }
 
-#memoriaTotal{
+#memoriaTotal {
     background: none;
     color: var(--color-dark);
 }
 
-#discoTotal{
+#discoTotal {
     background: none;
     color: var(--color-dark);
 }
 
-#cpuTotal{
+#cpuTotal {
     background: none;
     color: var(--color-dark);
 }
@@ -431,7 +431,7 @@ main .insights small {
     display: none;
 }
 
-.right .theme-toggler{
+.right .theme-toggler {
     background: var(--color-light);
     display: flex;
     justify-content: space-between;
@@ -442,7 +442,7 @@ main .insights small {
     border-radius: var(--border-radius-1);
 }
 
-.right .theme-toggler span{
+.right .theme-toggler span {
     font-size: 1.2rem;
     width: 50%;
     height: 100%;
@@ -451,7 +451,7 @@ main .insights small {
     justify-content: center;
 }
 
-.right .theme-toggler span.active{
+.right .theme-toggler span.active {
     background: var(--color-primary);
     color: #fff;
     border-radius: var(--border-radius-1);
@@ -464,34 +464,34 @@ main .insights small {
     justify-content: space-between;
     gap: 1rem;
     text-align: right;
-    z-index: 100000;
+    z-index: 4;
 }
 
 /* Dashboard adm */
 
-main .recent-order{
+main .recent-order {
     margin-top: 10rem;
 }
 
-main .recent-order h2{
+main .recent-order h2 {
     margin-bottom: 0.8rem;
 }
 
-main .recent-order table{
+main .recent-order table {
     background: var(--color-white);
     width: 100%;
     border-radius: var(--card-border-radius);
     padding: var(--card-padding);
     text-align: center;
     box-shadow: var(--box-shadow);
-    transition:  all 300ms ease;
+    transition: all 300ms ease;
 }
 
-main .recent-order table:hover{
+main .recent-order table:hover {
     box-shadow: none;
 }
 
-main table thead tr{
+main table thead tr {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -499,35 +499,35 @@ main table thead tr{
     font-size: 1.4rem;
 }
 
-main table thead .tt{
+main table thead .tt {
     margin-left: 1.5rem;
     display: flex;
     justify-content: flex-start;
     text-align: justify;
 }
 
-main table thead .tt2{
+main table thead .tt2 {
     margin-left: -9.5rem;
     display: flex;
 }
 
-main table tbody td{
+main table tbody td {
     height: 2rem;
     border-bottom: 1px solid var(--color-light);
     color: var(--color-dark);
 }
 
-main table tbody tr:last-child td{
+main table tbody tr:last-child td {
     border: none;
 }
 
-main table tbody tr .detal{
+main table tbody tr .detal {
     text-decoration: none;
     color: #23ccff;
     border-bottom: 1px solid #23ccff;
 }
 
-main a{
+main a {
     text-decoration: none;
 }
 
@@ -575,22 +575,22 @@ main .insights2 h3 {
     font-size: 1rem;
 }
 
-#totensAtivos{
+#totensAtivos {
     background: none;
     color: var(--color-dark);
 }
 
-#spanRAM{
+#spanRAM {
     background: none;
     color: var(--color-dark);
 }
 
-#spanCPU{
+#spanCPU {
     background: none;
     color: var(--color-dark);
 }
 
-main table tbody td div{
+main table tbody td div {
     display: flex;
     flex-direction: column;
     /* text-align: justify; */
@@ -599,12 +599,12 @@ main table tbody td div{
     padding: 0.5rem 0.8rem;
 }
 
-#lista_totens .publicacao{
+#lista_totens .publicacao {
     width: 100%;
     align-items: center;
 }
 
-#lista_totens span{
+#lista_totens span {
     display: flex;
     flex-direction: column;
     /* text-align: center; */
@@ -613,20 +613,20 @@ main table tbody td div{
     font-size: 1.2rem;
 }
 
-#lista_totens div{
+#lista_totens div {
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid var(--color-info-dark);
 }
 
-#lista_totens div:first-child{
+#lista_totens div:first-child {
     display: flex;
     flex-direction: row;
     gap: 8rem;
     border-top: 1px solid var(--color-info-dark);
 }
 
-#lista_totens .div-buttons{
+#lista_totens .div-buttons {
     color: #23ccff;
     font-size: 1.2rem;
     border-bottom: none;
@@ -659,14 +659,14 @@ main table tbody td div{
         gap: 0;
     }
 
-    main .insights>div{
+    main .insights>div {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
     }
 
-    main .date4{
+    main .date4 {
         margin-left: 12rem;
     }
 
@@ -676,7 +676,7 @@ main table tbody td div{
         grid-gap: 30px;
     }
 
-    main .recent-order{
+    main .recent-order {
         width: 94%;
         position: absolute;
         left: 50%;
@@ -684,7 +684,7 @@ main table tbody td div{
         margin-left: 8.8rem;
     }
 
-    main .recent-order table{
+    main .recent-order table {
         width: 84%;
     }
 }
@@ -746,13 +746,13 @@ main table tbody td div{
         padding: 0 1rem;
     }
 
-    main .recent-order{
+    main .recent-order {
         position: relative;
         margin: 8rem 0 3rem 0;
         width: 100%;
     }
 
-    main .recent-order table{
+    main .recent-order table {
         width: 100%;
         margin: 0;
     }
@@ -799,112 +799,61 @@ main table tbody td div{
     }
 }
 
-/* Cadastrar usuario */
+/* cadastroUsuario */
 
-@media screen and (max-width: 1050px) {
-    .container7 {
-        grid-gap: 5rem;
-    }
+#fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
 }
 
-@media screen and (max-width: 1000px) {
-    .cads {
-        width: 290px;
-    }
-
-    .cads h2 {
-        font-size: 2.4rem;
-        margin: 8px 0;
-    }
-
-    .cads h4 {
-        margin: 8px 0;
-    }
-
-    .img img {
-        width: 400px;
-    }
+#modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #fa1e4e;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
 }
 
-@media screen and (max-width: 900px) {
-    .img {
-        display: none;
-    }
-
-    .container7 {
-        grid-template-columns: 1fr;
-    }
-
-    .wave {
-        display: none;
-    }
-
-    .cad-container {
-        justify-content: center;
-    }
-
-    .volt2 {
-        display: block;
-    }
+#cadastroUsuarios button {
+    padding: 0.6rem 1.2rem;
+    background-color: #888;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    opacity: 0.9;
+    font-size: 1rem;
 }
 
-/* Cadastrar chave */
+#cadastroUsuarios {
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 90%;
+    height: 80%;
+    background-color: #fff;
+    z-index: 8;
+    border-radius: 1.5rem;
+}
 
-@media screen and (max-width: 860px) {
-    .container8 {
-        max-width: 480px;
-        height: 650px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .container8 .blue {
-        top: 0;
-        max-width: 480px;
-        height: 100%;
-    }
-
-    .caixa {
-        width: 100%;
-        height: 500px;
-        top: 0;
-        box-shadow: none;
-    }
-
-    .blue .chave {
-        position: absolute;
-        width: 100%;
-        height: 150px;
-        bottom: 0;
-    }
-
-    .blue .segura {
-        top: 0;
-    }
-
-    .caixa.active {
-        top: 150px;
-    }
-
-    .caixa .cadforma {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    .caixa .cadforma h3 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 103%;
-    }
-
-    .caixa .altforma{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
+#novoUsuario {
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background-color: #fff;
+    z-index: 10;
+    border-radius: 1.5rem;
 }

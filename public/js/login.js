@@ -92,6 +92,7 @@ function validarSessao() {
   const nomeFantasia = sessionStorage.LOGIN_HOSPITAL;
 
   if (nomeFantasia != null) {
+    nomeUsuario.innerHTML = (`${nomeFantasia}`);
   } else {
     window.location = '../pages/login.html';
   }

@@ -8,9 +8,9 @@
 
     <link rel="stylesheet" href="../styles/dashboardAdm.css">
     <link rel="stylesheet"
-    href="https://fonts.sandbox.google.com/css?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<link rel="stylesheet"
-    href="https://fonts.sandbox.google.com/css?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        href="https://fonts.sandbox.google.com/css?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.sandbox.google.com/css?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <script src="../js/dashboard.js"></script>
     <script src="../js/login.js"></script>
@@ -43,7 +43,7 @@
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="CadastroAdm.html">
+                <a onclick="controleCadastro()">
                     <span class="material-symbols-outlined">person_add</span>
                     <h3>Cadastrar usuário</h3>
                 </a>
@@ -67,10 +67,6 @@
                     <button class="menu-btn">
                         <span class="material-symbols-outlined">menu</span>
                     </button>
-                    <!-- <div class="theme-toggler">
-                        <span class="material-symbols-outlined active">light_mode</span>
-                        <span class="material-symbols-outlined">dark_mode</span>
-                    </div> -->
                     <div class="profile">
                         <div class="info">
                             <p>Olá, <b><span id="nomeUsuario"></span></b>!</p>
@@ -124,7 +120,6 @@
                 </div>
             </div>
 
-
             <div class="recent-order">
                 <h2>Servidores</h2>
                 <table>
@@ -144,6 +139,103 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- //////////CADASTRAR USUARIOS///////////// -->
+            <div id="fade" style="display: none;"></div>
+
+            <div id="cadastroUsuarios" style="display: none;">
+                <div id="modalHeader">
+                    <h2>Lista de Usuários</h2>
+                    <button onclick="esconderModal()">Voltar</button>
+                </div>
+                <button id="criarNovoUsuario" onclick="abrirCadastro()">Novo Usuário</button>
+                <div id="listaUsuarios">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="tt">ID</th>
+                                <th class="tt2">Hostname</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div id="lista_funcionarios"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div id="novoUsuario" style="display: none;">
+                <h2>Cadastre aqui um novo usuário</h2>
+                <button onclick="esconderModal()">Cancelar</button>
+                <form class="cads" method="dialog" id="form_cadusuario">
+                    <img class="avatar" src="Imagens/undraw_male_avatar_323b.svg" alt="">
+                    <div class="input-div um">
+                        <div class="i">
+                            <i class="fa fa-user-circle"></i>
+                        </div>
+                        <div>
+
+                            <h5>Nome completo</h5>
+                            <input class="inp" type="text" name="nome_comp">
+                        </div>
+                    </div>
+
+                    <div class="input-div dois">
+                        <div class="i">
+                            <i class="fa fa-user-circle"></i>
+                        </div>
+                        <div>
+                            <h5>Nome usuário</h5>
+                            <input class="inp" type="text" name="usuario">
+                        </div>
+                    </div>
+
+                    <div class="input-div tres">
+                        <div class="i">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h5>E-mail</h5>
+                            <input class="inp" type="text" name="email_usu">
+                        </div>
+                    </div>
+
+                    <div class="input-div quatro">
+                        <div class="i">
+                            <i class="fa fa-lock"></i>
+                        </div>
+                        <div>
+                            <h5>Senha</h5>
+                            <input class="inp" type="password" name="senha">
+                        </div>
+                    </div>
+
+                    <div class="input-div cinco">
+                        <div class="i">
+                            <i class="fa fa-lock"></i>
+                        </div>
+                        <div>
+                            <select class="inp" name="tipoUsuario" id="tipo_Usuario">
+                                <option selected disabled value="">Tipo de Usuário</option>
+                                <option name="tipoAdm" value="adm">Administrador</option>
+                                <option name="tipoComum" value="comum">Comum</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="buton" onclick="cadastrarUsuario()">Cadastrar</button>
+                    <a class="volt2" href="DashboardAdm.html">Voltar</a>
+
+                </form>
+            </div>
+
         </main>
     </div>
 

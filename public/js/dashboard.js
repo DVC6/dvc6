@@ -121,3 +121,101 @@
         }
         return 0;
     }
+
+
+    function controleCadastro() {
+        const fade = document.getElementById("fade")
+        const listaUsuario = document.getElementById("cadastroUsuarios")
+
+        fade.style.display = "block";
+        listaUsuario.style.display = "block";
+    }
+
+    function esconderModal() {
+        const fade = document.getElementById("fade")
+        const listaUsuario = document.getElementById("cadastroUsuarios")
+        const novoUsuario = document.getElementById("novoUsuario")
+
+        fade.style.display = "none";
+        listaUsuario.style.display = "none";
+        novoUsuario.style.display = "none";
+    }
+
+    function abrirCadastro() {
+        const listaUsuario = document.getElementById("cadastroUsuarios")
+        const novoUsuario = document.getElementById("novoUsuario")
+        listaUsuario.style.display = "none";
+        novoUsuario.style.display = "block";
+    }
+
+    function atualizarFuncionarios(idHospital) {
+        var idHospital = sessionStorage.ID_HOSPITAL;
+        fetch(`/dashboard/listarFuncionarios/${idHospital}`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("lista_totens");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("lista_totens");
+                    feed.innerHTML = "";
+
+                        // Gerando lista
+                    for (var i = 0; i < resposta.length; i++) {
+                        var totem = resposta[i];
+
+                        // criando e manipulando elementos do HTML
+                        var divTotem = document.createElement("div");
+                        var spanID = document.createElement("span");
+                        var spanTitulo = document.createElement("span");
+                        var divButtons = document.createElement("div");
+
+                        spanID.innerHTML = totem.idTotem + "<br>";
+                        spanTitulo.innerHTML = totem.nome_maquina + "<br>";
+                        divButtons.innerHTML = "Detalhes";
+
+
+                        // adicionando propriedades para CSS
+                        divTotem.className = "publicacao";
+                        divTotem.id = "divTotem" + totem.idTotem;
+                        spanTitulo.id = "inputNumero" + totem.idTotem;
+                        spanTitulo.className = "publicacao-titulo";
+
+                        divButtons.className = "div-buttons";
+                        divButtons.id = totem.idTotem + "," + totem.nome_maquina;
+
+
+                        divTotem.appendChild(spanID);
+                        divTotem.appendChild(spanTitulo);
+                        divTotem.appendChild(divButtons);
+                        feed.appendChild(divTotem);
+
+                        divButtons.addEventListener("click", carregarDashboard);
+
+                        verificarTotensEmRisco(totem.idTotem);
+                        // Acionar contador de totens logados
+                        var ultimaData;
+                        pegarUltimaData(totem.idTotem).then((resposta) => {
+                            ultimaData = resposta;
+                            if (ultimaData == dataAtual) {
+                                contadorTotens++;
+                                document.getElementById("totensAtivos").innerHTML = contadorTotens;
+                            }
+                        });
+                    }
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+
+    }
+    
