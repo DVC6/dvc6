@@ -62,7 +62,7 @@
 .containerLogin {
   width: 50%;
 }
-.containerLogin form {
+.containerLogin .form {
   width: 100%;
   text-align: center;
   padding: 45px 50px;
@@ -87,10 +87,10 @@
   width: 100%;
   margin: 15px 0 10px 0;
 }
-form h1 {
+.form h1 {
   padding: 10px 0;
 }
-form .id {
+.form .id {
   position: relative;
 }
 .id i {
@@ -100,7 +100,7 @@ form .id {
   right: 20px;
   transform: translateY(-50%);
 }
-form input {
+.form input {
   width: 100%;
   height: 50px;
   margin: 11px 0;
@@ -113,7 +113,7 @@ form input {
   outline: none;
   color: #ffffff;
 }
-form button {
+.form button {
   margin: 9px 0 9px 0;
   border: none;
   background: #fa1e4e;
@@ -125,12 +125,12 @@ form button {
   cursor: pointer;
   border-radius: 5px;
 }
-form input:focus::placeholder {
+.form input:focus::placeholder {
   padding-left: 4px;
   color: #fa1e4e;
   transition: all 0.3s ease;
 }
-form input:focus + i {
+.form input:focus + i {
   color: #fa1e4e;
   transition: all 0.3s ease;
 }
@@ -151,7 +151,7 @@ form input:focus + i {
   .containerLogin {
     width: 100%;
   }
-  .containerLogin form {
+  .containerLogin .form {
     padding: 50px;
   }
   .containerLogin hr {
@@ -163,15 +163,15 @@ form input:focus + i {
   .bannerLogin {
     width: 80%;
   }
-  .containerLogin form {
+  .containerLogin .form {
     padding: 0;
   }
-  .containerLogin form {
+  .containerLogin .form {
     width: 100%;
     text-align: center;
     padding: 25px;
   }
-  form button {
+  .form button {
     font-size: 12px;
   }
   .footerlogoCad2 .sci a {

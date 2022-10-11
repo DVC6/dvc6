@@ -4,7 +4,9 @@ const $loginSubmit = document.querySelector('.loginSubmit');
 
 const URL = 'http://localhost:3334';
 
-async function login() {
+async function loginTeste() {
+  // debugger;
+  console.log("teste teste teste")
   const email = $inputEmail.value;
   const senha = $inputSenha.value;
 
@@ -64,6 +66,7 @@ async function login() {
       }),
     });
 
+    console.log(response)
     if (response.ok) {
       console.log(
         response.json().then((json) => {
@@ -98,7 +101,7 @@ function validarSessao() {
   }
 }
 
-$loginSubmit.addEventListener('click', login);
+$loginSubmit.addEventListener('click', loginTeste());
 
 function deslogar() {
   delete sessionStorage.LOGIN_HOSPITAL;
