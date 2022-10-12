@@ -1,0 +1,152 @@
+/* main section começa aqui*/
+
+.main {
+  position: absolute;
+  top: 60px;
+  width: calc(100% - 260px);
+  left: 260px;
+  min-height: calc(100vh - 60px);
+  background-image: url(../img/background-banner.jpg);
+  background-size: cover;
+}
+.infoTotem {
+  padding: 20px 0px 0 20px;
+}
+.infoTotem h2 {
+  color: #beb6d2;
+}
+.cardsInfo {
+  width: 70%;
+  padding: 20px 0 0 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+.cardsInfo .cardInfo1,
+.cardsInfo .cardInfo2,
+.cardsInfo .cardInfo3 {
+  padding: 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1c17268f;
+  border-radius: 10px;
+  box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+  font-size: 1rem;
+}
+.cardsInfo .cardInfo1 {
+  background-color: #4169e1;
+}
+.cardsInfo .cardInfo2 {
+  background-color: #ffee1d;
+}
+.cardsInfo .cardInfo3 {
+  background-color: #ff5050;
+}
+.cards {
+  width: 100%;
+  padding: 35px 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+.cards .card {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1c17268f;
+  border-radius: 10px;
+  box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08);
+}
+.cards .card:hover {
+  box-shadow: 0px 0px 12px 0px #beb6d224;
+}
+.number {
+  font-size: 35px;
+  font-weight: 500;
+  color: #beb6d2;
+}
+.card-name {
+  color: #7d768d;
+  font-weight: 600;
+}
+.icon-box i {
+  font-size: 45px;
+  color: #fa1e4e;
+}
+
+/* charts começa aqui */
+
+.charts {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  grid-gap: 20px;
+  width: 100%;
+  padding: 20px;
+  padding-top: 0;
+}
+.chart {
+  background: #1c17268f;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  width: 99%;
+}
+.chart h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #7d768d;
+  text-align: centerd;
+}
+
+/* Responsive começa aqui */
+
+@media (max-width: 1115px) {
+  .main {
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+  .chart {
+    width: 99%;
+  }
+  #lineChart {
+    width: 100%;
+  }
+}
+
+@media (max-width: 880px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .charts {
+    grid-template-columns: 1fr;
+  }
+  .cardsInfo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .cardsInfo {
+    width: 100%;
+    padding: 20px 20px 0 20px;
+    grid-template-columns: 1fr;
+  }
+  .logo h2 {
+    font-size: 20px;
+  }
+  .fa-bell {
+    margin-right: 5px;
+  }
+  #chartCPU {
+    padding: 10px;
+  }
+  #doughnut {
+    padding: 0;
+  }
+}
