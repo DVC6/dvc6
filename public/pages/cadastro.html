@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="../styles/navbar.css">
     <link rel="stylesheet" href="../styles/footer.css">
     <link rel="shortcut icon" href="../img/logo2.jpg" type="image/x-icon" />
-    <script src="../js/cadastro.js" defer></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+
+    <!-- <script src="../js/cadastro.js" defer></script> -->
     <title>Cadastro</title>
 </head>
 <body>
@@ -25,7 +27,6 @@
             <li><a href="../index.html">Home</a></li>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="contact.html">Contato</a></li>
-            <li><a href="feedback.html">Feedback</a></li>
             <li><hr><a class="btnnavcadastro" href="cadastro.html">Cadastro</a></li>
             <li><a class="navlogin" href="login.html">Login</a></li>
         </ul>
@@ -52,18 +53,53 @@
                     <span>Rede social</span>
                 </div>
                 <div class="boxCad2">
-                <div class="cardCadastro2">
-                    <div class="cadastrotForm" >
-                        <div class="cadastroformBox">
-                            <h1 class="tituloCadastro">Cadastro</h1>
-                                <input type="text" placeholder="Nome Fantasma" class="inputNomeFantasia" required>
-                                <input type="text" placeholder="CNPJ" class="inputCNPJ" required> 
-                                <input type="text" placeholder="Endereço" class="inputEnderecoEmpresa" required>
-                                <input type="number" placeholder="Número" class="inputNumero" required>
-                                <input type="text" placeholder="Bairro" class="inputBairro" required>
-                                <input type="text" placeholder="Cidade" class="inputCidade" required>
-                        </div>
-                        <div class="footerlogoCad1">
+<!-- NOVO HTML INPUTS -->
+                <div class="form" id="form">
+                    <div class="hr">
+                        <h1 class="tituloCadastro">Cadastro</h1>
+                    <div class="form-control">
+                        <input type="text" placeholder="Nome Fantasia" id="username" onkeyup="checkUsername()" required>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <input type="text" placeholder="Site" id="site" onkeyup="checkSite()" required>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <input type="tel" placeholder="Telefone Comercial" id="telefone" onkeyup="checkTelefone()" required>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+        
+                    <div class="form-control">
+                        <input type="email" placeholder="Email" id="email" onkeyup="checkEmail()" required>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+        
+                    <div class="form-control">
+                        <input type="password" placeholder="Senha" id="password" onkeyup="checkPassword()" required>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+        
+                    <div class="form-control">
+                        <input type="text" placeholder="CEP" id="cep" onkeyup="checkCEP()" required>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    </div>
+                    <div class="footerlogoCad1">
                         <ul class="sci">
                             <li><a href="#"><img src="../img/github.png"></a></li>
                             <li><a href="#"><img src="../img/instagram.png"></a></li>
@@ -73,24 +109,21 @@
                         </ul>
                         </div>
                 </div>
-            </div>
-            <div class="cardCadastro2">
+<!-------------------------------------->
+
+<!-- ANTIGO HTML INPUTS -->
+            <!-- <div class="cardCadastro2">
                 <div class="cadastrotForm" >
-                    <div class="cadastroformBox2">
-                        <input type="text" placeholder="Estado" class="inputEstado" required>
-                        <input type="number" placeholder="CEP" class="inputCEP" required>
-                        <input type="tel" placeholder="Telefone Comercial" class="inputTelefone" required > 
-                        <input type="text" placeholder="Site" class="inputSite" required>
-                        <input type="email" placeholder="Email" class="inputEmail" required>
-                        <input type="password" placeholder="Senha" class="inputSenha" name="senha" required>
-                            <div class="btnHeaderCadastro"> 
-                                <ul>
-                                    <li class="btnCadastro"><button onclick="(btnCadastro)">Cadastrar</button></li>
-                                </ul>
-                            </div>
+                    <div class="cadastroformBox">
+                        <h1 class="tituloCadastro">Cadastro</h1>
+                            <input type="text" placeholder="Nome Fantasia" class="inputNomeFantasia" required>
+                            <input type="text" placeholder="CNPJ" class="inputCNPJ" required> 
+                            <input type="text" placeholder="Endereço" class="inputEnderecoEmpresa" required>
+                            <input type="number" placeholder="Número" class="inputNumero" required>
+                            <input type="text" placeholder="Bairro" class="inputBairro" required>
+                            <input type="text" placeholder="Cidade" class="inputCidade" required>
                     </div>
-                    <div class="footerlogoCad2">
-                        <span>Rede social</span>
+                    <div class="footerlogoCad1">
                     <ul class="sci">
                         <li><a href="#"><img src="../img/github.png"></a></li>
                         <li><a href="#"><img src="../img/instagram.png"></a></li>
@@ -98,12 +131,108 @@
                         <li><a href="#"><img src="../img/facebook.png"></a></li>
                         <li><a href="#"><img src="../img/linkedin.png"></a></li>
                     </ul>
+                    </div>
+            </div>
+        </div> -->
+<!-------------------------------------->
+
+<!-- NOVO HTML INPUTS -->
+        <div class="form2" id="form">
+            <div class="hr2">
+            <div class="form-control2">
+                <input type="text" placeholder="Estado" id="estado" onkeyup="checkEstado()" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+
+            <div class="form-control2">
+                <input type="text" placeholder="Cidade" id="cidade" onkeyup="checkCidade()" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+
+            <div class="form-control2">
+                <input type="text" placeholder="Bairro" id="bairro" onkeyup="checkBairro()" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+
+            <div class="form-control2">
+                <input type="text" placeholder="Logradouro" id="logradouro" onkeyup="checkLogradouro()" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+
+            <div class="form-control2">
+                <input type="text" placeholder="CNPJ" id="cnpj" onkeyup="checkCNPJ()" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+
+            <div class="form-control2">
+                <input type="number" placeholder="Número" id="numero" onkeyup="checkNumero()" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="btnHeaderCadastro"> 
+                <ul>
+                    <li class="btnCadastro"><button onclick="cadastrar()">Cadastrar</button></li>
+                </ul>
+            </div>
+            </div>
+            <div class="footerlogoCad2">
+                <span>Rede social</span>
+            <ul class="sci">
+                <li><a href="#"><img src="../img/github.png"></a></li>
+                <li><a href="#"><img src="../img/instagram.png"></a></li>
+                <li><a href="#"><img src="../img/twitter.png"></a></li>
+                <li><a href="#"><img src="../img/facebook.png"></a></li>
+                <li><a href="#"><img src="../img/linkedin.png"></a></li>
+            </ul>
+        </div>
+        </div>
+<!-------------------------------------->
+
+<!-- ANTIGO HTML INPUTS -->
+        <!-- <div class="cardCadastro2">
+            <div class="cadastrotForm" >
+                <div class="cadastroformBox2">
+                    <input type="text" placeholder="Estado" class="inputEstado" required>
+                    <input type="number" placeholder="CEP" class="inputCEP" required>
+                    <input type="tel" placeholder="Telefone Comercial" class="inputTelefone" required > 
+                    <input type="text" placeholder="Site" class="inputSite" required>
+                    <input type="email" placeholder="Email" class="inputEmail" required>
+                    <input type="password" placeholder="Senha" class="inputSenha" name="senha" required>
+                        <div class="btnHeaderCadastro"> 
+                            <ul>
+                                <li class="btnCadastro"><button onclick="cadastrar()">Cadastrar</button></li>
+                            </ul>
+                        </div>
                 </div>
+                <div class="footerlogoCad2">
+                    <span>Rede social</span>
+                <ul class="sci">
+                    <li><a href="#"><img src="../img/github.png"></a></li>
+                    <li><a href="#"><img src="../img/instagram.png"></a></li>
+                    <li><a href="#"><img src="../img/twitter.png"></a></li>
+                    <li><a href="#"><img src="../img/facebook.png"></a></li>
+                    <li><a href="#"><img src="../img/linkedin.png"></a></li>
+                </ul>
             </div>
         </div>
-                </div>
-        </div>
+    </div> -->
+<!-------------------------------------->
+            </div>
     </div>
+</div>
 </div>
 </body>
 </html>
+
+<script src="../js/cadastro.js" defer></script>
