@@ -168,18 +168,33 @@
 
 /* --------NOVA VALIDAÇÃO DAS INPUTS NO CSS---------- */
 
-const username = document.getElementById("username");
-const site = document.getElementById("site");
-const telefone = document.getElementById("telefone");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
-const cep = document.getElementById("cep");
-const estado = document.getElementById("estado");
-const cidade = document.getElementById("cidade");
-const bairro = document.getElementById("bairro");
-const logradouro = document.getElementById("logradouro");
-const cnpj = document.getElementById("cnpj");
-const numero = document.getElementById("numero");
+const idusername = document.getElementById("username");
+const idsite = document.getElementById("site");
+const idtelefone = document.getElementById("telefone");
+const idemail = document.getElementById("email");
+const idpassword = document.getElementById("password");
+const idcep = document.getElementById("cep");
+const idestado = document.getElementById("estado");
+const idcidade = document.getElementById("cidade");
+const idbairro = document.getElementById("bairro");
+const idlogradouro = document.getElementById("logradouro");
+const idcnpj = document.getElementById("cnpj");
+const idnumero = document.getElementById("numero");
+
+const URL = "http://localhost:3334";
+
+var nomeFantasia;
+var site;
+var telefone;
+var email;
+var senha;
+var cep;
+var estado;
+var cidade;
+var bairro;
+var logradouro;
+var cnpj;
+var numero;
 
 async function cadastrar() {
   checkUsername();
@@ -195,151 +210,198 @@ async function cadastrar() {
   checkCNPJ();
   checkNumero();
 
-  try {
-    const response = await fetch(`${URL}/hospitais/cadastrar`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    if (response.status == 200) {
-      console.log("Cadastro realizado com sucesso!");
-      setInterval(() => {
-        window.location.href = "/pages/login.html";
-      }, 2000);
-    }
 
-    if (response.status == 500) {
-      console.log("Houve um erro ao realizar o cadastro", response);
-    }
-  } catch (error) {
-    if (error) {
-      console.log(error);
-      return;
+  const data = {
+    nomeFantasia,
+    site,
+    telefone,
+    email,
+    senha,
+    cep,
+    estado,
+    cidade,
+    bairro,
+    logradouro,
+    cnpj,
+    numero,
+  };
+
+  if (
+    data.nomeFantasia == undefined &&
+    data.site == undefined &&
+    data.telefone == undefined &&
+    data.email == undefined &&
+    data.senha == undefined &&
+    data.cep == undefined &&
+    data.estado == undefined &&
+    data.cidade == undefined &&
+    data.bairro == undefined &&
+    data.logradouro == undefined &&
+    data.cnpj == undefined &&
+    data.numero == undefined) {
+    cardErro.style.display = "block";
+    mensagem_erro.innerHTML = "Preencha todos os campos";
+    setInterval(sumirMensagem, 5000)
+  } else {
+    try {
+      const response = await fetch(`${URL}/hospitais/cadastrar`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.status == 200) {
+        console.log("Cadastro realizado com sucesso!");
+        mensagem_erro.innerHTML = "Cadastro realizado";
+        cardErro.style.display = "block";
+        setInterval(() => {
+          window.location.href = "/pages/login.html";
+        }, 2000);
+      }
+
+      if (response.status == 500) {
+        console.log("Houve um erro ao realizar o cadastro", response);
+      }
+    } catch (error) {
+      if (error) {
+        console.log(error);
+        return;
+      }
     }
   }
 }
 
 function checkUsername() {
   // pegar valor da input
-  const usernameValue = username.value.trim();
+  const usernameValue = idusername.value.trim();
 
   if (usernameValue.length > 0) {
     // adiciona success class
-    setSuccessFor(username);
+    setSuccessFor(idusername);
+    nomeFantasia = usernameValue;
   } else {
     // mostrar error
     // adicionar error class
-    setErrorFor(username, "Nome inválido");
+    setErrorFor(idusername, "Nome inválido");
   }
 }
 
 function checkSite() {
-  const siteValue = site.value.trim();
+  const siteValue = idsite.value.trim();
   if (
     siteValue.length > 0 &&
     siteValue.indexOf("www") > -1 &&
     siteValue.endsWith(".com")
   ) {
-    setSuccessFor(site);
+    setSuccessFor(idsite);
+    site = siteValue;
   } else {
-    setErrorFor(site, "Site inválido");
+    setErrorFor(idsite, "Site inválido");
   }
 }
 
 function checkTelefone() {
-  const telefoneValue = telefone.value.trim();
+  const telefoneValue = idtelefone.value.trim();
   if (telefoneValue.length > 10) {
-    setSuccessFor(telefone);
+    setSuccessFor(idtelefone);
+    telefone = telefoneValue;
   } else {
-    setErrorFor(telefone, "Telefone inválido");
+    setErrorFor(idtelefone, "Telefone inválido");
   }
 }
 
 function checkEmail() {
-  const emailValue = email.value.trim();
+  const emailValue = idemail.value.trim();
   if (
-    emailValue.indexOf("@") > -1 &&
-    emailValue.indexOf(".") > -1 &&
     emailValue.length > 0 &&
-    emailValue.endsWith("com")
+    emailValue.indexOf("@") > -1 &&
+    emailValue.endsWith(".com")
   ) {
-    setSuccessFor(email);
+    setSuccessFor(idemail);
+    email = emailValue;
   } else {
-    setErrorFor(email, "Email inválido");
+    setErrorFor(idemail, "Email inválido");
   }
 }
 
 function checkPassword() {
-  const passwordValue = password.value.trim();
-  if (passwordValue.length > 0) {
-    setSuccessFor(password);
+  const passwordValue = idpassword.value.trim();
+  if (passwordValue.length > 7) {
+    setSuccessFor(idpassword);
+    senha = passwordValue;
   } else {
-    setErrorFor(password, "Senha inválido");
+    setErrorFor(idpassword, "Senha inválido");
   }
 }
 
 function checkCEP() {
-  const cepValue = cep.value.trim();
+  const cepValue = idcep.value.trim();
   if (cepValue.length >= 8) {
-    setSuccessFor(cep);
+    setSuccessFor(idcep);
+    cep = cepValue;
   } else {
-    setErrorFor(cep, "CEP inválido");
+    setErrorFor(idcep, "CEP inválido");
   }
 }
 
 function checkEstado() {
-  const estadoValue = estado.value.trim();
+  const estadoValue = idestado.value.trim();
   if (estadoValue.length > 0) {
-    setSuccessFor(estado);
+    setSuccessFor(idestado);
+    estado = estadoValue;
   } else {
-    setErrorFor(estado, "Estado inválido");
+    setErrorFor(idestado, "Estado inválido");
   }
 }
 
 function checkCidade() {
-  const cidadeValue = cidade.value.trim();
+  const cidadeValue = idcidade.value.trim();
   if (cidadeValue.length > 0) {
-    setSuccessFor(cidade);
+    setSuccessFor(idcidade);
+    cidade = cidadeValue;
   } else {
-    setErrorFor(cidade, "Cidade inválido");
+    setErrorFor(idcidade, "Cidade inválido");
   }
 }
 
 function checkBairro() {
-  const bairroValue = bairro.value.trim();
+  const bairroValue = idbairro.value.trim();
   if (bairroValue.length > 0) {
-    setSuccessFor(bairro);
+    setSuccessFor(idbairro);
+    bairro = bairroValue;
   } else {
-    setErrorFor(bairro, "Bairro inválido");
+    setErrorFor(idbairro, "Bairro inválido");
   }
 }
 
 function checkLogradouro() {
-  const logradouroValue = logradouro.value.trim();
+  const logradouroValue = idlogradouro.value.trim();
   if (logradouroValue.length > 0) {
-    setSuccessFor(logradouro);
+    setSuccessFor(idlogradouro);
+    logradouro = logradouroValue;
   } else {
-    setErrorFor(logradouro, "Logradouro inválido");
+    setErrorFor(idlogradouro, "Logradouro inválido");
   }
 }
 
 function checkCNPJ() {
-  const cnpjValue = cnpj.value.trim();
+  const cnpjValue = idcnpj.value.trim();
   if (cnpjValue.length > 17) {
-    setSuccessFor(cnpj);
+    setSuccessFor(idcnpj);
+    cnpj = cnpjValue;
   } else {
-    setErrorFor(cnpj, "CNPJ inválido");
+    setErrorFor(idcnpj, "CNPJ inválido");
   }
 }
 
 function checkNumero() {
-  const numeroValue = numero.value.trim();
+  const numeroValue = idnumero.value.trim();
   if (numeroValue.length > 0) {
-    setSuccessFor(numero);
+    setSuccessFor(idnumero);
+    numero = numeroValue;
   } else {
-    setErrorFor(numero, "Número inválido");
+    setErrorFor(idnumero, "Número inválido");
   }
 }
 
@@ -359,3 +421,6 @@ function setSuccessFor(input) {
   formControl.className = "form-control success";
 }
 /* -------------------------------------------------- */
+function sumirMensagem() {
+  cardErro.style.display = "none"
+}
