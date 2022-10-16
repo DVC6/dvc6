@@ -82,23 +82,23 @@
                 <div class="edit">EDIT</div>
             </div>
             <div class="star-widget">
-                <input type="radio" name="rate" id="rate-5">
+                <input type="radio" name="rate" id="rate-5" class="star5" onclick="nota(5)">
                 <label for="rate-5" class="fa fa-star"></label>
-                <input type="radio" name="rate" id="rate-4">
+                <input type="radio" name="rate" id="rate-4" class="star4" onclick="nota(4)">
                 <label for="rate-4" class="fa fa-star"></label>
-                <input type="radio" name="rate" id="rate-3">
+                <input type="radio" name="rate" id="rate-3" class="star3" onclick="nota(3)">
                 <label for="rate-3" class="fa fa-star"></label>
-                <input type="radio" name="rate" id="rate-2">
+                <input type="radio" name="rate" id="rate-2" class="star2" onclick="nota(2)">
                 <label for="rate-2" class="fa fa-star"></label>
-                <input type="radio" name="rate" id="rate-1">
+                <input type="radio" name="rate" id="rate-1" class="star1" onclick="nota(1)">
                 <label for="rate-1" class="fa fa-star"></label>
                 <form action="#">
                     <header></header>
                     <div class="textarea">
-                        <textarea cols="30" placeholder="Descreva sua experiência.."></textarea>
+                        <textarea cols="30" placeholder="Descreva sua experiência.." id="input_texto"></textarea>
                     </div>
                     <div class="btn">
-                        <button type="submit">Publicar</button>
+                        <button type="submit" class="btnFeedback" onclick="btnFeedback()">Publicar</button>
                     </div>
                 </form>
             </div>
