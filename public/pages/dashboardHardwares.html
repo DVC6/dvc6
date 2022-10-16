@@ -8,20 +8,20 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <link rel="stylesheet" href="../styles/dashboardHardwares.css">
     <link rel="stylesheet" href="../styles/top&sideBar.css">
-    <script src="../js/funcoes.js"></script>
+    <script src="../js/funções.js"></script>
     <title>Dashboard</title>
      <script
      src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
      <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
 </head>
-<body>
+<body onload="validarSessao()">
   <div class="container">
     <div class="topbar">
         <div class="logo">
             <img src="../img/image.png">
         </div>
         <div class="info">
-            <p>Olá, <b><span id="nomeUsuario">Guilherme</span></b>!</p>
+            <p>Olá, <b><span style="font-size: 16px" id="nomeUsuario"></span></b>!</p>
         </div>
         <div class="user">
             <img src="../img/user.png">
@@ -41,7 +41,7 @@
                     <div>Analytics</div>
                 </a>
             </li>
-            <li>
+            <li id="funcionariosInfo">
                 <a onclick="controleCadastro()">
                     <i class="fas fa-users"></i>
                     <div>Funcionários</div>
@@ -55,7 +55,7 @@
             </li>
         </ul>
         <ul>
-            <li onclick="limparSessao()">
+            <li onclick="deslogar()">
                 <a href="#">
                     <i class="fas fa-sign-out-alt"></i>
                     <div>Sair</div>

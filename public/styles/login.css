@@ -89,7 +89,7 @@
 .containerLogin .form {
   width: 100%;
   text-align: center;
-  padding: 45px 50px;
+  padding: 25px 50px;
 }
 .containerLogin h1 {
   color: #beb6d2;
@@ -161,7 +161,7 @@
   background: #fa1e4e;
   color: #beb6d2;
   padding: 8px 10px;
-  width: 50%;
+  width: 100%;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;

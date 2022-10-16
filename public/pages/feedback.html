@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="../styles/top&sideBar.css">
     <link rel="stylesheet" href="../styles/footer.css">
     <script src="https://kit.fontawesome.com/67c66657c7.js"></script>
+    <script src="../js/funções.js"></script>
     <title>Feedback</title>
 </head>
-<body>
+<body onload="validarSessao()">
 <!-- Start of dvc6 Zendesk Widget script -->
 <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=a09dd733-6ca6-415b-b162-e8a1967ee841"> </script>
 <!-- End of dvc6 Zendesk Widget script -->
@@ -20,7 +21,7 @@
         <img src="../img/image.png">
     </div>
     <div class="info">
-        <p>Olá, <b><span id="nomeUsuario"></span></b>!</p>
+        <p>Olá, <b><span style="font-size: 16px" id="nomeUsuario"></span></b>!</p>
     </div>
     <div class="user">
         <img src="../img/user.png">
@@ -40,8 +41,8 @@
                 <div>Analytics</div>
             </a>
         </li>
-        <li>
-            <a href="#">
+        <li id="funcionariosInfo">
+            <a onclick="controleCadastro()">
                 <i class="fas fa-users"></i>
                 <div>Funcionários</div>
             </a>
@@ -54,7 +55,7 @@
         </li>
     </ul>
     <ul>
-        <li onclick="limparSessao()">
+        <li onclick="deslogar()">
             <a href="#">
                 <i class="fas fa-sign-out-alt"></i>
                 <div>Sair</div>
@@ -108,14 +109,6 @@
 </html>
 
 <script>
-    /*-----USUARIO-----*/
-    if (sessionStorage == sessionStorage.NOME_HOSPITAL) {
-        nomeUsuario.innerHTML = sessionStorage.NOME_HOSPITAL;
-    } else {
-        nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO;
-    }
-    /*-----------------*/
-    
     const btn = document.querySelector("button");
     const post = document.querySelector(".post");
     const widget = document.querySelector(".star-widget");
