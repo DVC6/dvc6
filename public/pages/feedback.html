@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,102 +11,109 @@
     <link rel="stylesheet" href="../styles/footer.css">
     <script src="https://kit.fontawesome.com/67c66657c7.js"></script>
     <script src="../js/funções.js"></script>
+    <script src="../js/feedback.js" defer></script>
     <title>Feedback</title>
 </head>
+
 <body onload="validarSessao()">
-<!-- Start of dvc6 Zendesk Widget script -->
-<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=a09dd733-6ca6-415b-b162-e8a1967ee841"> </script>
-<!-- End of dvc6 Zendesk Widget script -->
-<div class="topbar">
-    <div class="logo">
-        <img src="../img/image.png">
+    <!-- Start of dvc6 Zendesk Widget script -->
+    <script id="ze-snippet"
+        src="https://static.zdassets.com/ekr/snippet.js?key=a09dd733-6ca6-415b-b162-e8a1967ee841"> </script>
+    <!-- End of dvc6 Zendesk Widget script -->
+    <div class="topbar">
+        <div class="logo">
+            <img src="../img/image.png">
+        </div>
+        <div class="info">
+            <p>Olá, <b><span style="font-size: 16px" id="nomeUsuario"></span></b>!</p>
+        </div>
+        <div class="user">
+            <img src="../img/user.png">
+        </div>
     </div>
-    <div class="info">
-        <p>Olá, <b><span style="font-size: 16px" id="nomeUsuario"></span></b>!</p>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="dashboardAdm.html">
+                    <i class="fas fa-th-large"></i>
+                    <div>Dashboard</div>
+                </a>
+            </li>
+            <li>
+                <a href="dashboardHardwares.html">
+                    <i class="fas fa-chart-area"></i>
+                    <div>Analytics</div>
+                </a>
+            </li>
+            <li id="funcionariosInfo">
+                <a onclick="controleCadastro()">
+                    <i class="fas fa-users"></i>
+                    <div>Funcionários</div>
+                </a>
+            </li>
+            <li style="border-left: 2px solid #fa1e4e;">
+                <a style="color: #fa1e4e;" href="#">
+                    <i class="fas fa-comments"></i>
+                    <div>Feedback</div>
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li onclick="deslogar()">
+                <a href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <div>Sair</div>
+                </a>
+            </li>
+        </ul>
     </div>
-    <div class="user">
-        <img src="../img/user.png">
-    </div>
-</div>
-<div class="sidebar">
-    <ul>
-        <li>
-            <a href="dashboardAdm.html">
-                <i class="fas fa-th-large"></i>
-                <div>Dashboard</div>
-            </a>
-        </li>
-        <li>
-            <a href="dashboardHardwares.html">
-                <i class="fas fa-chart-area"></i>
-                <div>Analytics</div>
-            </a>
-        </li>
-        <li id="funcionariosInfo">
-            <a onclick="controleCadastro()">
-                <i class="fas fa-users"></i>
-                <div>Funcionários</div>
-            </a>
-        </li>
-        <li style="border-left: 2px solid #fa1e4e;">
-            <a style="color: #fa1e4e;" href="#">
-                <i class="fas fa-comments"></i>
-                <div>Feedback</div>
-            </a>
-        </li>
-    </ul>
-    <ul>
-        <li onclick="deslogar()">
-            <a href="#">
-                <i class="fas fa-sign-out-alt"></i>
-                <div>Sair</div>
-            </a>
-        </li>
-    </ul>
-</div>
-<div class="main">
-    <div class="bannerFeed">
-        <div class="text-box">
-      <h1>
-        Feedback
-      </h1>
-      <p>
-        <span class="p0">O melhor investimento que</span><br><span class="p1">podemos fazer é saber a</span><br><span class="p2">satisfação dos nossos clientes.</span><br><span class="p3">
-        Ajude-nos a melhorar a sua</span><br><span class="p4">navegação e serviços, envie</span><br><span class="p5"> seu feedback logo abaixo.</span></p>
-    </div>
-    </div>
-    <div class="avaliacao">
-        <h1>Dê seu feedback</h1>
-        <div class="container">
-            <div class="post">
-                <div class="text">Obrigado por nos avaliar!</div>
-                <div class="edit">EDIT</div>
+    <div class="main">
+        <div class="bannerFeed">
+            <div class="text-box">
+                <h1>
+                    Feedback
+                </h1>
+                <p>
+                    <span class="p0">O melhor investimento que</span><br><span class="p1">podemos fazer é saber
+                        a</span><br><span class="p2">satisfação dos nossos clientes.</span><br><span class="p3">
+                        Ajude-nos a melhorar a sua</span><br><span class="p4">navegação e serviços,
+                        envie</span><br><span class="p5"> seu feedback logo abaixo.</span>
+                </p>
             </div>
-            <div class="star-widget">
-                <input type="radio" name="rate" id="rate-5" class="star5" onclick="nota(5)">
-                <label for="rate-5" class="fa fa-star"></label>
-                <input type="radio" name="rate" id="rate-4" class="star4" onclick="nota(4)">
-                <label for="rate-4" class="fa fa-star"></label>
-                <input type="radio" name="rate" id="rate-3" class="star3" onclick="nota(3)">
-                <label for="rate-3" class="fa fa-star"></label>
-                <input type="radio" name="rate" id="rate-2" class="star2" onclick="nota(2)">
-                <label for="rate-2" class="fa fa-star"></label>
-                <input type="radio" name="rate" id="rate-1" class="star1" onclick="nota(1)">
-                <label for="rate-1" class="fa fa-star"></label>
-                <form action="#">
-                    <header></header>
-                    <div class="textarea">
-                        <textarea cols="30" placeholder="Descreva sua experiência.." id="input_texto"></textarea>
-                    </div>
-                    <div class="btn">
-                        <button type="submit" class="btnFeedback" onclick="btnFeedback()">Publicar</button>
-                    </div>
-                </form>
+        </div>
+        <div class="avaliacao">
+            <h1>Dê seu feedback</h1>
+            <div class="container">
+                <div class="post">
+                    <div class="text">Obrigado por nos avaliar!</div>
+                    <div class="edit">EDIT</div>
+                </div>
+                <div class="star-widget">
+                    <input type="radio" name="rate" id="rate-5" class="star5" onclick="atribuirNota(5)">
+                    <label for="rate-5" class="fa fa-star"></label>
+                    <input type="radio" name="rate" id="rate-4" class="star4" onclick="atribuirNota(4)">
+                    <label for="rate-4" class="fa fa-star"></label>
+                    <input type="radio" name="rate" id="rate-3" class="star3" onclick="atribuirNota(3)">
+                    <label for="rate-3" class="fa fa-star"></label>
+                    <input type="radio" name="rate" id="rate-2" class="star2" onclick="atribuirNota(2)">
+                    <label for="rate-2" class="fa fa-star"></label>
+                    <input type="radio" name="rate" id="rate-1" class="star1" onclick="atribuirNota(1)">
+                    <label for="rate-1" class="fa fa-star"></label>
+                    <form action="#">
+                        <header></header>
+                        <div class="textarea">
+                            <textarea cols="30" placeholder="Descreva sua experiência.." id="input_texto"></textarea>
+                        </div>
+                        <div class="btn">
+                            <button type="submit" class="btnFeedback">Publicar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </body>
+
 </html>
 
 <script>
@@ -113,12 +121,12 @@
     const post = document.querySelector(".post");
     const widget = document.querySelector(".star-widget");
     const editBtn = document.querySelector(".edit");
-    btn.onclick = ()=>{
+    btn.onclick = () => {
         widget.style.display = "none";
         post.style.display = "block";
-      editBtn.onclick = ()=>{
-          widget.style.display = "block";
-          post.style.display = "none";
+        editBtn.onclick = () => {
+            widget.style.display = "block";
+            post.style.display = "none";
         }
         return false;
     }

@@ -1,5 +1,5 @@
 
-const btnSubmit = document.querySelector('.inputSubmit');
+const btnSubmit = document.querySelector('.btnFeedback');
 
 var starvalue = null
 var texto = null
@@ -17,6 +17,8 @@ async function enviar() {
     texto
   };
 
+  console.log(data)
+
     if(starvalue != null && texto != null){
   try {
     const response = await fetch(`${URL}/feedback/enviar`, {
@@ -28,11 +30,13 @@ async function enviar() {
     });
     if ((response.status = 200)) {
       console.log('Mensagem enviada com sucesso!');
+      return
     }
 
     if ((response.status = 500)) {
-      console.log('Houve um erro ao realizar o cadastro', response);
+      console.log('Houve um erro ao realizar o envio do feedback', response);
     }
+
   } catch (error) {
     if (error) {
       console.log(error);

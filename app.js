@@ -1,5 +1,5 @@
-process.env.AMBIENTE_PROCESSO = 'desenvolvimento';
-// process.env.AMBIENTE_PROCESSO = "producao";
+// process.env.AMBIENTE_PROCESSO = 'desenvolvimento';
+process.env.AMBIENTE_PROCESSO = "producao";
 
 var express = require('express');
 var cors = require('cors');
@@ -7,7 +7,7 @@ var path = require('path');
 var PORTA = 3334;
 var app = express();
 
-var feedbackRouter = require('./src/router/feedbackRouter');
+var feedbackRouter = require('./src/routes/feedbackRouter');
 var indexRouter = require('./src/routes/index');
 var hospitalRouter = require('./src/routes/hospitalRouter');
 var dashboardRouter = require('./src/routes/dashboardRouter');
