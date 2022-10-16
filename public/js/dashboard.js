@@ -183,7 +183,7 @@ function deletarUsuario(idFuncionario) {
 
       if (resposta.ok) {
         window.alert('Usuário deletado com sucesso!');
-        window.location = 'dashboardAdm.html';
+        location.reload();
       } else {
         throw 'Houve um erro ao tentar deletar este usuário!';
       }
@@ -238,7 +238,7 @@ function cadastrarUsuario() {
 
       if (resposta.ok) {
         window.alert('Cadastro realizado com sucesso!');
-        window.location = 'dashboardAdm.html';
+        location.reload();
         limparFormulario();
       } else {
         throw 'Houve um erro ao tentar realizar o cadastro!';
