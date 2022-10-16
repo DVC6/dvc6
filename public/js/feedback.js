@@ -17,7 +17,7 @@ async function enviar() {
     texto
   };
 
-  console.log(data)
+  console.table(data)
 
     if(starvalue != null && texto != null){
   try {

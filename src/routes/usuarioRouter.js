@@ -3,7 +3,7 @@ var router = express.Router();
 
 var usuarioController = require("../controllers/usuarioController");
 
-router.get("/listar-por-hospital", function (res, res) {
+router.get("/listar-por-hospital", function (req, res) {
   usuarioController.listar(req, res);
 });
 

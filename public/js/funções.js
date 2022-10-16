@@ -1,5 +1,4 @@
 function validarSessao() {
-  debugger;
   const nomeFantasia = sessionStorage.LOGIN_HOSPITAL;
   const nomeFuncionario = sessionStorage.LOGIN_FUNCIONARIO;
 
@@ -19,5 +18,5 @@ function deslogar() {
   delete sessionStorage.LOGIN_FUNCIONARIO;
   delete sessionStorage.ID_FUNCIONARIO;
   delete sessionStorage.FK_HOSPITAL;
-  window.location = "../pages/login.html";
+  window.location = '../pages/login.html';
 }

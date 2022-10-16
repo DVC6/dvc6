@@ -220,6 +220,7 @@ function cadastrarUsuario(req, res) {
 }
 
 function  deletarUsuario(req, res) {
+    console.log("Tentando deletar usuario...")
     var idFuncionario = req.params.idFuncionario;
   
     if (idFuncionario == undefined) {
