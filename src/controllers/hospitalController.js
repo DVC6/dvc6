@@ -1,4 +1,4 @@
-var hospitalModel = require("../models/hospitalModel");
+var hospitalModel = require('../models/hospitalModel');
 
 function listar(req, res) {
   hospitalModel
@@ -6,7 +6,7 @@ function listar(req, res) {
     .then(function (resultado) {
       if (resultado.length > 0) {
       } else {
-        res.status(404).send("Nenhum resultado encontrado!");
+        res.status(404).send('Nenhum resultado encontrado!');
       }
     })
     .catch(function (erro) {
@@ -18,9 +18,9 @@ function entrar(req, res) {
   const { email, senha } = req.body;
 
   if (email == undefined) {
-    res.status(400).send("Seu email está undefined!");
+    res.status(400).send('Seu email está undefined!');
   } else if (senha == undefined) {
-    res.status(400).send("Sua senha está indefinida!");
+    res.status(400).send('Sua senha está indefinida!');
   } else {
     hospitalModel
       .entrar(email, senha)
@@ -32,15 +32,15 @@ function entrar(req, res) {
           console.log(resultado);
           res.json(resultado[0]);
         } else if (resultado.length == 0) {
-          res.status(403).send("Email e/ou senha inválido(s)");
+          res.status(403).send('Email e/ou senha inválido(s)');
         } else {
-          res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+          res.status(403).send('Mais de um usuário com o mesmo login e senha!');
         }
       })
       .catch(function (erro) {
         console.log(erro);
         console.log(
-          "\nHouve um erro ao realizar o login! Erro: ",
+          '\nHouve um erro ao realizar o login! Erro: ',
           erro.sqlMessage
         );
         res.status(500).json(erro.sqlMessage);
@@ -49,6 +49,7 @@ function entrar(req, res) {
 }
 
 function cadastrar(req, res) {
+  console.table(req.body)
   const {
     nomeFantasia,
     site,
@@ -61,31 +62,31 @@ function cadastrar(req, res) {
     bairro,
     logradouro,
     cnpj,
-    numero
+    numero,
   } = req.body;
 
-  if (nomeFantasia == undefined || nomeFantasia == "") {
-    res.status(400).send("Seu nome está undefined!");
-  } else if (email == undefined || email == "") {
-    res.status(400).send("Seu email está undefined!");
-  } else if (senha == undefined || senha == "") {
-    res.status(400).send("Sua senha está undefined!");
-  } else if (telefone == undefined || telefone == "") {
-    res.status(400).send("Sua senha está undefined!");
-  } else if (logradouro == undefined || logradouro == "") {
-    res.status(400).send("Sua senha está undefined!");
-  } else if (numero == undefined || numero == "") {
-    res.status(400).send("Sua senha está undefined!");
-  } else if (bairro == undefined || bairro == "") {
-    res.status(400).send("Sua senha está undefined!");
-  } else if (cidade == undefined || cidade == "") {
-    res.status(400).send("Sua senha está undefined!");
-  } else if (estado == undefined || estado == "") {
-    res.status(400).send("Sua senha está undefined!");
-  } else if (site == undefined || site == "") {
-    res.status(400).send("Sua senha está undefined!");
-  } else if (cep == undefined || cep == "") {
-    res.status(400).send("Sua senha está undefined!");
+  if (nomeFantasia == undefined || nomeFantasia == '') {
+    res.status(400).send('Seu nome está undefined!');
+  } else if (email == undefined || email == '') {
+    res.status(400).send('Seu email está undefined!');
+  } else if (senha == undefined || senha == '') {
+    res.status(400).send('Sua senha está undefined!');
+  } else if (telefone == undefined || telefone == '') {
+    res.status(400).send('Sua senha está undefined!');
+  } else if (logradouro == undefined || logradouro == '') {
+    res.status(400).send('Sua senha está undefined!');
+  } else if (numero == undefined || numero == '') {
+    res.status(400).send('Sua senha está undefined!');
+  } else if (bairro == undefined || bairro == '') {
+    res.status(400).send('Sua senha está undefined!');
+  } else if (cidade == undefined || cidade == '') {
+    res.status(400).send('Sua senha está undefined!');
+  } else if (estado == undefined || estado == '') {
+    res.status(400).send('Sua senha está undefined!');
+  } else if (site == undefined || site == '') {
+    res.status(400).send('Sua senha está undefined!');
+  } else if (cep == undefined || cep == '') {
+    res.status(400).send('Sua senha está undefined!');
   } else {
     hospitalModel
       .cadastrar(
@@ -105,15 +106,15 @@ function cadastrar(req, res) {
       .then(function (resultado) {
         res.json(resultado);
 
-        console.log("Usuario cadastrado");
+        console.log('Usuario cadastrado');
         req.session.save(() => {
-          res.redirect("/");
+          res.redirect('/');
         });
       })
       .catch(function (erro) {
         console.log(erro);
         console.log(
-          "\nHouve um erro ao realizar o cadastro! Erro: ",
+          '\nHouve um erro ao realizar o cadastro! Erro: ',
           erro.sqlMessage
         );
         res.status(500).json(erro.sqlMessage);
@@ -125,7 +126,7 @@ function alterarSenha(req, res) {
   const { senha, email } = req.body;
 
   if (!email || email == undefined) {
-    res.status(404).send("Insira um e-mail valido!");
+    res.status(404).send('Insira um e-mail valido!');
   } else {
     hospitalModel
       .alterarSenha(senha, email)
@@ -133,7 +134,7 @@ function alterarSenha(req, res) {
       .catch((error) => {
         console.log(error);
         console.log(
-          "\nHouve um erro ao realizar o cadastro! Erro: ",
+          '\nHouve um erro ao realizar o cadastro! Erro: ',
           error.sqlMessage
         );
         res.status(500).json(error.sqlMessage);
@@ -145,7 +146,7 @@ function deletar(req, res) {
   var email = req.body.email;
 
   if (!email || email == undefined) {
-    res.status(404).send("Email nao encontrado!");
+    res.status(404).send('Email nao encontrado!');
   } else {
     hospitalModel
       .deletar(email)
@@ -153,7 +154,7 @@ function deletar(req, res) {
       .catch((error) => {
         console.log(error);
         console.log(
-          "\n Houve um erro ao tentar deletar o usuario! Erro: ",
+          '\n Houve um erro ao tentar deletar o usuario! Erro: ',
           error.sqlMessage
         );
         res.status(500).json(error.sqlMessage);

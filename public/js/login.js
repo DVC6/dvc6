@@ -38,7 +38,6 @@ async function entrarAdmin() {
         }),
       });
       console.log(response);
-      debugger;
       if (response.ok) {
         console.log(
           response.json().then((json) => {
