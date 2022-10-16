@@ -15,6 +15,30 @@
   background-size: cover;
   padding: 115px 0 90px 0;
 }
+/* ---------configErro--------- */
+.alerta_erro {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  display: none;
+  background-color: #1c1726;
+  color: #beb6d2;
+  width: 100px;
+  position: fixed;
+  border-radius: 4px;
+  padding: 10px;
+  margin-right: -40%;
+  margin-top: -2%;
+  text-align: center;
+}
+
+.card_erro #mensagem_erro {
+  font-size: 12px;
+  font-weight: 600;
+}
+/* --------------------------- */
 .bannerLogin {
   width: 50%;
   display: flex;
@@ -113,6 +137,24 @@
   outline: none;
   color: #ffffff;
 }
+/* -------- */
+.id small {
+  visibility: hidden;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+}
+
+.id.success input {
+  border-color: #fa1e4e;
+}
+
+.id.error small {
+  color: #fa1e4e;
+  visibility: visible;
+  font-size: 12px;
+}
+/* -------- */
 .form button {
   margin: 9px 0 9px 0;
   border: none;
@@ -124,6 +166,9 @@
   font-weight: 600;
   cursor: pointer;
   border-radius: 5px;
+}
+.form input + i {
+  color: #00000000;
 }
 .form input:focus::placeholder {
   padding-left: 4px;

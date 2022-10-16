@@ -16,6 +16,7 @@
 
     <script src="../js/dashboard.js"></script>
     <script src="../js/login.js"></script>
+    <script src="../js/funções.js"></script>
     <!-- configurar e atualizar -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
@@ -23,8 +24,7 @@
     <title>Tela gerencial</title>
 </head>
 
-<body 
->
+<body onload="validarSessao()">
 <!-- atualizarTotens()"  -->
 <!-- class="corpo" -->
 <!-- onload="validarSessao(), -->
@@ -73,7 +73,7 @@
                 </li>
             </ul>
             <ul>
-                <li onclick="limparSessao()">
+                <li onclick="deslogar()">
                     <a href="#">
                         <i class="fas fa-sign-out-alt"></i>
                         <div>Sair</div>
@@ -233,12 +233,3 @@
 </body>
 
 </html>
-
-<script>
-    /* --------------USAUARIO------------- */
-if (sessionStorage == sessionStorage.NOME_HOSPITAL) {
-  nomeUsuario.innerHTML = sessionStorage.NOME_HOSPITAL;
-} else {
-  nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO;
-}
-</script>

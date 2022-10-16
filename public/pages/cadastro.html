@@ -35,7 +35,7 @@
     <div class="cadastro">
         <div class="alerta_erro">
             <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro" style="color: white;"></span>
+                <span id="mensagem_erro"></span>
             </div>
         </div>
     <div class="bannerCadastro">
@@ -63,42 +63,42 @@
                     <div class="hr">
                         <h1 class="tituloCadastro">Cadastro</h1>
                     <div class="form-control">
-                        <input type="text" placeholder="Nome Fantasia" id="username" onkeyup="checkUsername()" required>
+                        <input type="text" placeholder="Nome Fantasia" id="username" onkeyup="checkUsername()" maxlength="30" required>
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
                     </div>
 
                     <div class="form-control">
-                        <input type="text" placeholder="Site" id="site" onkeyup="checkSite()" required>
+                        <input type="text" placeholder="Site" id="site" onkeyup="checkSite()" maxlength="30" required>
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
                     </div>
 
                     <div class="form-control">
-                        <input type="tel" placeholder="Telefone Comercial" id="telefone" onkeyup="checkTelefone()" required>
+                        <input type="tel" placeholder="Telefone Comercial" id="telefone" onkeyup="checkTelefone()" maxlength="15" required>
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
                     </div>
         
                     <div class="form-control">
-                        <input type="email" placeholder="Email" id="email" onkeyup="checkEmail()" required>
+                        <input type="email" placeholder="Email" id="email" onkeyup="checkEmail()" maxlength="30" required>
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
                     </div>
         
                     <div class="form-control">
-                        <input type="password" placeholder="Senha" id="password" onkeyup="checkPassword()" required>
+                        <input type="password" placeholder="Senha" id="password" onkeyup="checkPassword()" maxlength="20" required>
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
                     </div>
         
                     <div class="form-control">
-                        <input type="text" placeholder="CEP" id="cep" onkeyup="checkCEP()" required>
+                        <input type="text" placeholder="CEP" maxlength="10" id="cep" onkeyup="checkCEP()" required>
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
@@ -145,42 +145,42 @@
         <div class="form2" id="form">
             <div class="hr2">
             <div class="form-control2">
-                <input type="text" placeholder="Estado" id="estado" onkeyup="checkEstado()" required>
+                <input type="text" placeholder="Estado" id="estado" onkeyup="checkEstado()" maxlength="30" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
 
             <div class="form-control2">
-                <input type="text" placeholder="Cidade" id="cidade" onkeyup="checkCidade()" required>
+                <input type="text" placeholder="Cidade" id="cidade" onkeyup="checkCidade()" maxlength="30" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
 
             <div class="form-control2">
-                <input type="text" placeholder="Bairro" id="bairro" onkeyup="checkBairro()" required>
+                <input type="text" placeholder="Bairro" id="bairro" onkeyup="checkBairro()" maxlength="30" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
 
             <div class="form-control2">
-                <input type="text" placeholder="Logradouro" id="logradouro" onkeyup="checkLogradouro()" required>
+                <input type="text" placeholder="Logradouro" id="logradouro" onkeyup="checkLogradouro()" maxlength="30" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
 
             <div class="form-control2">
-                <input type="text" placeholder="CNPJ" id="cnpj" onkeyup="checkCNPJ()" required>
+                <input type="text" placeholder="CNPJ" id="cnpj" onkeyup="checkCNPJ()" maxlength="20" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
 
             <div class="form-control2">
-                <input type="number" placeholder="Número" id="numero" onkeyup="checkNumero()" required>
+                <input type="number" placeholder="Número" id="numero" onkeyup="checkNumero()" maxlength="10" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>

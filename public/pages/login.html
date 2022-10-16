@@ -32,6 +32,11 @@
     <a class="navbtncadastro" href="cadastro.html">Cadastro</a>
     </nav>
     <div class="login">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
         <div class="bannerLogin">
             <div class="cardImg">
                 <div class="textBoasvindas">
@@ -52,12 +57,14 @@
         <span>Faça seu login</span>
         <hr>
                     <div class="id">
-                        <input type="email" class="inputEmail" placeholder="Email">
+                        <input type="email" class="inputEmail" id="email" placeholder="Email" onkeyup="checkEmail()">
                         <i class="fas fa-user"></i>
+                        <small>Error message</small>
                     </div>
                     <div class="id">
-                        <input type="password" class="inputSenha" placeholder="Senha">
+                        <input type="password" class="inputSenha" id="password" placeholder="Senha" onkeyup="checkPassword()">
                         <i class="fas fa-lock"></i>
+                        <small id="smallSenha">Error message</small>
                     </div>
                     <button class="loginSubmit" onclick="loginTeste()">Entrar</button>
                     <hr>
