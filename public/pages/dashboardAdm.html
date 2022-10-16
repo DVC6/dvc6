@@ -24,9 +24,12 @@
     <title>Tela gerencial</title>
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao()"
+>
+<!-- onload="validarSessao()" -->
 <!-- atualizarTotens()"  -->
 <!-- class="corpo" -->
+
     <!-- Start of dvc6 Zendesk Widget script -->
     <script id="ze-snippet"
         src="https://static.zdassets.com/ekr/snippet.js?key=a09dd733-6ca6-415b-b162-e8a1967ee841"> </script>
@@ -59,7 +62,8 @@
                     </a>
                 </li>
                 <li id="funcionariosInfo">
-                    <a onclick="controleCadastro()">
+                    <!-- <a onclick="controleCadastro()"> -->
+                        <a href="funcionario.html">
                         <i class="fas fa-users"></i>
                         <div>Funcionários</div>
                     </a>
@@ -165,10 +169,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
+                            <tr id="lista_funcionarios">
+                                <!-- <td>
                                     <div id="lista_funcionarios"></div>
-                                </td>
+                                </td> -->
                             </tr>
                         </tbody>
                     </table>

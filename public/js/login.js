@@ -156,7 +156,6 @@ async function entrarAdmin() {
           response.json().then((json) => {
             console.log(json);
             console.log(JSON.stringify(json));
-
             sessionStorage.LOGIN_HOSPITAL = json.nome_fantasia;
             sessionStorage.ID_HOSPITAL = json.id_hospital;
           })

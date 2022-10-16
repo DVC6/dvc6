@@ -110,7 +110,9 @@ function listarFuncionarios(idHospital) {
     var instrucao = `
         SELECT 
             id_funcionario,
-            nome_funcionario
+            nome_funcionario,
+            cargo,
+            email
         FROM funcionario
         WHERE fkhospital = '${idHospital}';
     `;
