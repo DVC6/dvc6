@@ -1,14 +1,15 @@
 function validarSessao() {
+  debugger;
   const nomeFantasia = sessionStorage.LOGIN_HOSPITAL;
   const nomeFuncionario = sessionStorage.LOGIN_FUNCIONARIO;
 
   if (nomeFantasia != null) {
     nomeUsuario.innerHTML = `${nomeFantasia}`;
   } else if (nomeFuncionario != null) {
-    funcionariosInfo.style.display = "none";
+    funcionariosInfo.style.display = 'none';
     nomeUsuario.innerHTML = `${nomeFuncionario}`;
   } else {
-    window.location = "../pages/login.html";
+    window.location = '../pages/login.html';
   }
 }
 
