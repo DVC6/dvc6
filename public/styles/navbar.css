@@ -39,15 +39,15 @@ nav label.logo {
 hr {
   background-color: #2e273f;
   border: none;
-  height: 20px;
+  height: 13px;
   width: 1px;
 }
 .btnnavcadastro {
   display: none;
 }
 nav ul {
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
   float: right;
   width: 100%;
 }
