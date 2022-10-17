@@ -83,7 +83,7 @@ async function cadastrar() {
   ) {
     cardErro.style.display = 'block';
     mensagem_erro.innerHTML =
-      'Erro!<br>Preencha todos os campos e corretamente';
+      'Erro!<br>Preencha todos os campos corretamente';
     setInterval(sumirMensagem, 5000);
     return;
   } else if (

@@ -14,14 +14,14 @@
     <script src="../js/funções.js"></script>
     <script src="../js/dashboard.js"></script>
 </head>
-<body onload="validarSessao(), atualizarFuncionarios()">
+<body onload="validarSessao(), atualizarFuncionarios(), qtdFuncionarios()">
 
     <div class="topbar">
         <div class="logo">
             <img src="../img/image.png">
         </div>
         <div class="info">
-            <p>Olá, <b><span style="font-size: 16px" id="nomeUsuario"></span></b>!</p>
+            <p>Olá, <b><span style="font-size: 15px" id="nomeUsuario"></span></b>!</p>
         </div>
         <div class="user">
             <img src="../img/user.png">
@@ -35,14 +35,14 @@
                     <div>Dashboard</div>
                 </a>
             </li>
-            <li style="border-left: 2px solid #fa1e4e;">
-                <a style="color: #fa1e4e;" href="#">
+            <li>
+                <a href="dashboardHardwares.html">
                     <i class="fas fa-chart-area"></i>
                     <div>Analytics</div>
                 </a>
             </li>
-            <li id="funcionariosInfo">
-                <a onclick="controleCadastro()">
+            <li id="funcionariosInfo" style="border-left: 2px solid #fa1e4e;">
+                <a style="color: #fa1e4e;" href="#">
                     <i class="fas fa-users"></i>
                     <div>Funcionários</div>
                 </a>
@@ -66,6 +66,21 @@
 
     <div class="main">
         <div class="containerLista">
+            <div class="infoTotem">
+                <h2>Funcionários</h2>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-name">Total</div>
+                        <div class="number" id="qtd_funcionarios"><span>0</span></div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-users"></i>
+                        <div class="card-name">Funcionários</div>
+                    </div>
+                </div>
+            </div>
       <div class="container" id="cadastroUsuarios">
           <div class="header" id="modalHeader">
             <span>Cadastro de Funcionários</span>
@@ -79,7 +94,7 @@
                         <th>Nome</th>
                         <th>Função</th>
                         <th>Email</th>
-                        <th class="acao">Editar</th>
+                        <!-- <th class="acao">Editar</th> -->
                         <th class="acao">Excluir</th>
                     </tr>
                 </thead>
@@ -98,16 +113,17 @@
                 <label for="m-nome">Nome</label>
                 <input id="m-nome" type="text"  name="nome" value="" required />
 
-                <label for="m-funcao">Senha</label>
-                <input id="m-funcao" type="text" name="senha" value = "" required />
-
-                <label for="m-funcao">Email</label>
-                <input id="m-funcao" type="text" name="email" value = "" required />
-        
                 <label for="m-funcao">Função</label>
                 <input id="m-funcao" type="text" name="cargo" value = "" required />
+                
+                <label for="m-email">Email</label>
+                <input id="m-email" type="email" name="email" value = "" required />
+                
+                <label for="m-senha">Senha</label>
+                <input id="m-senha" type="password" name="senha" value = "" required />
         
                 <button id="btnSalvar" onclick="cadastrarUsuario()">Salvar</button>
+                <button id="btnEdit" onclick="editItem()">Editar</button>
               </form>
             </div>
           </div>

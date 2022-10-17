@@ -30,6 +30,7 @@ body::-webkit-scrollbar-thumb {
   display: grid;
   grid-template-columns: 1fr 0fr 0fr;
   align-items: center;
+  align-content: center;
   z-index: 1;
 }
 .info {

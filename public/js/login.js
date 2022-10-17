@@ -14,7 +14,7 @@ async function entrarAdmin() {
   if (email == undefined || email == '' || senha == undefined || senha == '') {
     cardErro.style.display = 'block';
     mensagem_erro.innerHTML =
-      'Erro!<br>Preencha todos os campos e corretamente';
+      'Erro!<br>Preencha todos os campos corretamente';
     setInterval(sumirMensagem, 5000);
     return;
   } else if (
@@ -81,7 +81,7 @@ async function entrarFuncionario() {
   if (email == undefined || email == '' || senha == undefined || senha == '') {
     cardErro.style.display = 'block';
     mensagem_erro.innerHTML =
-      'Erro!<br>Preencha todos os campos e corretamente';
+      'Erro!<br>Preencha todos os campos corretamente';
     setInterval(sumirMensagem, 5000);
     return;
   } else if (
