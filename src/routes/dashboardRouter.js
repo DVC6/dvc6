@@ -51,4 +51,6 @@ router.post("/deletarUsuario/:idFuncionario", function (req, res) {
   dashboardController.deletarUsuario(req, res);
 });
 
+
+
 module.exports = router;

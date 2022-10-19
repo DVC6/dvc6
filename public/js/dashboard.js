@@ -157,10 +157,10 @@ function atualizarFuncionarios(idHospital) {
                         <td>${funcionario.nome_funcionario}</td>
                         <td>${funcionario.cargo}</td>
                         <td>${funcionario.email}</td>
+                        <td class="acao"><button onclick="editUsuario(${funcionario.id_funcionario})"><i class='bx bx-edit' ></i></button></td>
                         <td class="acao"><button onclick="deletarUsuario(${funcionario.id_funcionario})"><i class='bx bx-trash'></i></button></td>
                     </tr>
                         `;
-                        // <td class="acao"><button onclick="editUsuario(${funcionario.id_funcionario})"><i class='bx bx-edit' ></i></button></td>
           }
         });
       } else {
@@ -211,6 +211,7 @@ function editUsuario(idFuncionario) {
 }
 
 function deletarUsuario(idFuncionario) {
+
   fetch(`/dashboard/deletarUsuario/${idFuncionario}`, {
     method: "POST",
   })
@@ -228,6 +229,67 @@ function deletarUsuario(idFuncionario) {
       console.log(`#ERRO: ${resposta}`);
     });
 }
+
+function editarUsuario(nome, senha, email, cargo, idFuncionario) {
+  var formulario = new URLSearchParams(
+    new FormData(document.getElementById("form_cadusuario"))
+  );
+
+  var nome = formulario.get("nome");
+  var senha = formulario.get("senha");
+  var email = formulario.get("email");
+  var cargo = formulario.get("cargo");
+
+  if (nome == "" || cargo == "" || senha == "" || email == "") {
+    window.alert("Preencha todos os campos para prosseguir!");
+    if (nome == "") {
+      console.log("nome está em branco");
+    }
+    if (cargo == "") {
+      console.log("cargo está em branco");
+    }
+    if (email == "") {
+      console.log("email está em branco");
+    }
+    if (senha == "") {
+      console.log("senha está em branco");
+    }
+
+    return false;
+  }
+
+  if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+    window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+
+    return false;
+  } else if (senha == "" || senha.length < 8) {
+    window.alert("Ops, senha inválida! Verifique e tente novamente.");
+
+    return false;
+  }
+
+  fetch(`/usuario/editarUsuario`, {
+    method: "POST",
+    body: formulario,
+  })
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+        window.alert("Usuario editado com sucesso!");
+        location.reload();
+        limparFormulario();
+      } else {
+        throw "Houve um erro ao tentar realizar a edição do usuario!";
+      }
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+
+  return false;
+}
+
 
 function cadastrarUsuario() {
   var formulario = new URLSearchParams(

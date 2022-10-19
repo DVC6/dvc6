@@ -296,6 +296,27 @@ function deletarUsuario(req, res) {
   }
 }
 
+function editarUsuario(req, res) {
+  console.log("Tentando editar usuario...");
+  var idFuncionario = req.params.idFuncionario;
+
+  if (idFuncionario == undefined) {
+    res.status(404).send("ID nao encontrado!");
+  } else {
+    dashboardModel
+      .editarUsuario(idFuncionario)
+      .then((resultado) => res.json(resultado))
+      .catch((error) => {
+        console.log(error);
+        console.log(
+          "\n Houve um erro ao tentar editar o usuario! Erro: ",
+          error.sqlMessage
+        );
+        res.status(500).json(error.sqlMessage);
+      });
+  }
+}
+
 module.exports = {
   buscarMedidasCPUKPI,
   buscarMedidasRAMKPI,
@@ -303,6 +324,7 @@ module.exports = {
   buscarMedidasRAM,
   buscarMedidasCPU,
   listarTotens,
+  editarUsuario,
   buscarUltimaData,
   buscarTotensEmRisco,
   listarFuncionarios,
