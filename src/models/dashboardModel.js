@@ -298,5 +298,5 @@ module.exports = {
   deletarUsuario,
   qtdFuncionarios,
   qtdTotem,
-  editarUsuario
+  editarUsuario,
 };

@@ -271,25 +271,6 @@ function deletarUsuario(idFuncionario) {
     });
 }
 
-function deletarTotem(idTotem) {
-  fetch(`/dashboard/deletarTotem/${idTotem}`, {
-    method: "POST",
-  })
-    .then(function (resposta) {
-      console.log("resposta: ", resposta);
-
-      if (resposta.ok) {
-        window.alert("Totem deletado com sucesso!");
-        location.reload();
-      } else {
-        throw "Houve um erro ao tentar deletar este totem!";
-      }
-    })
-    .catch(function (resposta) {
-      console.log(`#ERRO: ${resposta}`);
-    });
-}
-
 function editarUsuario(nome, senha, email, cargo, idFuncionario) {
   var formulario = new URLSearchParams(
     new FormData(document.getElementById("form_cadusuario"))
