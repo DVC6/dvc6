@@ -27,7 +27,8 @@
   width: 100%;
   padding: 30px 0px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
 }
 .cards .card {
   padding: 20px;
@@ -44,7 +45,7 @@
   /* color: #beb6d2; */
 }
 .card-name {
-  padding-top: 20px;
+  /* padding-top: 20px; */
   color: #7d768d;
   font-weight: 600;
 }
@@ -123,6 +124,10 @@ tbody tr td {
   vertical-align: text-top;
   padding: 6px;
   max-width: 50px;
+  vertical-align: middle;
+}
+.fa-chart-area {
+  color: #1e6bfa;
 }
 .bx-edit {
   color: #1e6bfa;

@@ -24,7 +24,7 @@
     <title>Tela gerencial</title>
 </head>
 
-<body onload="validarSessao(), atualizarTotens()"
+<body id="idbody"
 >
 <!-- onload="validarSessao()" -->
 <!-- atualizarTotens()"  -->
@@ -43,11 +43,15 @@
             <div class="logo">
                 <img src="../img/image.png">
             </div>
+
+            <input type="checkbox" id="mode" hidden>
+            <label for="mode"></label>
+
             <div class="info">
                 <p>Olá, <b><span style="font-size: 16px" id="nomeUsuario"></span></b>!</p>
             </div>
             <div class="user">
-                <img src="../img/user.png">
+                <i class="fas fa-user-circle"></i>
             </div>
         </div>
         <div class="sidebar">
@@ -150,91 +154,6 @@
                     </tbody>
                 </table>
             </div>
-
-            <!-- //////////CADASTRAR USUARIOS///////////// -->
-            <div id="fade" style="display: none;"></div>
-
-            <div id="cadastroUsuarios" style="display: none;">
-                <div id="modalHeader">
-                    <h2>Lista de Usuários</h2>
-                    <button onclick="esconderModal()">Voltar</button>
-                </div>
-                <button id="criarNovoUsuario" onclick="abrirCadastro()">Novo Usuário</button>
-
-                <div id="listaUsuarios">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="tt">ID</th>
-                                <th class="tt2">Nome</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr id="lista_funcionarios">
-                                <!-- <td>
-                                    <div id="lista_funcionarios"></div>
-                                </td> -->
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div id="novoUsuario" style="display: none;">
-                <h2>Cadastre aqui um novo usuário</h2>
-                <button onclick="esconderModal()">Cancelar</button>
-                <form class="cads" method="dialog" id="form_cadusuario">
-                    <img class="avatar" src="Imagens/undraw_male_avatar_323b.svg" alt="">
-                    <div class="input-div um">
-                        <div class="i">
-                            <i class="fa fa-user-circle"></i>
-                        </div>
-                        <div>
-
-                            <h5>Nome</h5>
-                            <input class="inp" type="text" name="nome" value = "">
-                        </div>
-                    </div>
-
-                    <div class="input-div quatro">
-                        <div class="i">
-                            <i class="fa fa-lock"></i>
-                        </div>
-                        <div>
-                            <h5>Senha</h5>
-                            <input class="inp" type="password" name="senha" value = "">
-                        </div>
-                    </div>
-
-                    <div class="input-div tres">
-                        <div class="i">
-                            <i class="fa fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h5>E-mail</h5>
-                            <input class="inp" type="text" name="email" value = "">
-                        </div>
-                    </div>
-
-                    <div class="input-div tres">
-                        <div class="i">
-                            <i class="fa fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h5>Cargo</h5>
-                            <input class="inp" type="text" name="cargo" value = "">
-                        </div>
-                    </div>
-
-                    <button class="buton" onclick="cadastrarUsuario()">Cadastrar</button>
-
-                </form>
-            </div>
-
-        </main>
-    </div>
-
 </body>
-
 </html>
+<script src="../js/mode.js"></script>

@@ -43,6 +43,11 @@ router.get("/qtdFuncionarios/:idHospital", function (req, res) {
   dashboardController.qtdFuncionarios(req, res);
 });
 
+router.get("/qtdTotem/:idHospital", function (req, res) {
+  dashboardController.qtdTotem(req, res);
+});
+
+
 router.post("/cadastrarUsuario/:idHospital", function (req, res) {
   dashboardController.cadastrarUsuario(req, res);
 });

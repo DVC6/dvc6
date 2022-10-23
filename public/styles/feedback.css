@@ -8,7 +8,8 @@
 .bannerFeed {
   display: flex;
   min-height: 100vh;
-  background-image: url(../img/new1-background.jpg);
+  /* background-image: url(../img/new1-background.jpg); */
+  background-color: #f5f5f5;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -49,10 +50,10 @@
 .avaliacao h1 {
   font-size: 50px;
   font-weight: 600;
-  color: #8c7db0;
+  /* color: #8c7db0; */
   padding-bottom: 20px;
 }
-.container {
+.containerFeed {
   position: relative;
   background: #1c1726;
   padding: 35px 65px;
@@ -60,16 +61,17 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  box-shadow: 0 7px 25px 0 rgb(0 0 0 / 8%);;
 }
-.container .post {
+.containerFeed .post {
   display: none;
 }
-.container .text {
+.containerFeed .text {
   font-size: 18px;
   color: #8c7db0;
   font-weight: 600;
 }
-.container .edit {
+.containerFeed .edit {
   position: absolute;
   right: 12px;
   top: 10px;
@@ -81,10 +83,10 @@
   padding: 2px 5px;
   border-radius: 3px;
 }
-.container .edit:hover {
+.containerFeed .edit:hover {
   background-color: #b61235;
 }
-.container .star-widget input {
+.containerFeed .star-widget input {
   display: none;
 }
 .star-widget label {
@@ -94,7 +96,7 @@
   float: right;
   transition: all 0.2s ease;
 }
-input:not(:checked) ~ label:hover,
+/* input:not(:checked) ~ label:hover,
 input:not(:checked) ~ label:hover ~ label {
   color: #fa1e4e;
 }
@@ -104,7 +106,7 @@ input:checked ~ label {
 input#rate-5:checked ~ label {
   color: #ff4970;
   text-shadow: 0 0 20px #b40d31;
-}
+} */
 input#rate-1:checked ~ form header:before {
   content: "Eu simplesmente odeio 😠";
 }
@@ -120,7 +122,7 @@ input#rate-4:checked ~ form header:before {
 input#rate-5:checked ~ form header:before {
   content: "Eu simplesmente amo isso 😍";
 }
-.container form {
+.containerFeed form {
   display: none;
 }
 input:checked ~ form {
@@ -205,7 +207,7 @@ form .btn button:hover {
     font-size: 30px;
     text-align: center;
   }
-  .container {
+  .containerFeed {
     padding: 35px 28px;
     width: 90%;
   }
@@ -218,12 +220,12 @@ form .btn button:hover {
     display: flex;
     justify-content: center;
   }
-  .container .edit {
+  .containerFeed .edit {
     right: 5px;
     top: 5px;
     font-size: 7px;
   }
-  .container .text {
+  .containerFeed .text {
     font-size: 14px;
   }
 }
@@ -238,12 +240,12 @@ form .btn button:hover {
     font-size: inherit;
     padding: 4px 7px;
   }
-  .container .edit {
+  .containerFeed .edit {
     right: 5px;
     top: 5px;
     font-size: 6px;
   }
-  .container .text {
+  .containerFeed .text {
     font-size: 12px;
   }
 }
@@ -252,12 +254,12 @@ form .btn button:hover {
     font-size: 12px;
     padding: 4px 7px;
   }
-  .container .edit {
+  .containerFeed .edit {
     right: 5px;
     top: 5px;
     font-size: 6px;
   }
-  .container .text {
+  .containerFeed .text {
     font-size: 12px;
   }
 }

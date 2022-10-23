@@ -59,94 +59,94 @@ gradientBg2.addColorStop(0.7, "#2a82fe05");
 gradientBg2.addColorStop(1, "transparent");
 
 /* --------DASHBOARD MEMORIA RAM--------*/
-// var myChartMemoria = new Chart(memoria, {
-//   type: "line",
-//   data: {
-//     datasets: [
-//       {
-//         label: "Consumo de RAM no servidor",
-//         data: [],
-//         backgroundColor: gradientBg,
-//         borderColor: ["#2a84fe"],
-//         borderWidth: 1,
-//         radius: 0,
-//         fill: true,
-//       },
-//     ],
-//   },
-//   options: {
-//     responsive: true,
-//     maintainAspectRatio: true,
-//     aspectRatio: 2,
-//     onResize: null,
-//     resizeDelay: 0,
-//     scales: {
-//       yAxes: [
-//         {
-//           ticks: {
-//             beginAtZero: true,
-//             max: 100,
-//             min: 0,
-//           },
-//         },
-//       ],
-//     },
-//     interaction: {
-//       intersect: false,
-//     },
-//     plugins: {
-//       legend: false,
-//       tooltip: {
-//         yAlign: "bottom",
-//       },
-//     },
-//   },
-// });
+var myChartMemoria = new Chart(memoria, {
+  type: "line",
+  data: {
+    datasets: [
+      {
+        label: "Consumo de RAM no servidor",
+        data: [],
+        backgroundColor: gradientBg,
+        borderColor: ["#2a84fe"],
+        borderWidth: 1,
+        radius: 0,
+        fill: true,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    aspectRatio: 2,
+    onResize: null,
+    resizeDelay: 0,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+            max: 100,
+            min: 0,
+          },
+        },
+      ],
+    },
+    interaction: {
+      intersect: false,
+    },
+    plugins: {
+      legend: false,
+      tooltip: {
+        yAlign: "bottom",
+      },
+    },
+  },
+});
 
 /* --------DASHBOARD CPU--------*/
-// var myChartCpu = new Chart(cpu, {
-//   type: "line",
-//   data: {
-//     datasets: [
-//       {
-//         label: "Consumo de CPU no servidor",
-//         data: [],
-//         backgroundColor: gradientBg2,
-//         borderColor: ["#fa1e4e"],
-//         borderWidth: 1,
-//         radius: 0,
-//         fill: true,
-//       },
-//     ],
-//   },
-//   options: {
-//     responsive: true,
-//     maintainAspectRatio: true,
-//     aspectRatio: 2,
-//     onResize: null,
-//     resizeDelay: 0,
-//     scales: {
-//       yAxes: [
-//         {
-//           ticks: {
-//             beginAtZero: true,
-//             max: 100,
-//             min: 0,
-//           },
-//         },
-//       ],
-//     },
-//     interaction: {
-//       intersect: false,
-//     },
-//     plugins: {
-//       legend: false,
-//       tooltip: {
-//         yAlign: "bottom",
-//       },
-//     },
-//   },
-// });
+var myChartCpu = new Chart(cpu, {
+  type: "line",
+  data: {
+    datasets: [
+      {
+        label: "Consumo de CPU no servidor",
+        data: [],
+        backgroundColor: gradientBg2,
+        borderColor: ["#fa1e4e"],
+        borderWidth: 1,
+        radius: 0,
+        fill: true,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    aspectRatio: 2,
+    onResize: null,
+    resizeDelay: 0,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+            max: 100,
+            min: 0,
+          },
+        },
+      ],
+    },
+    interaction: {
+      intersect: false,
+    },
+    plugins: {
+      legend: false,
+      tooltip: {
+        yAlign: "bottom",
+      },
+    },
+  },
+});
 
 /* ------------------------- VERIFICAÇÃO DOS DADOS --------------------------*/
 
@@ -157,13 +157,15 @@ async function get_dataRAMKPI() {
   ultimoDadoRAM = await ultimoDadoRAM.json();
   var ramkpi = document.getElementById("ramkpiID");
   ramkpi.innerHTML = ultimoDadoRAM[0].consumo + "%";
-  if (ultimoDadoRAM[0].consumo >= 90) {
+  if (ultimoDadoRAM[0].consumo == undefined) {
+    ramkpi.innerHTML = "0%";
+  } else if (ultimoDadoRAM[0].consumo >= 90) {
     ramkpi.style.color = "#FF5050";
     houveIncidentes = true;
   } else if (ultimoDadoRAM[0].consumo >= 70) {
     ramkpi.style.color = "#FFEE1D";
   } else {
-    ramkpi.style.color = "#4169E1";
+    ramkpi.style.color = "#12d74b";
   }
 }
 
@@ -174,13 +176,15 @@ async function get_dataCPUKPI() {
   ultimoDadoCPU = await ultimoDadoCPU.json();
   var cpukpi = document.getElementById("cpukpiID");
   cpukpi.innerHTML = ultimoDadoCPU[0].consumo + "%";
-  if (ultimoDadoCPU[0].consumo >= 90) {
+  if (ultimoDadoCPU[0].consumo == undefined) {
+    cpukpi.innerHTML = "0%";
+  } else if (ultimoDadoCPU[0].consumo >= 90) {
     cpukpi.style.color = "#FF5050";
     houveIncidentes = true;
   } else if (ultimoDadoCPU[0].consumo >= 70) {
     cpukpi.style.color = "#FFEE1D";
   } else {
-    cpukpi.style.color = "#4169E1";
+    cpukpi.style.color = "#12d74b";
   }
 }
 /*----------------------------------------------------------------------------------*/
@@ -192,12 +196,14 @@ async function get_dataDisco() {
   ultimoDadoDisco = await ultimoDadoDisco.json();
   var discoUsado = document.getElementById("discoUsadoID");
   discoUsado.innerHTML = (await ultimoDadoDisco[0].consumo) + "%";
-  if (ultimoDadoDisco[0].consumo >= 90) {
+  if (ultimoDadoDisco[0].consumo == undefined) {
+    discoUsado.innerHTML = "0%";
+  } else if (ultimoDadoDisco[0].consumo >= 90) {
     discoUsado.style.color = "#FF5050";
   } else if (ultimoDadoDisco[0].consumo >= 70) {
     discoUsado.style.color = "#FFEE1D";
   } else {
-    discoUsado.style.color = "#4169E1";
+    discoUsado.style.color = "#12d74b";
   }
 }
 
@@ -265,111 +271,111 @@ get_dataDisco();
 /*--DASHBOARD CHART JS STATIC--*/
 
 /* --------DASHBOARD MEMORIA RAM--------*/
-var myChartMemoria = new Chart(memoria, {
-  type: "line",
-  data: {
-    labels: [
-      "00:00:00",
-      "00:00:00",
-      "00:00:00",
-      "00:00:00",
-      "00:00:00",
-      "00:00:00",
-      "00:00:00",
-    ],
-    datasets: [
-      {
-        label: "Consumo de RAM no servidor",
-        data: [70, 40, 50, 24, 44, 30, 90],
-        backgroundColor: gradientBg,
-        borderColor: ["#2a84fe"],
-        borderWidth: 1,
-        radius: 3,
-        fill: true,
+// var myChartMemoria = new Chart(memoria, {
+//   type: "line",
+//   data: {
+//     labels: [
+//       "00:00:00",
+//       "00:00:00",
+//       "00:00:00",
+//       "00:00:00",
+//       "00:00:00",
+//       "00:00:00",
+//       "00:00:00",
+//     ],
+//     datasets: [
+//       {
+//         label: "Consumo de RAM no servidor",
+//         data: [70, 40, 50, 24, 44, 30, 90],
+//         backgroundColor: gradientBg,
+//         borderColor: ["#2a84fe"],
+//         borderWidth: 1,
+//         radius: 3,
+//         fill: true,
         // tension: 0,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: true,
-    aspectRatio: 2,
-    onResize: null,
-    resizeDelay: 0,
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-            max: 100,
-            min: 0,
-          },
-        },
-      ],
-    },
-    interaction: {
-      intersect: false,
-    },
-    plugins: {
-      legend: false,
-      tooltip: {
-        yAlign: "bottom",
-      },
-    },
-  },
-});
+//       },
+//     ],
+//   },
+//   options: {
+//     responsive: true,
+//     maintainAspectRatio: true,
+//     aspectRatio: 2,
+//     onResize: null,
+//     resizeDelay: 0,
+//     scales: {
+//       yAxes: [
+//         {
+//           ticks: {
+//             beginAtZero: true,
+//             max: 100,
+//             min: 0,
+//           },
+//         },
+//       ],
+//     },
+//     interaction: {
+//       intersect: false,
+//     },
+//     plugins: {
+//       legend: false,
+//       tooltip: {
+//         yAlign: "bottom",
+//       },
+//     },
+//   },
+// });
 
 /* --------DASHBOARD CPU--------*/
-var myChartCpu = new Chart(cpu, {
-  type: "line",
-  data: {
-    labels: [
-      "00:00:00",
-      "00:00:00",
-      "00:00:00",
-      "00:00:00",
-      "00:00:00",
-      "00:00:00",
-      "00:00:00",
-    ],
-    datasets: [
-      {
-        label: "Consumo de CPU no servidor",
-        data: [70, 40, 90, 24, 44, 30, 68],
-        backgroundColor: gradientBg2,
-        borderColor: ["#fa1e4e"],
-        borderWidth: 1,
-        radius: 3,
-        fill: true,
+// var myChartCpu = new Chart(cpu, {
+//   type: "line",
+//   data: {
+//     labels: [
+//       "00:00:00",
+//       "00:00:00",
+//       "00:00:00",
+//       "00:00:00",
+//       "00:00:00",
+//       "00:00:00",
+//       "00:00:00",
+//     ],
+//     datasets: [
+//       {
+//         label: "Consumo de CPU no servidor",
+//         data: [70, 40, 90, 24, 44, 30, 68],
+//         backgroundColor: gradientBg2,
+//         borderColor: ["#fa1e4e"],
+//         borderWidth: 1,
+//         radius: 3,
+//         fill: true,
         // tension: 0,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: true,
-    aspectRatio: 2,
-    onResize: null,
-    resizeDelay: 0,
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-            max: 100,
-            min: 0,
-          },
-        },
-      ],
-    },
-    interaction: {
-      intersect: false,
-    },
-    plugins: {
-      legend: false,
-      tooltip: {
-        yAlign: "bottom",
-      },
-    },
-  },
-});
+//       },
+//     ],
+//   },
+//   options: {
+//     responsive: true,
+//     maintainAspectRatio: true,
+//     aspectRatio: 2,
+//     onResize: null,
+//     resizeDelay: 0,
+//     scales: {
+//       yAxes: [
+//         {
+//           ticks: {
+//             beginAtZero: true,
+//             max: 100,
+//             min: 0,
+//           },
+//         },
+//       ],
+//     },
+//     interaction: {
+//       intersect: false,
+//     },
+//     plugins: {
+//       legend: false,
+//       tooltip: {
+//         yAlign: "bottom",
+//       },
+//     },
+//   },
+// });

@@ -8,40 +8,36 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <link rel="stylesheet" href="../styles/dashboardHardwares.css">
     <link rel="stylesheet" href="../styles/top&sideBar.css">
+    <title>DVC6 | Dashboard</title>
+    <script
+    src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
     <script src="../js/funções.js"></script>
-    <title>Dashboard</title>
-     <script
-     src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
 </head>
-<body onload="validarSessao()"
->
-<!-- onload="validarSessao()" -->
+<body id="idbody" onload="validarSessao()">
 
   <div class="container">
     <div class="topbar">
         <div class="logo">
             <img src="../img/image.png">
         </div>
+
+        <input type="checkbox" id="mode" hidden>
+        <label for="mode"></label>
+
         <div class="info">
-            <p>Olá, <b><span style="font-size: 16px" id="nomeUsuario"></span></b>!</p>
+            <p>Olá, <b><span style="font-size: 15px; font-weight: 800;" id="nomeUsuario"></span></b>!</p>
         </div>
         <div class="user">
-            <img src="../img/user.png">
+            <i class="fas fa-user-circle"></i>
         </div>
     </div>
     <div class="sidebar">
         <ul>
             <li>
-                <a href="dashboardAdm.html">
+                <a href="dashboardTotem.html">
                     <i class="fas fa-th-large"></i>
                     <div>Dashboard</div>
-                </a>
-            </li>
-            <li style="border-left: 2px solid #fa1e4e;">
-                <a style="color: #fa1e4e;" href="#">
-                    <i class="fas fa-chart-area"></i>
-                    <div>Analytics</div>
                 </a>
             </li>
             <li>
@@ -66,22 +62,25 @@
             </li>
         </ul>
     </div>
-    <div class="main">
+    <div id="divmain" class="main">
         <div class="infoTotem">
-            <h2>Totem - <span id="nomeTotem"></span></h2>
+            <h2>Totem - <span id="nometotem"></span></h2>
         </div>
         <div class="cardsInfo">
             <div class="cardInfo1">
+                <i class="fas fa-square"></i>
                 <div class="card-content">
                     <p>Ideal (0% a 69%)</p>
                 </div>
             </div>
             <div class="cardInfo2">
+                <i class="fas fa-square"></i>
                 <div class="card-content">
                     <p>Risco (70% a 89%)</p>
                 </div>
             </div>
             <div class="cardInfo3">
+                <i class="fas fa-square"></i>
                 <div class="card-content">
                     <p>Incidente (90% a 100%)</p>
                 </div>
@@ -139,4 +138,9 @@
   </div>
 </body>
 </html>
+<script>
+    const nomeTotem = sessionStorage.NOME_TOTEM;
+    nometotem.innerHTML = `${nomeTotem}`;
+</script>
+<script src="../js/mode.js"></script>
 <script src="../js/chart.js"></script>

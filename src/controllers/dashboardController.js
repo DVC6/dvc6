@@ -262,17 +262,38 @@ function cadastrarUsuario(req, res) {
 
 function qtdFuncionarios(req, res) {
   var idHospital = req.params.idHospital;
-  dashboardModel.qtdFuncionarios(idHospital).then(function (resultado) {
+  dashboardModel
+    .qtdFuncionarios(idHospital)
+    .then(function (resultado) {
       if (resultado.length > 0) {
-          res.status(200).json(resultado);
+        res.status(200).json(resultado);
       } else {
-          res.status(204).send("Nenhum resultado encontrado!")
+        res.status(204).send("Nenhum resultado encontrado!");
       }
-  }).catch(function (erro) {
+    })
+    .catch(function (erro) {
       console.log(erro);
       console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
       res.status(500).json(erro.sqlMessage);
-  });
+    });
+}
+
+function qtdTotem(req, res) {
+  var idHospital = req.params.idHospital;
+  dashboardModel
+    .qtdTotem(idHospital)
+    .then(function (resultado) {
+      if (resultado.length > 0) {
+        res.status(200).json(resultado);
+      } else {
+        res.status(204).send("Nenhum resultado encontrado!");
+      }
+    })
+    .catch(function (erro) {
+      console.log(erro);
+      console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
 }
 
 function deletarUsuario(req, res) {
@@ -330,5 +351,6 @@ module.exports = {
   listarFuncionarios,
   cadastrarUsuario,
   deletarUsuario,
-  qtdFuncionarios
+  qtdFuncionarios,
+  qtdTotem,
 };

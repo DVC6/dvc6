@@ -50,7 +50,7 @@ async function entrarAdmin() {
         mensagem_erro.innerHTML = 'Login realizado com sucesso';
         cardErro.style.display = 'block';
         setInterval(() => {
-          window.location.href = 'dashboardAdm.html';
+          window.location.href = 'dashboardTotem.html';
         }, 2000);
       }
 
@@ -123,7 +123,7 @@ async function entrarFuncionario() {
         mensagem_erro.innerHTML = 'Login realizado com sucesso';
         cardErro.style.display = 'block';
         setInterval(() => {
-          window.location.href = 'dashboardAdm.html';
+          window.location.href = 'dashboardTotem.html';
         }, 2000);
       }
 

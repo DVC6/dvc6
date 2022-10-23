@@ -12,10 +12,12 @@
     <script src="https://kit.fontawesome.com/67c66657c7.js"></script>
     <script src="../js/funções.js"></script>
     <script src="../js/feedback.js" defer></script>
-    <title>Feedback</title>
+    <script src="../js/deleteItem.js"></script>
+    <title>DVC6 | Feedback</title>
 </head>
 
-<body onload="validarSessao()">
+<body id="idbody" onload="validarSessao(), deleteidTotem()">
+
     <script>
         window.fwSettings={
         'widget_id':150000000973
@@ -27,35 +29,33 @@
         <div class="logo">
             <img src="../img/image.png">
         </div>
+
+        <input type="checkbox" id="mode" hidden>
+        <label for="mode"></label>
+
         <div class="info">
             <p>Olá, <b><span style="font-size: 16px" id="nomeUsuario"></span></b>!</p>
         </div>
         <div class="user">
-            <img src="../img/user.png">
+            <i class="fas fa-user-circle"></i>
         </div>
     </div>
     <div class="sidebar">
         <ul>
             <li>
-                <a href="dashboardAdm.html">
+                <a href="dashboardTotem.html">
                     <i class="fas fa-th-large"></i>
                     <div>Dashboard</div>
                 </a>
             </li>
             <li>
-                <a href="dashboardHardwares.html">
-                    <i class="fas fa-chart-area"></i>
-                    <div>Analytics</div>
-                </a>
-            </li>
-            <li id="funcionariosInfo">
                 <a href="funcionario.html">
                     <i class="fas fa-users"></i>
                     <div>Funcionários</div>
                 </a>
             </li>
-            <li style="border-left: 2px solid #fa1e4e;">
-                <a style="color: #fa1e4e;" href="#">
+            <li id="funcionariosInfo">
+                <a class="lia" href="#">
                     <i class="fas fa-comments"></i>
                     <div>Feedback</div>
                 </a>
@@ -84,9 +84,9 @@
                 </p>
             </div>
         </div>
-        <div class="avaliacao">
+        <div id="idavaliacao" class="avaliacao">
             <h1>Dê seu feedback</h1>
-            <div class="container">
+            <div class="containerFeed">
                 <div class="post">
                     <div class="text">Obrigado por nos avaliar!</div>
                     <div class="edit">EDIT</div>
@@ -118,7 +118,6 @@
 </body>
 
 </html>
-
 <script>
     const btn = document.querySelector("button");
     const post = document.querySelector(".post");
@@ -133,4 +132,28 @@
         }
         return false;
     }
+
+
+const mode = document.getElementById("mode");
+const idbody = document.getElementById("idbody");
+const idavaliacao = document.getElementById('idavaliacao');
+const theme = localStorage.getItem("theme");
+
+if (theme == "1") {
+  document.body.classList.toggle("light");
+  idavaliacao.className = "avaliacao light";
+} else {
+    idavaliacao.className = "avaliacao";
+}
+
+mode.addEventListener("change", () => {
+  document.body.classList.toggle("light");
+  if (idbody.className == "light") {
+    idavaliacao.className = "avaliacao light";
+    localStorage.setItem("theme", 1);
+  } else {
+    idavaliacao.className = "avaliacao";
+    localStorage.setItem("theme", 0);
+  }
+});
 </script>

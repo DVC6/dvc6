@@ -16,49 +16,63 @@ function atualizarTotens(idHospital) {
           feed.appendChild(mensagem);
           throw "Nenhum resultado encontrado!!";
         }
-
         resposta.json().then(function (resposta) {
           console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-          var feed = document.getElementById("lista_totens");
-          feed.innerHTML = "";
-
+          lista_totens.innerHTML = "";
           for (var i = 0; i < resposta.length; i++) {
-            var totem = resposta[i];
+            var totens = resposta[i];
 
-            var divTotem = document.createElement("div");
-            var spanID = document.createElement("span");
-            var spanTitulo = document.createElement("span");
-            var divButtons = document.createElement("div");
+            if (totens.consumo <= 69) {
+              var img = "../img/kioskright.png";
+            } else if (totens.consumo <= 89) {
+              var img = "../img/kiosk.png";
+            } else {
+              var img = "../img/kioskperigo.png";
+            }
 
-            divButtons.innerHTML = "Detalhes";
-
-            divTotem.className = "publicacao";
-            divTotem.id = "divTotem" + totem.idTotem;
-            spanTitulo.id = "inputNumero" + totem.idTotem;
-            spanTitulo.className = "publicacao-titulo";
-
-            divButtons.className = "div-buttons";
-            divButtons.id = totem.idTotem + "," + totem.nome_maquina;
-
-            divTotem.appendChild(spanID);
-            divTotem.appendChild(spanTitulo);
-            divTotem.appendChild(divButtons);
-            feed.appendChild(divTotem);
-
-            divButtons.addEventListener("click", carregarDashboard);
-
-            verificarTotensEmRisco(totem.idTotem);
-            var ultimaData;
-            pegarUltimaData(totem.idTotem).then((resposta) => {
-              ultimaData = resposta;
-              if (ultimaData == dataAtual) {
-                contadorTotens++;
-                document.getElementById("totensAtivos").innerHTML =
-                  contadorTotens;
-              }
-            });
+            lista_totens.innerHTML += `
+                    <tr>
+                        <td><img style="display: flex;" src=${img}></td>
+                        <td>${totens.nome_maquina}</td>
+                        <td>${totens.localizacao}</td>
+                        <td class="acao"><button onclick="analyticsPage(${totens.id_totem})"><i class='fas fa-chart-area' ></i></button></td>
+                        <td class="acao"><button onclick="deletarTotem(${totens.id_totem})"><i class='bx bx-trash'></i></button></td>
+                    </tr>
+                        `;
           }
+        });
+      } else {
+        throw "Houve um erro na API!";
+      }
+    })
+    .catch(function (resposta) {
+      console.error(resposta);
+    });
+}
+
+setInterval(() => {
+  atualizarTotens();
+}, 5000);
+
+function analyticsPage(idTotem) {
+  sessionStorage.ID_TOTEM = idTotem;
+  fetch(`/dashboard/listarTotens/${sessionStorage.ID_HOSPITAL}`)
+    .then(function (resposta) {
+      if (resposta.ok) {
+        if (resposta.status == 204) {
+          console.log("Nenhum resultado encontrado!!");
+        }
+        resposta.json().then(function (resposta) {
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+          for (var i = 0; i < resposta.length; i++) {
+            var totens = resposta[i];
+            if (totens.id_totem == idTotem) {
+              var nome = totens.nome_maquina;
+            }
+            sessionStorage.NOME_TOTEM = nome;
+          }
+          window.location.href = "dashboardHardwares.html";
         });
       } else {
         throw "Houve um erro na API!";
@@ -141,7 +155,6 @@ function atualizarFuncionarios(idHospital) {
         if (resposta.status == 204) {
           var feed = document.getElementById("lista_funcionarios");
           var mensagem = document.createElement("span");
-          mensagem.style.color = "#8c7db0";
           mensagem.innerHTML = "Nenhum resultado encontrado.";
           feed.appendChild(mensagem);
           throw "Nenhum resultado encontrado!!";
@@ -201,6 +214,35 @@ function qtdFuncionarios(idHospital) {
     });
 }
 
+function qtdTotem(idHospital) {
+  var idHospital = sessionStorage.ID_HOSPITAL;
+  fetch(`/dashboard/qtdTotem/${idHospital}`)
+    .then(function (resposta) {
+      if (resposta.ok) {
+        if (resposta.status == 204) {
+          alert("erro na função qtdFuncionario");
+        }
+        resposta.json().then(function (resposta) {
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+          for (let i = 0; i < resposta.length; i++) {
+            var query = resposta[i];
+
+            // trazer id da box html
+            qtd_totens.innerHTML = `
+                      <span>${query.qtdtotem}</span>
+                `;
+          }
+        });
+      } else {
+        throw "Houve um erro na função qtdExercício!";
+      }
+    })
+    .catch(function (resposta) {
+      console.error(resposta);
+    });
+}
+
 function editUsuario(idFuncionario) {
   const btnsalvar = document.getElementById("btnSalvar");
   const btnEdit = document.getElementById("btnEdit");
@@ -211,7 +253,6 @@ function editUsuario(idFuncionario) {
 }
 
 function deletarUsuario(idFuncionario) {
-
   fetch(`/dashboard/deletarUsuario/${idFuncionario}`, {
     method: "POST",
   })
@@ -223,6 +264,25 @@ function deletarUsuario(idFuncionario) {
         location.reload();
       } else {
         throw "Houve um erro ao tentar deletar este usuário!";
+      }
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+}
+
+function deletarTotem(idTotem) {
+  fetch(`/dashboard/deletarTotem/${idTotem}`, {
+    method: "POST",
+  })
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+        window.alert("Totem deletado com sucesso!");
+        location.reload();
+      } else {
+        throw "Houve um erro ao tentar deletar este totem!";
       }
     })
     .catch(function (resposta) {
@@ -289,7 +349,6 @@ function editarUsuario(nome, senha, email, cargo, idFuncionario) {
 
   return false;
 }
-
 
 function cadastrarUsuario() {
   var formulario = new URLSearchParams(

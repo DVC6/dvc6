@@ -5,10 +5,10 @@ function validarSessao() {
   if (nomeFantasia != null) {
     nomeUsuario.innerHTML = `${nomeFantasia}`;
   } else if (nomeFuncionario != null) {
-    funcionariosInfo.style.display = 'none';
+    funcionariosInfo.style.display = "none";
     nomeUsuario.innerHTML = `${nomeFuncionario}`;
   } else {
-    window.location = '../pages/login.html';
+    window.location = "../pages/login.html";
   }
 }
 
@@ -18,5 +18,7 @@ function deslogar() {
   delete sessionStorage.LOGIN_FUNCIONARIO;
   delete sessionStorage.ID_FUNCIONARIO;
   delete sessionStorage.FK_HOSPITAL;
-  window.location = '../pages/login.html';
+  delete sessionStorage.ID_TOTEM;
+  delete sessionStorage.NOME_TOTEM;
+  window.location = "../pages/login.html";
 }
