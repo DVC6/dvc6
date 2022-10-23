@@ -23,8 +23,4 @@ router.post("/deletar", function (req, res) {
   usuarioController.deletar(req, res);
 });
 
-router.post("/editarUsuario", function (req, res) {
-  dashboardController.editarUsuario(req, res);
-});
-
 module.exports = router;

@@ -319,13 +319,17 @@ function deletarUsuario(req, res) {
 
 function editarUsuario(req, res) {
   console.log("Tentando editar usuario...");
-  var idFuncionario = req.params.idFuncionario;
 
+  var idFuncionario = req.params.idFuncionario;
+  var nome = req.body.nome;
+  var senha = req.body.senha;
+  var email = req.body.email;
+  var cargo = req.body.cargo;
   if (idFuncionario == undefined) {
     res.status(404).send("ID nao encontrado!");
   } else {
     dashboardModel
-      .editarUsuario(idFuncionario)
+      .editarUsuario(nome, senha, email, cargo, idFuncionario)
       .then((resultado) => res.json(resultado))
       .catch((error) => {
         console.log(error);
@@ -345,11 +349,11 @@ module.exports = {
   buscarMedidasRAM,
   buscarMedidasCPU,
   listarTotens,
-  editarUsuario,
   buscarUltimaData,
   buscarTotensEmRisco,
   listarFuncionarios,
   cadastrarUsuario,
+  editarUsuario,
   deletarUsuario,
   qtdFuncionarios,
   qtdTotem,

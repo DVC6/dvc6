@@ -137,21 +137,6 @@ function cadastrarUsuario(nome, senha, email, cargo, idHospital) {
   return database.executar(instrucao);
 }
 
-function editarUsuario(nome, senha, email, cargo, idFuncionario) {
-  console.log(
-    "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editarUsuario():",
-    nome,
-    senha,
-    email,
-    cargo,
-    idFuncionario
-  );
-  var instrucao = `
-        UPDATE funcionario SET nome_funcionario ='${nome}', senha ='${senha}', email ='${email}', cargo ='${cargo}' WHERE id_funcionario = '${idFuncionario}';`;
-  console.log("Executando a instrução SQL: \n" + instrucao);
-  return database.executar(instrucao);
-}
-
 function deletarUsuario(idFuncionario) {
   var query = `
           delete from funcionario WHERE id_funcionario = '${idFuncionario}';
@@ -168,6 +153,25 @@ function qtdFuncionarios(idHospital) {
   var instrucao = `
   select count(id_funcionario) as 'qtdfuncionairos' from funcionario where fkHospital = ${idHospital};`;
 
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
+}
+
+function editarUsuario(nome, senha, email, cargo, idFuncionario) {
+  console.log(
+    "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editarUsuario():",
+    nome,
+    senha,
+    email,
+    cargo,
+    idFuncionario
+  );
+  var instrucao = `
+        UPDATE funcionario SET nome_funcionario ='${nome}',
+                                          senha ='${senha}',
+                                          email ='${email}',
+                                          cargo ='${cargo}'
+                                          WHERE id_funcionario = 3 ;`;
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);
 }
@@ -288,11 +292,11 @@ module.exports = {
   buscarMedidasRAM,
   buscarMedidasCPU,
   listarTotens,
-  editarUsuario,
   buscarUltimaData,
   listarFuncionarios,
   cadastrarUsuario,
   deletarUsuario,
   qtdFuncionarios,
   qtdTotem,
+  editarUsuario
 };

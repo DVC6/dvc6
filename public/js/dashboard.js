@@ -302,33 +302,8 @@ function editarUsuario(nome, senha, email, cargo, idFuncionario) {
 
   if (nome == "" || cargo == "" || senha == "" || email == "") {
     window.alert("Preencha todos os campos para prosseguir!");
-    if (nome == "") {
-      console.log("nome está em branco");
-    }
-    if (cargo == "") {
-      console.log("cargo está em branco");
-    }
-    if (email == "") {
-      console.log("email está em branco");
-    }
-    if (senha == "") {
-      console.log("senha está em branco");
-    }
-
-    return false;
-  }
-
-  if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
-    window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-
-    return false;
-  } else if (senha == "" || senha.length < 8) {
-    window.alert("Ops, senha inválida! Verifique e tente novamente.");
-
-    return false;
-  }
-
-  fetch(`/usuario/editarUsuario`, {
+  } else {
+  fetch(`/dashboard/editarUsuario/${idFuncionario}`, {
     method: "POST",
     body: formulario,
   })
@@ -348,6 +323,7 @@ function editarUsuario(nome, senha, email, cargo, idFuncionario) {
     });
 
   return false;
+}
 }
 
 function cadastrarUsuario() {
