@@ -283,6 +283,41 @@ function buscarMedidasCPU(idTotem) {
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
 }
+
+function pegarDados(idTotem) {
+  instrucaoSql = `
+  select 
+  distinct(fkcomponente), 
+  fktotem, 
+  id_totem 
+  from totem 
+  join componente on totem.id_totem = componente.fktotem 
+  join leitura on componente.id_componente = leitura.fkcomponente 
+  where id_totem = ${idTotem};
+  `;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
+function deletarfkComponente(fkComponente) {
+  var query = `
+          delete from leitura WHERE fkcomponente = '${fkComponente}';
+      `;
+  console.log("Executando a instrucao SQL: \n" + query);
+  return database.executar(query);
+}
+
+function deletarTotem(idTotem) {
+  var query = `
+      delete from componente WHERE fktotem = '${idTotem}';
+  `;
+  var query2 = `
+      delete from totem WHERE id_totem = '${idTotem}';
+  `;
+  console.log(`Executando a instrucao SQL: \n${query}${query2}`);
+  return database.executar(query), database.executar(query2);
+}
+
 /* --------------------- */
 
 module.exports = {
@@ -299,4 +334,7 @@ module.exports = {
   qtdFuncionarios,
   qtdTotem,
   editarUsuario,
+  pegarDados,
+  deletarTotem,
+  deletarfkComponente,
 };

@@ -47,6 +47,9 @@ router.get("/qtdTotem/:idHospital", function (req, res) {
   dashboardController.qtdTotem(req, res);
 });
 
+router.get("/pegarDados/:idTotem", function (req, res) {
+  dashboardController.pegarDados(req, res);
+});
 
 router.post("/cadastrarUsuario/:idHospital", function (req, res) {
   dashboardController.cadastrarUsuario(req, res);
@@ -54,6 +57,14 @@ router.post("/cadastrarUsuario/:idHospital", function (req, res) {
 
 router.post("/deletarUsuario/:idFuncionario", function (req, res) {
   dashboardController.deletarUsuario(req, res);
+});
+
+router.post("/deletarTotem/:idTotem", function (req, res) {
+  dashboardController.deletarTotem(req, res);
+});
+
+router.post("/deletarfkComponente/:fkComponente", function (req, res) {
+  dashboardController.deletarfkComponente(req, res);
 });
 
 router.post("/editarUsuario/:idFuncionario", function (req, res) {

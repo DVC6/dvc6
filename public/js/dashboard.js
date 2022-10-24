@@ -12,6 +12,7 @@ function atualizarTotens(idHospital) {
         if (resposta.status == 204) {
           var feed = document.getElementById("lista_totens");
           var mensagem = document.createElement("span");
+          feed.innerHTML = "";
           mensagem.innerHTML = "Nenhum resultado encontrado.";
           feed.appendChild(mensagem);
           throw "Nenhum resultado encontrado!!";
@@ -37,7 +38,7 @@ function atualizarTotens(idHospital) {
                         <td>${totens.nome_maquina}</td>
                         <td>${totens.localizacao}</td>
                         <td class="acao"><button onclick="analyticsPage(${totens.id_totem})"><i class='fas fa-chart-area' ></i></button></td>
-                        <td class="acao"><button onclick="deletarTotem(${totens.id_totem})"><i class='bx bx-trash'></i></button></td>
+                        <td class="acao"><button onclick="pegarDados(${totens.id_totem})"><i class='bx bx-trash'></i></button></td>
                     </tr>
                         `;
           }
@@ -80,6 +81,70 @@ function analyticsPage(idTotem) {
     })
     .catch(function (resposta) {
       console.error(resposta);
+    });
+}
+
+function pegarDados(idTotem) {
+  fetch(`/dashboard/pegarDados/${idTotem}`)
+    .then(function (resposta) {
+      if (resposta.ok) {
+        if (resposta.status == 204) {
+          console.log("Nenhum resultado encontrado!!");
+        }
+        resposta.json().then(function (resposta) {
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+          for (var i = 0; i < resposta.length; i++) {
+            var dados = resposta[i];
+            sessionStorage.FK_COMPONENTE = dados.fkcomponente;
+            deletarfkComponente();
+          }
+          deletarTotem(idTotem);
+        });
+      } else {
+        throw "Houve um erro na API!";
+      }
+    })
+    .catch(function (resposta) {
+      console.error(resposta);
+    });
+}
+
+function deletarfkComponente() {
+  var fkComponente = sessionStorage.FK_COMPONENTE;
+  fetch(`/dashboard/deletarfkComponente/${fkComponente}`, {
+    method: "POST",
+  })
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+        console.log("Componente deletado com sucesso!");
+        // location.reload();
+      } else {
+        throw "Houve um erro ao tentar deletar este componente!";
+      }
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+}
+
+function deletarTotem(idTotem) {
+  fetch(`/dashboard/deletarTotem/${idTotem}`, {
+    method: "POST",
+  })
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+        window.alert("Totem deletado com sucesso!");
+        location.reload();
+      } else {
+        throw "Houve um erro ao tentar deletar este totem!";
+      }
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
     });
 }
 
@@ -206,7 +271,7 @@ function qtdFuncionarios(idHospital) {
           }
         });
       } else {
-        throw "Houve um erro na função qtdExercício!";
+        throw "Houve um erro na função qtdFuncionarios!";
       }
     })
     .catch(function (resposta) {
@@ -220,7 +285,7 @@ function qtdTotem(idHospital) {
     .then(function (resposta) {
       if (resposta.ok) {
         if (resposta.status == 204) {
-          alert("erro na função qtdFuncionario");
+          alert("erro na função qtdTotem");
         }
         resposta.json().then(function (resposta) {
           console.log("Dados recebidos: ", JSON.stringify(resposta));
@@ -235,7 +300,7 @@ function qtdTotem(idHospital) {
           }
         });
       } else {
-        throw "Houve um erro na função qtdExercício!";
+        throw "Houve um erro na função qtdTotem!";
       }
     })
     .catch(function (resposta) {
@@ -284,27 +349,27 @@ function editarUsuario(nome, senha, email, cargo, idFuncionario) {
   if (nome == "" || cargo == "" || senha == "" || email == "") {
     window.alert("Preencha todos os campos para prosseguir!");
   } else {
-  fetch(`/dashboard/editarUsuario/${idFuncionario}`, {
-    method: "POST",
-    body: formulario,
-  })
-    .then(function (resposta) {
-      console.log("resposta: ", resposta);
-
-      if (resposta.ok) {
-        window.alert("Usuario editado com sucesso!");
-        location.reload();
-        limparFormulario();
-      } else {
-        throw "Houve um erro ao tentar realizar a edição do usuario!";
-      }
+    fetch(`/dashboard/editarUsuario/${idFuncionario}`, {
+      method: "POST",
+      body: formulario,
     })
-    .catch(function (resposta) {
-      console.log(`#ERRO: ${resposta}`);
-    });
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
 
-  return false;
-}
+        if (resposta.ok) {
+          window.alert("Usuario editado com sucesso!");
+          location.reload();
+          limparFormulario();
+        } else {
+          throw "Houve um erro ao tentar realizar a edição do usuario!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
 }
 
 function cadastrarUsuario() {

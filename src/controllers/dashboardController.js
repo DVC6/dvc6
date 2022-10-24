@@ -203,7 +203,7 @@ function listarTotens(req, res) {
     })
     .catch(function (erro) {
       console.log(erro);
-      console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+      console.log("Houve um erro ao buscar os totens: ", erro.sqlMessage);
       res.status(500).json(erro.sqlMessage);
     });
 }
@@ -273,7 +273,7 @@ function qtdFuncionarios(req, res) {
     })
     .catch(function (erro) {
       console.log(erro);
-      console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+      console.log("Houve um erro ao buscar a quantidade de funcionários: ", erro.sqlMessage);
       res.status(500).json(erro.sqlMessage);
     });
 }
@@ -291,7 +291,7 @@ function qtdTotem(req, res) {
     })
     .catch(function (erro) {
       console.log(erro);
-      console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+      console.log("Houve um erro ao buscar a quantidade de totens: ", erro.sqlMessage);
       res.status(500).json(erro.sqlMessage);
     });
 }
@@ -342,6 +342,67 @@ function editarUsuario(req, res) {
   }
 }
 
+function pegarDados(req, res) {
+  var idTotem = req.params.idTotem;
+
+  dashboardModel
+    .pegarDados(idTotem)
+    .then(function (resultado) {
+      if (resultado.length > 0) {
+        res.status(200).json(resultado);
+      } else {
+        res.status(204).send("Nenhum resultado encontrado!");
+      }
+    })
+    .catch(function (erro) {
+      console.log(erro);
+      console.log("Houve um erro ao buscar os dados: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function deletarfkComponente(req, res) {
+  console.log("Tentando deletar componente...");
+  var fkComponente = req.params.fkComponente;
+
+  if (fkComponente == undefined) {
+    res.status(404).send("ID nao encontrado!");
+  } else {
+    dashboardModel
+      .deletarfkComponente(fkComponente)
+      .then((resultado) => res.json(resultado))
+      .catch((error) => {
+        console.log(error);
+        console.log(
+          "\n Houve um erro ao tentar deletar o componente! Erro: ",
+          error.sqlMessage
+        );
+        res.status(500).json(error.sqlMessage);
+      });
+  }
+}
+
+function deletarTotem(req, res) {
+  console.log("Tentando deletar totem...");
+  var idTotem = req.params.idTotem;
+
+  if (idTotem == undefined) {
+    res.status(404).send("ID nao encontrado!");
+  } else {
+    dashboardModel
+      .deletarTotem(idTotem)
+      .then((resultado) => res.json(resultado))
+      .catch((error) => {
+        console.log(error);
+        console.log(
+          "\n Houve um erro ao tentar deletar o totem! Erro: ",
+          error.sqlMessage
+        );
+        res.status(500).json(error.sqlMessage);
+      });
+  }
+}
+
 module.exports = {
   buscarMedidasCPUKPI,
   buscarMedidasRAMKPI,
@@ -357,4 +418,7 @@ module.exports = {
   deletarUsuario,
   qtdFuncionarios,
   qtdTotem,
+  pegarDados,
+  deletarTotem,
+  deletarfkComponente,
 };
