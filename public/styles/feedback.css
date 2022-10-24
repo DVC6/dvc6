@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
 .main {
   position: absolute;
   top: 60px;
@@ -61,7 +70,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 0 7px 25px 0 rgb(0 0 0 / 8%);;
+  box-shadow: 0 7px 25px 0 rgb(0 0 0 / 8%);
 }
 .containerFeed .post {
   display: none;
