@@ -304,6 +304,7 @@ function qtdTotem(idHospital) {
     });
 }
 
+var idFuncionarioEdit 
 function editUsuario(idFuncionario) {
   const btnsalvar = document.getElementById("btnSalvar");
   const btnEdit = document.getElementById("btnEdit");
@@ -311,6 +312,7 @@ function editUsuario(idFuncionario) {
   btnsalvar.style.display = "none";
   btnEdit.style.display = "block";
   novoUsuario.style.display = "block";
+  idFuncionarioEdit = idFuncionario
 }
 
 function deletarUsuario(idFuncionario) {
@@ -341,6 +343,7 @@ function editarUsuario(nome, senha, email, cargo, idFuncionario) {
   var senha = formulario.get("senha");
   var email = formulario.get("email");
   var cargo = formulario.get("cargo");
+  idFuncionario = idFuncionarioEdit
 
   if (nome == "" || cargo == "" || senha == "" || email == "") {
     window.alert("Preencha todos os campos para prosseguir!");

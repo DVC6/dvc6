@@ -171,7 +171,7 @@ function editarUsuario(nome, senha, email, cargo, idFuncionario) {
                                           senha ='${senha}',
                                           email ='${email}',
                                           cargo ='${cargo}'
-                                          WHERE id_funcionario = 3 ;`;
+                                          WHERE id_funcionario = ${idFuncionario};`;
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);
 }
