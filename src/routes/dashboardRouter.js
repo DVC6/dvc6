@@ -51,6 +51,10 @@ router.get("/pegarDados/:idTotem", function (req, res) {
   dashboardController.pegarDados(req, res);
 });
 
+router.get("/totensAcima90/:idHospital", function (req, res) {
+  dashboardController.totensAcima90(req, res);
+});
+
 router.post("/cadastrarUsuario/:idHospital", function (req, res) {
   dashboardController.cadastrarUsuario(req, res);
 });

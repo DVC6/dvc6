@@ -318,6 +318,16 @@ function deletarTotem(idTotem) {
   return database.executar(query), database.executar(query2);
 }
 
+function totensAcima90(idHospital) {
+  instrucaoSql = `
+  select distinctrow(totem.id_totem), nome_maquina, last_value(leitura.consumo > 90) over (order by totem.id_totem) as consumo, localizacao from totem 
+  join componente on totem.id_totem = componente.fktotem join leitura on componente.id_componente = leitura.fkcomponente 
+  join tipo_componente on componente.fktipocomponente = tipo_componente.id_tipo_componente where fkHospital = '${idHospital}' and tipo_componente.nome = "CPU";
+  `;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 /* --------------------- */
 
 module.exports = {
@@ -337,4 +347,5 @@ module.exports = {
   pegarDados,
   deletarTotem,
   deletarfkComponente,
+  totensAcima90,
 };

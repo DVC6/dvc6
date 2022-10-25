@@ -52,10 +52,6 @@ function atualizarTotens(idHospital) {
     });
 }
 
-setInterval(() => {
-  atualizarTotens();
-}, 5000);
-
 function analyticsPage(idTotem) {
   sessionStorage.ID_TOTEM = idTotem;
   fetch(`/dashboard/listarTotens/${sessionStorage.ID_HOSPITAL}`)
@@ -433,3 +429,37 @@ function cadastrarUsuario() {
 
   return false;
 }
+
+function totensAcima90() {
+  fetch(`/dashboard/totensAcima90/${sessionStorage.ID_HOSPITAL}`)
+    .then(function (resposta) {
+      if (resposta.ok) {
+        if (resposta.status == 204) {
+          console.log("Nenhum resultado encontrado!!");
+        }
+        resposta.json().then(function (resposta) {
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+          debugger;
+          var acima90 = 0;
+          console.log(acima90);
+          for (var i = 0; i < resposta.length; i++) {
+            var dados = resposta[i];
+            if (dados.consumo == 1) {
+              acima90 += dados.consumo;
+            }
+            idacima90.innerHTML = acima90
+          }
+        });
+      } else {
+        throw "Houve um erro na API!";
+      }
+    })
+    .catch(function (resposta) {
+      console.error(resposta);
+    });
+}
+
+setInterval(() => {
+  atualizarTotens();
+  totensAcima90();
+}, 5000);
