@@ -23,7 +23,7 @@ function atualizarTotens(idHospital) {
           lista_totens.innerHTML = "";
           for (var i = 0; i < resposta.length; i++) {
             var totens = resposta[i];
-
+  
             if (totens.consumo <= 69) {
               var img = "../img/kioskright.png";
             } else if (totens.consumo <= 89) {
@@ -31,13 +31,14 @@ function atualizarTotens(idHospital) {
             } else {
               var img = "../img/kioskperigo.png";
             }
-
+            
             lista_totens.innerHTML += `
                     <tr>
                         <td><img style="display: flex;" src=${img}></td>
                         <td>${totens.nome_maquina}</td>
                         <td>${totens.localizacao}</td>
                         <td class="acao"><button onclick="analyticsPage(${totens.id_totem})"><i class='fas fa-chart-area' ></i></button></td>
+                        <td class="acao"><button onclick="editTotem(${totens.id_totem})"><i class="bx bx-edit"></i></button></td>
                         <td class="acao"><button onclick="pegarDados(${totens.id_totem})"><i class='bx bx-trash'></i></button></td>
                     </tr>
                         `;
@@ -69,7 +70,7 @@ function analyticsPage(idTotem) {
             }
             sessionStorage.NOME_TOTEM = nome;
           }
-          window.location.href = "dashboardHardwares.html";
+          window.location.href = "dashboardHardwares2.html";
         });
       } else {
         throw "Houve um erro na API!";
@@ -142,6 +143,52 @@ function deletarTotem(idTotem) {
     .catch(function (resposta) {
       console.log(`#ERRO: ${resposta}`);
     });
+}
+
+var idTotemEdit;
+function editTotem(idTotem) {
+  const btnsalvar = document.getElementById("btnSalvar");
+  const btnEdit = document.getElementById("btnEdit");
+  const novoUsuario = document.getElementById("novoUsuario");
+  btnsalvar.style.display = "none";
+  btnEdit.style.display = "block";
+  novoUsuario.style.display = "block";
+  idTotemEdit = idTotem;
+}
+
+function editarTotem(nome, localizacao, idTotem) {
+  var formulario = new URLSearchParams(
+    new FormData(document.getElementById("form_cadusuario"))
+  );
+
+  var nome = formulario.get("nome");
+  var localizacao = formulario.get("localizacao");
+  idTotem = idTotemEdit;
+
+  if (nome == "" || localizacao == "") {
+    window.alert("Preencha todos os campos para prosseguir!");
+  } else {
+    fetch(`/dashboard/editarTotem/${idTotem}`, {
+      method: "POST",
+      body: formulario,
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          window.alert("Totem editado com sucesso!");
+          location.reload();
+          limparFormulario();
+        } else {
+          throw "Houve um erro ao tentar realizar a edição do totem!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
 }
 
 function carregarDashboard() {
@@ -246,6 +293,41 @@ function atualizarFuncionarios(idHospital) {
     });
 }
 
+function atualizarComponentes(idTotem) {
+  var idTotem = sessionStorage.ID_TOTEM;
+  fetch(`/dashboard/listarComponentes/${idTotem}`)
+    .then(function (resposta) {
+      if (resposta.ok) {
+        if (resposta.status == 204) {
+          var feed = document.getElementById("listar_componentes");
+          var mensagem = document.createElement("span");
+          mensagem.innerHTML = "Nenhum resultado encontrado.";
+          feed.appendChild(mensagem);
+          throw "Nenhum resultado encontrado!!";
+        }
+        resposta.json().then(function (resposta) {
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+          for (var i = 0; i < resposta.length; i++) {
+            var componente = resposta[i];
+
+            listar_componentes.innerHTML += `
+                      <tr>
+                          <td>${componente.tipo}</td>
+                          <td>${componente.nome}</td>
+                          <td>${componente.medida_componente}</td>
+                      </tr>
+                          `;
+          }
+        });
+      } else {
+        throw "Houve um erro na API!";
+      }
+    })
+    .catch(function (resposta) {
+      console.error(resposta);
+    });
+}
+
 function qtdFuncionarios(idHospital) {
   var idHospital = sessionStorage.ID_HOSPITAL;
   fetch(`/dashboard/qtdFuncionarios/${idHospital}`)
@@ -304,7 +386,7 @@ function qtdTotem(idHospital) {
     });
 }
 
-var idFuncionarioEdit 
+var idFuncionarioEdit;
 function editUsuario(idFuncionario) {
   const btnsalvar = document.getElementById("btnSalvar");
   const btnEdit = document.getElementById("btnEdit");
@@ -312,7 +394,7 @@ function editUsuario(idFuncionario) {
   btnsalvar.style.display = "none";
   btnEdit.style.display = "block";
   novoUsuario.style.display = "block";
-  idFuncionarioEdit = idFuncionario
+  idFuncionarioEdit = idFuncionario;
 }
 
 function deletarUsuario(idFuncionario) {
@@ -343,7 +425,7 @@ function editarUsuario(nome, senha, email, cargo, idFuncionario) {
   var senha = formulario.get("senha");
   var email = formulario.get("email");
   var cargo = formulario.get("cargo");
-  idFuncionario = idFuncionarioEdit
+  idFuncionario = idFuncionarioEdit;
 
   if (nome == "" || cargo == "" || senha == "" || email == "") {
     window.alert("Preencha todos os campos para prosseguir!");
@@ -433,8 +515,8 @@ function cadastrarUsuario() {
   return false;
 }
 
-function totensAcima90() {
-  fetch(`/dashboard/totensAcima90/${sessionStorage.ID_HOSPITAL}`)
+function totensCPUAcima90() {
+  fetch(`/dashboard/totensCPUAcima90/${sessionStorage.ID_HOSPITAL}`)
     .then(function (resposta) {
       if (resposta.ok) {
         if (resposta.status == 204) {
@@ -442,7 +524,7 @@ function totensAcima90() {
         }
         resposta.json().then(function (resposta) {
           console.log("Dados recebidos: ", JSON.stringify(resposta));
-          debugger;
+
           var acima90 = 0;
           console.log(acima90);
           for (var i = 0; i < resposta.length; i++) {
@@ -450,7 +532,36 @@ function totensAcima90() {
             if (dados.consumo == 1) {
               acima90 += dados.consumo;
             }
-            idacima90.innerHTML = acima90
+            idCPUacima90.innerHTML = acima90;
+          }
+        });
+      } else {
+        throw "Houve um erro na API!";
+      }
+    })
+    .catch(function (resposta) {
+      console.error(resposta);
+    });
+}
+
+function totensRAMAcima90() {
+  fetch(`/dashboard/totensRAMAcima90/${sessionStorage.ID_HOSPITAL}`)
+    .then(function (resposta) {
+      if (resposta.ok) {
+        if (resposta.status == 204) {
+          console.log("Nenhum resultado encontrado!!");
+        }
+        resposta.json().then(function (resposta) {
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+          var acima90 = 0;
+          console.log(acima90);
+          for (var i = 0; i < resposta.length; i++) {
+            var dados = resposta[i];
+            if (dados.consumo == 1) {
+              acima90 += dados.consumo;
+            }
+            idRAMacima90.innerHTML = acima90;
           }
         });
       } else {
@@ -464,5 +575,6 @@ function totensAcima90() {
 
 setInterval(() => {
   atualizarTotens();
-  totensAcima90();
+  totensCPUAcima90();
+  totensRAMAcima90();
 }, 5000);

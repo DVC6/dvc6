@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/logo2.jpg" type="image/x-icon" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="../styles/dashboardHardwares.css">
+    <link rel="stylesheet" href="../styles/dashboardHardwares2.css">
     <link rel="stylesheet" href="../styles/top&sideBar.css">
-    <title>DVC6 | Dashboard</title>
-    <script
-    src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <script src="../js/funções.js"></script>
+    <script src="../js/componente.js"></script>
+    <title>DVC6 | Dashboard</title>
+    
 </head>
-<body id="idbody" 
->
-<!-- onload="validarSessao()" -->
+<body id="idbody" onload="validarSessao(), atualizarComponentes()">
+
 
   <div class="container">
     <div class="topbar">
@@ -54,6 +55,12 @@
                     <div>Feedback</div>
                 </a>
             </li>
+            <li>
+                <a href="manual.html">
+                    <i class="fas fa-book"></i>
+                    <div>Manual</div>
+                </a>
+            </li>
         </ul>
         <ul>
             <li onclick="deslogar()">
@@ -67,38 +74,11 @@
     <div id="divmain" class="main">
         <div class="infoTotem">
             <h2>Totem - <span id="nometotem"></span></h2>
-            <h2 style="margin-top: 20px; font-size: 18px;">Legenda</h2>
         </div>
-        <div class="cardsInfo">
-            <div class="cardInfo1">
-                <i class="fas fa-square"></i>
-                <div class="card-content">
-                    <p>Ideal (0% a 69%)</p>
-                </div>
-            </div>
-            <div class="cardInfo2">
-                <i class="fas fa-square"></i>
-                <div class="card-content">
-                    <p>Risco (70% a 89%)</p>
-                </div>
-            </div>
-            <div class="cardInfo3">
-                <i class="fas fa-square"></i>
-                <div class="card-content">
-                    <p>Incidente (90% a 100%)</p>
-                </div>
-            </div>
-        </div>
+        <div class="containerDashPai">
+        <div class="containerDash">
+
         <div class="cards">
-            <div class="card">
-                <div class="card-content">
-                    <div class="number" id="discoUsadoID">0%</div>
-                    <div class="card-name">Disco Usado</div>
-                </div>
-                <div class="icon-box">
-                    <img src="../img/disco-rigido.png" height="45px">
-                </div>
-            </div>
             <div class="card">
                 <div class="card-content">
                     <div class="number" id="ramkpiID">0%</div>
@@ -127,16 +107,73 @@
                 </div>
             </div>
         </div>
-        <div class="charts">
+
+        <!-- <div class="charts"> -->
             <div class="chart">
                 <h2>Consumo de RAM</h2>
-                <canvas id="memoria"></canvas>
+                <section style="width: 100%; height: 90%">
+                    <canvas id="memoria"></canvas>
+                </section>
             </div>
-            <div class="chart" id="chartCPU">
+            <div class="chart">
                 <h2>Consumo de CPU</h2>
-                <canvas id="cpu"></canvas>
+                <section style="width:100%; height: 90%">
+                    <canvas id="cpu"></canvas>
+                </section>
             </div>
+        <!-- </div> -->
+    </div>
+    <div class="containerDash2">
+        <div class="container">
+            <div class="headerHard">
+              <span>Componentes</span>
+              <!-- <button onclick="openModal()" id="new">Incluir</i></button> -->
+            </div>
+            <div class="divTable">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Tipo</th>
+                    <th>Nome</th>
+                    <th>Medida</th>
+                    <!-- <th class="acao">Editar</th> -->
+                    <!-- <th class="acao">Excluir</th> -->
+                  </tr>
+                </thead>
+                <tbody id="listar_componentes">
+                    
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-container">
+              <div class="modal">
+                <div class="form">
+                  <label for="m-nome">Nome</label>
+                  <input id="m-nome" type="text" required />
+          
+                  <label for="m-funcao">Função</label>
+                  <input id="m-funcao" type="text" required />
+          
+                  <label for="m-salario">Salário</label>
+                  <input id="m-salario" type="number" required />
+                  <button id="btnSalvar">Salvar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="chartDisco">
+            <div class="chartDiscotext"><h2>Consumo Disco</h2></div>
+            <div class="containerDisco">
+          <div class="gauge">
+            <div class="gauge__body">
+                <div class="gauge__fill"></div>
+                <div class="gauge__cover"></div>
+            </div>
+          </div>
+          </div>
         </div>
+    </div>
+    </div>
     </div>
   </div>
 </body>

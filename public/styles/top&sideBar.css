@@ -48,6 +48,7 @@ body::-webkit-scrollbar-thumb {
   --backfeed: #1c1726;
   --scroltable: #1c1726;
   --scrolbar: #63597b;
+  --backDisco: #181420;
 }
 
 body.light {
@@ -81,6 +82,7 @@ body.light {
   --estrelashadow: 0 0 20px #952;
   --scroltable: whitesmoke;
   --scrolbar: darkgray;
+  --backDisco: #fff;
 }
 /*----------------------------------*/
 
@@ -98,10 +100,13 @@ body.light {
 .main.light {
   background: #f5f5f5;
 }
-.infoTotem h2 {
+.infoTotem h2,
+.infoManual h2,
+.cardManual p {
   color: var(--numbercard);
 }
-.cards .card {
+.cards .card,
+.cardsManual .cardManual {
   background: var(--backcards);
   box-shadow: var(--cardshadow);
 }
@@ -130,22 +135,35 @@ tbody tr td {
 thead tr th {
   color: var(--theadtrth);
 }
-#lista_funcionarios span {
+#lista_funcionarios span,
+#lista_totens span,
+#listar_componentes span {
   color: var(--theadtrth);
 }
-#lista_totens span {
+/* #lista_totens span {
   color: var(--theadtrth);
+} */
+.headerHard span {
+  color: var(--chartname);
 }
 .cardsInfo .cardInfo1,
 .cardsInfo .cardInfo2,
 .cardsInfo .cardInfo3 {
   color: var(--numbercard);
 }
-.chart {
+.chart,
+.chartDisco {
   background: var(--backchart);
 }
-.chart h2 {
+.chart h2,
+.chartDiscotext h2 {
   color: var(--chartname);
+}
+.gauge__cover {
+  background: var(--backDisco);
+}
+.gauge__body {
+  background: var(--backgroundbuttom);
 }
 .bannerFeed {
   background-image: var(--backfeedback);

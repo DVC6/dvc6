@@ -44,6 +44,11 @@ async function pegarUltimaData() {
 var memoria = document.getElementById("memoria").getContext("2d");
 var cpu = document.getElementById("cpu").getContext("2d");
 
+memoria.canvas.width = 500;
+memoria.canvas.height = 120;
+cpu.canvas.width = 500;
+cpu.canvas.height = 120;
+
 const gradientBg = memoria.createLinearGradient(0, 0, 0, 400);
 
 gradientBg.addColorStop(0.1, "#2a82fe51");
@@ -190,21 +195,25 @@ async function get_dataCPUKPI() {
 /*----------------------------------------------------------------------------------*/
 
 async function get_dataDisco() {
+  const gaugeElement = document.querySelector(".gauge");
   var ultimoDadoDisco = await fetch(
     `/dashboard/buscarMedidasDisco/${sessionStorage.ID_TOTEM}`
   );
   ultimoDadoDisco = await ultimoDadoDisco.json();
-  var discoUsado = document.getElementById("discoUsadoID");
-  discoUsado.innerHTML = (await ultimoDadoDisco[0].consumo) + "%";
-  if (ultimoDadoDisco[0].consumo == undefined) {
-    discoUsado.innerHTML = "0%";
-  } else if (ultimoDadoDisco[0].consumo >= 90) {
-    discoUsado.style.color = "#FF5050";
-  } else if (ultimoDadoDisco[0].consumo >= 70) {
-    discoUsado.style.color = "#FFEE1D";
-  } else {
-    discoUsado.style.color = "#12d74b";
+  var discoUsado = await ultimoDadoDisco[0].consumo;
+  
+  function setGaugeValue(gauge, value) {
+      if (value < 0 || value > 100) {
+          return;
+      } else if (value == undefined || value == "") {
+        value = 0;
+      }
+  
+      gauge.querySelector(".gauge__fill").style.transform = `rotate(${value / 200}turn)`;
+      gauge.querySelector(".gauge__cover").textContent = `${Math.round(value)}%`;
   }
+
+  setGaugeValue(gaugeElement, discoUsado);
 }
 
 /*------------------------FUNÇÕES DE OBTENÇÃO DE DADOS--------------------------- */
@@ -237,7 +246,7 @@ async function get_dataCPU() {
     myChartCpu.data.datasets[0].data.shift();
   }
   for (let i = 6; i >= 0; i--) {
-    let time = `${tempoRealCPU[i].hora}:${tempoRealCPU[i].minutos}:${tempoRealCPU[i].segundos}`;
+    let time = `${tempoRealCPU[i].horas}:${tempoRealCPU[i].minutos}:${tempoRealCPU[i].segundos}`;
     myChartCpu.data.labels.push(time);
     myChartCpu.data.datasets[0].data.push(parseFloat(tempoRealCPU[i].consumo));
     myChartCpu.update();

@@ -227,6 +227,25 @@ function listarFuncionarios(req, res) {
     });
 }
 
+function listarComponentes(req, res) {
+  var idTotem = req.params.idTotem;
+
+  dashboardModel
+    .listarComponentes(idTotem)
+    .then(function (resultado) {
+      if (resultado.length > 0) {
+        res.status(200).json(resultado);
+      } else {
+        res.status(204).send("Nenhum resultado encontrado!");
+      }
+    })
+    .catch(function (erro) {
+      console.log(erro);
+      console.log("Houve um erro ao buscar funcionários: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function cadastrarUsuario(req, res) {
   var idHospital = req.params.idHospital;
 
@@ -273,7 +292,10 @@ function qtdFuncionarios(req, res) {
     })
     .catch(function (erro) {
       console.log(erro);
-      console.log("Houve um erro ao buscar a quantidade de funcionários: ", erro.sqlMessage);
+      console.log(
+        "Houve um erro ao buscar a quantidade de funcionários: ",
+        erro.sqlMessage
+      );
       res.status(500).json(erro.sqlMessage);
     });
 }
@@ -291,7 +313,10 @@ function qtdTotem(req, res) {
     })
     .catch(function (erro) {
       console.log(erro);
-      console.log("Houve um erro ao buscar a quantidade de totens: ", erro.sqlMessage);
+      console.log(
+        "Houve um erro ao buscar a quantidade de totens: ",
+        erro.sqlMessage
+      );
       res.status(500).json(erro.sqlMessage);
     });
 }
@@ -335,6 +360,29 @@ function editarUsuario(req, res) {
         console.log(error);
         console.log(
           "\n Houve um erro ao tentar editar o usuario! Erro: ",
+          error.sqlMessage
+        );
+        res.status(500).json(error.sqlMessage);
+      });
+  }
+}
+
+function editarTotem(req, res) {
+  console.log("Tentando editar o totem...");
+
+  var idTotem = req.params.idTotem;
+  var nome = req.body.nome;
+  var localizacao = req.body.localizacao;
+  if (idTotem == undefined) {
+    res.status(404).send("ID nao encontrado!");
+  } else {
+    dashboardModel
+      .editarTotem(nome, localizacao, idTotem)
+      .then((resultado) => res.json(resultado))
+      .catch((error) => {
+        console.log(error);
+        console.log(
+          "\n Houve um erro ao tentar editar o totem! Erro: ",
           error.sqlMessage
         );
         res.status(500).json(error.sqlMessage);
@@ -403,11 +451,30 @@ function deletarTotem(req, res) {
   }
 }
 
-function totensAcima90(req, res) {
+function totensCPUAcima90(req, res) {
   var idHospital = req.params.idHospital;
 
   dashboardModel
-    .totensAcima90(idHospital)
+    .totensCPUAcima90(idHospital)
+    .then(function (resultado) {
+      if (resultado.length > 0) {
+        res.status(200).json(resultado);
+      } else {
+        res.status(204).send("Nenhum resultado encontrado!");
+      }
+    })
+    .catch(function (erro) {
+      console.log(erro);
+      console.log("Houve um erro ao buscar os dados: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function totensRAMAcima90(req, res) {
+  var idHospital = req.params.idHospital;
+
+  dashboardModel
+    .totensRAMAcima90(idHospital)
     .then(function (resultado) {
       if (resultado.length > 0) {
         res.status(200).json(resultado);
@@ -434,11 +501,14 @@ module.exports = {
   listarFuncionarios,
   cadastrarUsuario,
   editarUsuario,
+  editarTotem,
   deletarUsuario,
   qtdFuncionarios,
   qtdTotem,
   pegarDados,
   deletarTotem,
   deletarfkComponente,
-  totensAcima90,
+  totensCPUAcima90,
+  totensRAMAcima90,
+  listarComponentes,
 };

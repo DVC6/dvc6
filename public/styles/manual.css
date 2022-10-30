@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.main {
+  position: absolute;
+  top: 60px;
+  width: calc(100% - 260px);
+  left: 260px;
+  min-height: calc(100vh - 60px);
+  background-image: url(../img/background-banner.jpg);
+  background-size: cover;
+}
+.containerManual {
+  margin-top: 20px;
+  padding: 0px 20px;
+}
+.cardsManual {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+.cardsManual .cardManual {
+  padding: 20px;
+  border-radius: 10px;
+  line-height: 30px;
+}
+.cardManual h3,
+.cardManual h4 {
+  color: #fa1e4e;
+  line-height: 25px;
+}
+.cardManual p {
+  font-weight: 500;
+}
+.fa-chart-area {
+  color: #1e6bfa;
+}
+.bx-edit {
+  color: #1e6bfa;
+}
+.bx-trash {
+  color: #fa1e4e;
+  margin-bottom: 30px;
+}
+.cardInfoManual1 .fa-square {
+  color: #12d74b;
+}
+.cardInfoManual2 .fa-square {
+  color: #ffee1d;
+}
+.cardInfoManul3 .fa-square {
+  color: #ff5050;
+}
+
+@media (max-width: 1115px) {
+  .main {
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+}
+@media (max-width: 800px) {
+  .cardsManual {
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 20px;
+  }
+}

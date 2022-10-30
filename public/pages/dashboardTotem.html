@@ -52,6 +52,12 @@
                     <div>Feedback</div>
                 </a>
             </li>
+            <li>
+                <a href="manual.html">
+                    <i class="fas fa-book"></i>
+                    <div>Manual</div>
+                </a>
+            </li>
         </ul>
         <ul>
             <li onclick="deslogar()">
@@ -82,7 +88,7 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="card-name">Total</div>
-                        <div class="number" id="idacima90"><span>0</span></div>
+                        <div class="number" id="idRAMacima90"><span>0</span></div>
                     </div>
                     <div class="icon-box">
                         <img style="width: 45px;" src="../img/kioskqtdtotem.png">
@@ -92,7 +98,7 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="card-name">Total</div>
-                        <div class="number" id="qtd_funcionarios"><span>0</span></div>
+                        <div class="number" id="idCPUacima90"><span>0</span></div>
                     </div>
                     <div class="icon-box">
                         <img style="width: 45px;" src="../img/kioskqtdtotem.png">
@@ -113,6 +119,7 @@
                         <th>Nome</th>
                         <th>Localização</th>
                         <th class="acao">Analytics</th>
+                        <th class="acao">Editar</th>
                         <th class="acao">Excluir</th>
                     </tr>
                 </thead>
@@ -131,17 +138,11 @@
                 <label for="m-nome">Nome</label>
                 <input id="m-nome" type="text"  name="nome" value="" required />
 
-                <label for="m-funcao">Função</label>
-                <input id="m-funcao" type="text" name="cargo" value = "" required />
-                
-                <label for="m-email">Email</label>
-                <input id="m-email" type="email" name="email" value = "" required />
-                
-                <label for="m-senha">Senha</label>
-                <input id="m-senha" type="password" name="senha" value = "" required />
+                <label for="m-funcao">Localização</label>
+                <input id="m-funcao" type="text" name="localizacao" value = "" required />
         
                 <button id="btnSalvar" onclick="cadastrarUsuario()">Salvar</button>
-                <button id="btnEdit" onclick="editarUsuario()">Editar</button>
+                <button id="btnEdit" onclick="editarTotem()">Editar</button>
               </form>
             </div>
           </div>

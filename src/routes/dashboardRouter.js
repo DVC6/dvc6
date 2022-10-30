@@ -39,6 +39,10 @@ router.get("/listarFuncionarios/:idHospital", function (req, res) {
   dashboardController.listarFuncionarios(req, res);
 });
 
+router.get("/listarComponentes/:idTotem", function (req, res) {
+  dashboardController.listarComponentes(req, res);
+});
+
 router.get("/qtdFuncionarios/:idHospital", function (req, res) {
   dashboardController.qtdFuncionarios(req, res);
 });
@@ -51,8 +55,12 @@ router.get("/pegarDados/:idTotem", function (req, res) {
   dashboardController.pegarDados(req, res);
 });
 
-router.get("/totensAcima90/:idHospital", function (req, res) {
-  dashboardController.totensAcima90(req, res);
+router.get("/totensCPUAcima90/:idHospital", function (req, res) {
+  dashboardController.totensCPUAcima90(req, res);
+});
+
+router.get("/totensRAMAcima90/:idHospital", function (req, res) {
+  dashboardController.totensRAMAcima90(req, res);
 });
 
 router.post("/cadastrarUsuario/:idHospital", function (req, res) {
@@ -73,6 +81,10 @@ router.post("/deletarfkComponente/:fkComponente", function (req, res) {
 
 router.post("/editarUsuario/:idFuncionario", function (req, res) {
   dashboardController.editarUsuario(req, res);
+});
+
+router.post("/editarTotem/:idTotem", function (req, res) {
+  dashboardController.editarTotem(req, res);
 });
 
 module.exports = router;
