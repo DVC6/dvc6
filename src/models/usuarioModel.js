@@ -5,7 +5,7 @@ function listar(fkHospital) {
     "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()"
   );
   var instrucao = `
-        SELECT * from funcionario WHERE fkHospital = ${fkHospital};
+        SELECT * from funcionario WHERE fk_hospital = ${fkHospital};
     `;
   console.log('Executando a instrução SQL: \n' + instrucao);
   return database.executar(instrucao);
@@ -41,7 +41,7 @@ function cadastrar(
   );
   console.log('O SITE: ' + site);
   var instrucao = `
-INSERT INTO funcionario (nome, senha, email, cargo, fkHospital)
+INSERT INTO funcionario (nome, senha, email, cargo, fk_hospital)
 VALUES ('${nome}', '${senha}', '${email}', '${cargo}', '${fkHospital}');
     `;
   console.log('Executando a instrução SQL: \n' + instrucao);
