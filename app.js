@@ -10,6 +10,7 @@ var app = express();
 var indexRouter = require('./src/routes/index');
 var hospitalRouter = require('./src/routes/hospitalRouter');
 var dashboardRouter = require('./src/routes/dashboardRouter');
+var preCheckinRouter = require('./src/routes/preCheckinRouter');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -20,6 +21,7 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/hospitais', hospitalRouter);
 app.use('/dashboard', dashboardRouter);
+app.use('/pre-checkin', preCheckinRouter);
 
 app.listen(PORTA, function () {
   console.log(`Servidor do site está rodando rodando: http://localhost:${PORTA} \n
