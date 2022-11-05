@@ -73,6 +73,8 @@ nav a:hover::after {
   margin-right: 100px;
   color: white;
   background-color: #fa1e4e;
+  outline: none;
+  border: none;
   padding: 17px 50px;
   font-size: 12px;
   font-weight: 600;
@@ -88,6 +90,11 @@ nav a:hover::after {
 }
 #check {
   display: none;
+}
+
+.navbtncadastro:hover {
+  cursor: pointer;
+  opacity: 0.9;
 }
 @media (max-width: 1030px) {
   nav label.logo {

@@ -1,5 +1,6 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,12 +11,13 @@
     <link rel="shortcut icon" href="../img/logo2.jpg" type="image/x-icon">
     <title>Contato</title>
 </head>
+
 <body>
     <script>
-        window.fwSettings={
-        'widget_id':150000000973
+        window.fwSettings = {
+            'widget_id': 150000000973
         };
-        !function(){if("function"!=typeof window.FreshworksWidget){var n=function(){n.q.push(arguments)};n.q=[],window.FreshworksWidget=n}}() 
+        !function () { if ("function" != typeof window.FreshworksWidget) { var n = function () { n.q.push(arguments) }; n.q = [], window.FreshworksWidget = n } }() 
     </script>
     <script type='text/javascript' src='https://widget.freshworks.com/widgets/150000000973.js' async defer></script>
     <nav>
@@ -29,78 +31,77 @@
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="contact.html" style="color: #fa1e4e;">Contato</a></li>
             <li><a href="feedback.html">Feedback</a></li>
-            <li><hr><a class="btnnavcadastro" href="cadastro.html">Cadastro</a></li>
+            <li>
+                <hr><a class="btnnavcadastro" href="cadastro.html">Cadastro</a>
+            </li>
             <li><a class="navlogin" href="login.html">Login</a></li>
         </ul>
-    <a class="navbtncadastro" href="cadastro.html"> Cadastro </a>
+        <a class="navbtncadastro" href="cadastro.html"> Cadastro </a>
     </nav>
     <section>
-    <div class="container">
-        <div class="contactInfo">
-            <div>
-                <h2>Contato</h2>
-                <ul class="info">
-                    <li>
-                        <span><img src="../img/map.png"></span>
-                        <span>Rua Haddock Lobo, 595<br>
-                        Cerqueira César, SP<br>
-                        01414-001</span>
-                    </li>
-                    <li>
-                        <span><img src="../img/email.png"></span>
-                        <span>monitoramento@DVC6.com</span>
-                    </li>
-                    <li>
-                        <span><img src="../img/call.png"></span>
-                        <span>11-93864-1623</span>
-                    </li>
+        <div class="container">
+            <div class="contactInfo">
+                <div>
+                    <h2>Contato</h2>
+                    <ul class="info">
+                        <li>
+                            <span><img src="../img/map.png"></span>
+                            <span>Rua Haddock Lobo, 595<br>
+                                Cerqueira César, SP<br>
+                                01414-001</span>
+                        </li>
+                        <li>
+                            <span><img src="../img/email.png"></span>
+                            <span>monitoramento@DVC6.com</span>
+                        </li>
+                        <li>
+                            <span><img src="../img/call.png"></span>
+                            <span>11-93864-1623</span>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="sci">
+                    <li><a href="#"><img src="../img/github.png"></a></li>
+                    <li><a href="#"><img src="../img/instagram.png"></a></li>
+                    <li><a href="#"><img src="../img/twitter.png"></a></li>
+                    <li><a href="#"><img src="../img/facebook.png"></a></li>
+                    <li><a href="#"><img src="../img/linkedin.png"></a></li>
                 </ul>
             </div>
-            <ul class="sci">
-                <li><a href="#"><img src="../img/github.png"></a></li>
-                <li><a href="#"><img src="../img/instagram.png"></a></li>
-                <li><a href="#"><img src="../img/twitter.png"></a></li>
-                <li><a href="#"><img src="../img/facebook.png"></a></li>
-                <li><a href="#"><img src="../img/linkedin.png"></a></li>
-            </ul>
+
+            <form class="contactForm" action="https://formspree.io/f/xbjboozp" method="POST">
+                <h2>Envie sua Mensagem</h2>
+                <div class="formBox">
+                    <div class="inputBox w50">
+                        <input type="text" name="nome" required>
+                        <span>Nome</span>
+                    </div>
+                    <div class="inputBox w50">
+                        <input type="text" required>
+                        <span>Sobrenome</span>
+                    </div>
+                    <div class="inputBox w50">
+                        <input type="email" name="email" required>
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox w50">
+                        <input type="text" name="telefone" required>
+                        <span>Telefone</span>
+                    </div>
+                    <div class="inputBox w100">
+                        <textarea name="message" required></textarea>
+                        <span>Escreva sua mensagem aqui...</span>
+                    </div>
+                    <div class="inputBox w100">
+                        <input type="submit" value="Enviar">
+                    </div>
+                </div>
+            </form>
         </div>
-
-        <form class="contactForm"
-
-          action="https://formspree.io/f/xbjboozp"
-            method="POST"
-        >
-            <h2>Envie sua Mensagem</h2>
-            <div class="formBox">
-                <div class="inputBox w50">
-                    <input type="text" name="nome" required>
-                    <span>Nome</span>
-                </div>
-                <div class="inputBox w50">
-                    <input type="text" required>
-                    <span>Sobrenome</span>
-                </div>
-                <div class="inputBox w50">
-                    <input type="email" name="email" required>
-                    <span>Email</span>
-                </div>
-                <div class="inputBox w50">
-                    <input type="text" name="telefone" required>
-                    <span>Telefone</span>
-                </div>
-                <div class="inputBox w100">
-                    <textarea name="message" required></textarea>
-                    <span>Escreva sua mensagem aqui...</span>
-                </div>
-                <div class="inputBox w100">
-                    <input type="submit" value="Enviar">
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="copyrightText">
-        <p>Copyright © 2022 DVC6<br> Todos os direitos reservados</p>
-    </div>
-</section>
+        <div class="copyrightText">
+            <p>Copyright © 2022 DVC6<br> Todos os direitos reservados</p>
+        </div>
+    </section>
 </body>
+
 </html>
