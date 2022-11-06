@@ -16,7 +16,6 @@
 
 <body id="idbody" onload="validarSessao(), deleteidTotem()">
 
-
     <div class="topbar">
         <div class="logo">
             <img src="../img/image.png">
@@ -28,8 +27,17 @@
         <div class="info">
             <p>Olá, <b><span style="font-size: 15px" id="nomeUsuario"></span></b>!</p>
         </div>
-        <div class="user">
-            <i class="fas fa-user-circle"></i>
+        <div class="action">
+            <div class="profile" onclick="menuToggle();">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="menu">
+                <h3><span class="nomeUser" id="nomeUsuario2"></span><br><span>Website DVC6</span></h3>
+                <ul>
+                    <li><i class="fas fa-user-alt"></i><a href="perfil.html">Meu Perfil</a></li>
+                    <li onclick="deslogar()"><i class="fas fa-sign-out-alt"></i><a href="#">Sair</a></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="sidebar">
@@ -40,12 +48,14 @@
                     <div>Dashboard</div>
                 </a>
             </li>
+            <span id="sideFuncionario">
             <li>
                 <a href="funcionario.html">
                     <i class="fas fa-users"></i>
                     <div>Funcionários</div>
                 </a>
             </li>
+            </span>
             <li>
                 <a href="feedback.html">
                     <i class="fas fa-comments"></i>
@@ -79,10 +89,10 @@
                     <h3>Página dos Totens e Funcionários</h3>
                     <h4>Ícones das listas</h4>
                     <div class="cardInfoManual1">
-                        <p>Ícones dos totens na lista de totem, temos três e 
-                            <br>suas cores são com base nas cores dos números da 
-                            <br> página dos gráficos, sendo verde o "Ideal", amarelo <br>
-                            "Risco" e vermelho "Perigo";</p>
+                        <p>1 - Temos três ícones na lista de totem, suas cores 
+                            são com <br>base no consumo dos componentes 
+                            , sendo verde o <br>"Ideal" de 0% a 69% de consumo, amarelo 
+                            "Risco" de 70% <br>a 89% de c e vermelho "Perigo" 90% a 100%;</p>
                     </div>
                     <div class="cardInfoManual1">
                         <p><i class="fas fa-chart-area"></i>  Visualizar os gráficos de hardwares do totem;</p>
@@ -96,6 +106,18 @@
                 </div>
                 <div class="cardManual">
                     <h3>Página dos Gráficos</h3>
+                    <h4>Cards</h4>
+                    <div class="cardInfoManual1">
+                        <p>1 - Informa o último dado de consumo da RAM;</p>
+                    </div>
+                    <div class="cardInfoManual2">
+                        <p>2 - Informa o último dado de consumo da CPU;</p>
+                    </div>
+                    <div class="cardInfoManul3">
+                        <p>3 - Informa quantidade de incidentes registrados durante o <br>
+                            dia sendo zerado a cada dia, o incidente é constado, caso o <br>
+                            consumo permaneça acima de 89% durante 2 minutos.</p>
+                    </div>
                     <h4>Cor dos números</h4>
                     <div class="cardInfoManual1">
                         <p><i class="fas fa-square"></i>  Ideal (0% a 69%);</p>

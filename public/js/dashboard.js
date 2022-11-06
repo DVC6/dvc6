@@ -5,6 +5,8 @@ var contadorAcimaRAM = 0;
 var contadorAcimaCPU = 0;
 
 function atualizarTotens(idHospital) {
+  const nomeFantasia = sessionStorage.LOGIN_HOSPITAL;
+  const nomeFuncionario = sessionStorage.LOGIN_FUNCIONARIO;
   var idHospital = sessionStorage.ID_HOSPITAL;
   fetch(`/dashboard/listarTotens/${idHospital}`)
     .then(function (resposta) {
@@ -23,7 +25,7 @@ function atualizarTotens(idHospital) {
           lista_totens.innerHTML = "";
           for (var i = 0; i < resposta.length; i++) {
             var totens = resposta[i];
-  
+
             if (totens.consumo <= 69) {
               var img = "../img/kioskright.png";
             } else if (totens.consumo <= 89) {
@@ -31,17 +33,31 @@ function atualizarTotens(idHospital) {
             } else {
               var img = "../img/kioskperigo.png";
             }
-            
-            lista_totens.innerHTML += `
-                    <tr>
-                        <td><img style="display: flex;" src=${img}></td>
-                        <td>${totens.nome_maquina}</td>
-                        <td>${totens.localizacao}</td>
-                        <td class="acao"><button onclick="analyticsPage(${totens.id_totem})"><i class='fas fa-chart-area' ></i></button></td>
-                        <td class="acao"><button onclick="editTotem(${totens.id_totem})"><i class="bx bx-edit"></i></button></td>
-                        <td class="acao"><button onclick="pegarDados(${totens.id_totem})"><i class='bx bx-trash'></i></button></td>
-                    </tr>
-                        `;
+
+            if (nomeFantasia != null) {
+              lista_totens.innerHTML += `
+              <tr>
+                  <td><img style="display: flex;" src=${img}></td>
+                  <td>${totens.nome_maquina}</td>
+                  <td>${totens.localizacao}</td>
+                  <td class="acao"><button onclick="analyticsPage(${totens.id_totem})"><i class='fas fa-chart-area' ></i></button></td>
+                  <td id="editartdTotem" class="acao"><button onclick="editTotem(${totens.id_totem})"><i class="bx bx-edit"></i></button></td>
+                  <td id="excluirtdTotem" class="acao"><button onclick="pegarDados(${totens.id_totem})"><i class='bx bx-trash'></i></button></td>
+              </tr>
+                  `;
+            } else if (nomeFuncionario != null) {
+              editarthTotem.style.display = "none";
+              excluirthTotem.style.display = "none";
+              lista_totens.innerHTML += `
+              <tr>
+                  <td><img style="display: flex;" src=${img}></td>
+                  <td>${totens.nome_maquina}</td>
+                  <td>${totens.localizacao}</td>
+                  <td class="acao"><button onclick="analyticsPage(${totens.id_totem})"><i class='fas fa-chart-area' ></i></button></td>
+              </tr>
+                  `;
+            }
+
           }
         });
       } else {
@@ -429,28 +445,47 @@ function editarUsuario(nome, senha, email, cargo, idFuncionario) {
 
   if (nome == "" || cargo == "" || senha == "" || email == "") {
     window.alert("Preencha todos os campos para prosseguir!");
-  } else {
-    fetch(`/dashboard/editarUsuario/${idFuncionario}`, {
-      method: "POST",
-      body: formulario,
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          window.alert("Usuario editado com sucesso!");
-          location.reload();
-          limparFormulario();
-        } else {
-          throw "Houve um erro ao tentar realizar a edição do usuario!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-
+    if (nome == "") {
+      console.log("nome está em branco");
+    }
+    if (cargo == "") {
+      console.log("cargo está em branco");
+    }
+    if (email == "") {
+      console.log("email está em branco");
+    }
+    if (senha == "") {
+      console.log("senha está em branco");
+    }
     return false;
   }
+
+  if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+    window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+    return false;
+  } else if (senha == "" || senha.length < 8) {
+    window.alert("Ops, senha inválida! Verifique e tente novamente.");
+    return false;
+  }
+
+  fetch(`/dashboard/editarUsuario/${idFuncionario}`, {
+    method: "POST",
+    body: formulario,
+  })
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+        window.alert("Usuario editado com sucesso!");
+        location.reload();
+        limparFormulario();
+      } else {
+        throw "Houve um erro ao tentar realizar a edição do usuario!";
+      }
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
 }
 
 function cadastrarUsuario() {

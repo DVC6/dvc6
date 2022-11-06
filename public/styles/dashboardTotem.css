@@ -42,10 +42,8 @@
 .number {
   font-size: 35px;
   font-weight: 500;
-  /* color: #beb6d2; */
 }
 .card-name {
-  /* padding-top: 20px; */
   color: #7d768d;
   font-weight: 600;
 }
@@ -94,32 +92,12 @@ button {
   overflow: auto;
   max-height: 245px;
 }
-
-/* .divTable::-webkit-scrollbar {
-  width: 12px;
-  background-color: whitesmoke;
-}
-
-.divTable::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: darkgray;
-} */
-
 table {
   width: 100%;
   border-spacing: 10px;
   word-break: break-all;
   border-collapse: collapse;
 }
-
-/* thead {
-  background-color: #1c1726;
-} */
-
-/* tr {
-  border-bottom: 1px solid #2e273f !important;
-} */
-
 tbody tr td {
   vertical-align: text-top;
   padding: 6px;
@@ -139,6 +117,7 @@ tbody tr td {
 
 .fa-window-close {
   color: #fa1e4e;
+  cursor: pointer;
 }
 
 thead tr th {
@@ -167,7 +146,7 @@ tbody tr td.acao {
 }
 
 @media (max-width: 700px) {
-  body {
+  .main {
     font-size: 10px;
   }
 

@@ -134,6 +134,7 @@ tbody tr td {
 
 .fa-window-close {
   color: #fa1e4e;
+  cursor: pointer;
 }
 
 thead tr th {

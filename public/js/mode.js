@@ -1,4 +1,4 @@
-//MODE
+// MODE
 const mode = document.getElementById("mode");
 const main = document.getElementById("divmain");
 const idbody = document.getElementById("idbody");

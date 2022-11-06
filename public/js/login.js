@@ -117,7 +117,7 @@ async function entrarFuncionario() {
             debugger;
             sessionStorage.LOGIN_FUNCIONARIO = json.nome_funcionario;
             sessionStorage.ID_FUNCIONARIO = json.id_funcionario;
-            sessionStorage.FK_HOSPITAL = json.fkHospital;
+            sessionStorage.ID_HOSPITAL = json.fkHospital;
           })
         );
         mensagem_erro.innerHTML = 'Login realizado com sucesso';

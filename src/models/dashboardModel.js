@@ -105,7 +105,7 @@ function listarTotens(idHospital) {
   join componente on totem.id_totem = componente.fktotem 
   join leitura on componente.id_componente = leitura.fkcomponente 
   join tipo_componente on componente.fktipocomponente = tipo_componente.id_tipo_componente 
-  where fkHospital = '${idHospital}';
+  where fkHospital = '${idHospital}' and tipo_componente.tipo = 'CPU';
   `;
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);

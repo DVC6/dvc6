@@ -2,11 +2,16 @@ function validarSessao() {
   const nomeFantasia = sessionStorage.LOGIN_HOSPITAL;
   const nomeFuncionario = sessionStorage.LOGIN_FUNCIONARIO;
 
+  debugger;
   if (nomeFantasia != null) {
-    nomeUsuario.innerHTML = `${nomeFantasia}`;
+    var nome = nomeFantasia.split(" ");
+    nomeUsuario.innerHTML = `${nome[0]}`;
+    nomeUsuario2.innerHTML = `${nome[0]}`;
   } else if (nomeFuncionario != null) {
-    funcionariosInfo.style.display = "none";
-    nomeUsuario.innerHTML = `${nomeFuncionario}`;
+    var nome = nomeFuncionario.split(" ");
+    sideFuncionario.style.display = "none";
+    nomeUsuario.innerHTML = `${nome[0]}`;
+    nomeUsuario2.innerHTML = `${nome[0]}`;
   } else {
     window.location = "../pages/login.html";
   }
@@ -21,4 +26,9 @@ function deslogar() {
   delete sessionStorage.ID_TOTEM;
   delete sessionStorage.NOME_TOTEM;
   window.location = "../pages/login.html";
+}
+
+function menuToggle() {
+  const toggleMenu = document.querySelector(".menu");
+  toggleMenu.classList.toggle("active");
 }

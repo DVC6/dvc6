@@ -42,6 +42,7 @@ body::-webkit-scrollbar-thumb {
   --cardshover: 0px 0px 12px 0px #beb6d224;
   --chartname: #7d768d;
   --backfeedback: url(../img/new1-background.jpg);
+  --backfeedback2: url(../img/3580eabc7ffc8362ce3e.44f63b5fe738.jpg);
   --estrela1e2: #fa1e4e;
   --estrela3: #ff4970;
   --estrelashadow: 0 0 20px #b40d31;
@@ -49,9 +50,35 @@ body::-webkit-scrollbar-thumb {
   --scroltable: #1c1726;
   --scrolbar: #63597b;
   --backDisco: #181420;
+  --menuuser: #1c1726;
+  --menuuserA: #beb6d2;
+  --menuuserI: #beb6d2;
+  --menuuserBorderTop: #2e273f;
+  --nomeUsuario: #fa1e4e;
+  --menuUserweb: #6d677c;
+  --perfilnome: #fff;
+  --pagetitle: #bbbabe;
+  --profilebtn: none;
+  --containerprofileborder: #2e273f;
+  --profilecontinfoulli: #2e273f;
+  --profileContInfoli: #8c7db0; 
+  --profileContInfospan: #beb6d2; 
 }
 
 body.light {
+  --profileContInfoli: #000; 
+  --profileContInfospan: rgb(46, 46, 46); 
+  --profilecontinfoulli: #ededed;
+  --containerprofileborder: #f1f0f6;
+  --profilebtn: #fff;
+  --pagetitle: #000;
+  --perfilnome: #000;
+  --menuUserweb: #cecece;
+  --nomeUsuario: #000;
+  --menuuserBorderTop: rgba(0,0,0,0.05);
+  --menuuserI: none;
+  --menuuserA: #555;
+  --menuuser: #fff;
   --darkroxo: #fff;
   --navbottom: #fff;
   --darkroxoside: #fa1e4e;
@@ -76,6 +103,7 @@ body.light {
   --backchart: #fff;
   --chartname: none;
   --backfeedback: url(../img/background-feedback2.jpg);
+  --backfeedback2: #fff;
   --backfeed: #111;
   --estrela1e2: #fd4;
   --estrela3: #fe7;
@@ -97,6 +125,33 @@ body.light {
 }
 
 /* -------------------------------------*/
+/* -------page perfil-------- */
+.profile-names, .profile-names2 {
+  color: var(--perfilnome);
+}
+.page-title {
+  color: var(--pagetitle);
+}
+#profilebtn{
+  color:var(--profilebtn);
+}
+.containerProfile,
+.containerProfile hr {
+  border: 2px solid var(--containerprofileborder);
+}
+.profileContInfo hr {
+  background: var(--containerprofileborder);
+}
+.profileContInfo ul li:nth-child(odd) {
+  background: var(--profilecontinfoulli);
+}
+.profileContInfo ul li {
+  color: var(--profileContInfoli);
+}
+.profileContInfo ul li span {
+  color: var(--profileContInfospan);
+}
+/* -------------------------- */
 .main.light {
   background: #f5f5f5;
 }
@@ -140,9 +195,6 @@ thead tr th {
 #listar_componentes span {
   color: var(--theadtrth);
 }
-/* #lista_totens span {
-  color: var(--theadtrth);
-} */
 .headerHard span {
   color: var(--chartname);
 }
@@ -167,21 +219,25 @@ thead tr th {
 }
 .bannerFeed {
   background-image: var(--backfeedback);
+  background-position: center;
+  background-size: cover;
 }
 .avaliacao.light {
-  background: #ffffff;
+  background: var(--backfeedback2);
+  background-position: center;
+  background-size: cover;
 }
 .containerFeed {
   background: var(--backfeed);
 }
-input:not(:checked) ~ label:hover,
-input:not(:checked) ~ label:hover ~ label {
+.star-widget input:not(:checked) ~ label:hover,
+.star-widget input:not(:checked) ~ label:hover ~ label {
   color: var(--estrela1e2);
 }
-input:checked ~ label {
+.star-widget input:checked ~ label {
   color: var(--estrela1e2);
 }
-input#rate-5:checked ~ label {
+.star-widget input#rate-5:checked ~ label {
   color: var(--estrela3);
   text-shadow: var(--estrelashadow);
 }
@@ -235,6 +291,106 @@ input#rate-5:checked ~ label {
   align-items: center;
   align-content: center;
   z-index: 1;
+}
+/* ----------DROPDOWN---------- */
+.action .profile {
+  overflow: hidden;
+  cursor: pointer;
+}
+.action .profile + i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.action .menu {
+  position: absolute;
+  top: 120px;
+  right: 56.5px;
+  padding: 10px 20px;
+  background: var(--menuuser);
+  width: 200px;
+  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+.action .menu.active {
+  top: 65px;
+  visibility: visible;
+  opacity: 1;
+  box-shadow: 0 4px 8px 0 var(--navshadow);
+  display: grid;
+}
+.action .menu::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 28px;
+  width: 20px;
+  height: 20px;
+  background: var(--menuuser);
+  transform: rotate(45deg);
+  transition: 0.5s;
+}
+.action .menu h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px 0;
+  font-weight: 500;
+  color: #555;
+  line-height: 1.2rem;
+}
+.action .menu h3 span {
+  font-size: 14px;
+  color: var(--menuUserweb);
+  /* color: #cecece; */
+  font-weight: 400;
+}
+.action .menu ul li {
+  list-style: none;
+  padding: 10px 0;
+  border-top: 1px solid var(--menuuserBorderTop);
+  display: flex;
+  align-items: center;
+}
+.action .menu ul li i {
+  max-width: 20px;
+  margin-right: 10px;
+  opacity: 0.5;
+  transition: 0.5s;
+  color: var(--menuuserI);
+}
+.action .menu ul li:hover i {
+  opacity: 1;
+}
+.action .menu ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--menuuserA);
+  font-weight: 500;
+  transition: 0.5s;
+}
+.action .menu ul li:hover a {
+  color: #fa1e4e;
+}
+.action .menu .nomeUser{
+  font-size: 20px;
+  color: var(--nomeUsuario);
+  font-weight: 600;
+}
+/* ---------------------------- */
+.profile-card,
+.profile-names,
+.profile-image {
+  background: var(--darkroxo);
+}
+.profile-image {
+  border: 10px solid var(--darkroxo);
 }
 .info {
   width: max-content;
@@ -343,6 +499,9 @@ i.fas.fa-user-circle {
   .user {
     width: 40px;
     height: 40px;
+  }
+  .action .menu {
+    right: 2.5px;
   }
 }
 @media (max-width: 336px) {

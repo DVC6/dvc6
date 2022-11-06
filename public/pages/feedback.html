@@ -17,6 +17,7 @@
 </head>
 
 <body id="idbody" onload="validarSessao(), deleteidTotem()">
+<!-- id="idbody" onload="validarSessao(), deleteidTotem()" -->
 
     <script>
         window.fwSettings={
@@ -34,11 +35,22 @@
         <label for="mode"></label>
 
         <div class="info">
-            <p>Olá, <b><span style="font-size: 16px" id="nomeUsuario"></span></b>!</p>
+            <p>Olá, <b><span style="font-size: 15px" id="nomeUsuario"></span></b>!</p>
         </div>
-        <div class="user">
-            <i class="fas fa-user-circle"></i>
+
+        <div class="action">
+            <div class="profile" onclick="menuToggle();">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="menu">
+                <h3><span class="nomeUser" id="nomeUsuario2"></span><br><span>Website DVC6</span></h3>
+                <ul>
+                    <li><i class="fas fa-user-alt"></i><a href="perfil.html">Meu Perfil</a></li>
+                    <li onclick="deslogar()"><i class="fas fa-sign-out-alt"></i><a href="#">Sair</a></li>
+                </ul>
+            </div>
         </div>
+
     </div>
     <div class="sidebar">
         <ul>
@@ -48,12 +60,14 @@
                     <div>Dashboard</div>
                 </a>
             </li>
+            <span id="sideFuncionario">
             <li>
                 <a href="funcionario.html">
                     <i class="fas fa-users"></i>
                     <div>Funcionários</div>
                 </a>
             </li>
+            </span>
             <li id="funcionariosInfo">
                 <a class="lia" href="#">
                     <i class="fas fa-comments"></i>
@@ -163,3 +177,4 @@ mode.addEventListener("change", () => {
   }
 });
 </script>
+<script src="../js/mode.js"></script>

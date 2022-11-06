@@ -90,25 +90,25 @@ function cadastrar(req, res) {
   }
 }
 
-function alterarSenha(req, res) {
-  const { senha, email } = req.body;
+// function alterarSenha(req, res) {
+//   const { senha, email } = req.body;
 
-  if (!email || email == undefined) {
-    res.status(404).send("Insira um e-mail valido!");
-  } else {
-    usuarioModel
-      .alterarSenha(senha, email)
-      .then((resultado) => res.json(resultado))
-      .catch((error) => {
-        console.log(error);
-        console.log(
-          "\nHouve um erro ao realizar o cadastro! Erro: ",
-          error.sqlMessage
-        );
-        res.status(500).json(error.sqlMessage);
-      });
-  }
-}
+//   if (!email || email == undefined) {
+//     res.status(404).send("Insira um e-mail valido!");
+//   } else {
+//     usuarioModel
+//       .alterarSenha(senha, email)
+//       .then((resultado) => res.json(resultado))
+//       .catch((error) => {
+//         console.log(error);
+//         console.log(
+//           "\nHouve um erro ao realizar o cadastro! Erro: ",
+//           error.sqlMessage
+//         );
+//         res.status(500).json(error.sqlMessage);
+//       });
+//   }
+// }
 
 function deletar(req, res) {
   var email = req.body.email;
@@ -130,10 +130,155 @@ function deletar(req, res) {
   }
 }
 
+function pegarDadosUsuarioGerente(req, res) {
+  const idUsuario = req.params.idUsuario;
+
+  console.log(`Buscando dados do usuário`);
+
+  usuarioModel
+    .pegarDadosUsuarioGerente(idUsuario)
+    .then(function (resultado) {
+      if (resultado.length > 0) {
+        res.status(200).json(resultado);
+      } else {
+        res.status(204).send("Nenhum resultado encontrado!");
+      }
+    })
+    .catch(function (erro) {
+      console.log(erro);
+      console.log(
+        "Houve um erro ao buscar os dados do usuário.",
+        erro.sqlMessage
+      );
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function pegarDadosUsuario(req, res) {
+  const idUsuario = req.params.idUsuario;
+
+  console.log(`Buscando dados do usuário`);
+
+  usuarioModel
+    .pegarDadosUsuario(idUsuario)
+    .then(function (resultado) {
+      if (resultado.length > 0) {
+        res.status(200).json(resultado);
+      } else {
+        res.status(204).send("Nenhum resultado encontrado!");
+      }
+    })
+    .catch(function (erro) {
+      console.log(erro);
+      console.log(
+        "Houve um erro ao buscar os dados do usuário.",
+        erro.sqlMessage
+      );
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function editarUsuarioGerente(req, res) {
+  console.log("Tentando editar usuario...");
+
+  var idFuncionario = req.params.idFuncionario;
+  var nome = req.body.nome;
+  var email = req.body.email;
+  if (idFuncionario == undefined) {
+    res.status(404).send("ID nao encontrado!");
+  } else {
+    usuarioModel
+      .editarUsuarioGerente(nome, email, idFuncionario)
+      .then((resultado) => res.json(resultado))
+      .catch((error) => {
+        console.log(error);
+        console.log(
+          "\n Houve um erro ao tentar editar o usuario! Erro: ",
+          error.sqlMessage
+        );
+        res.status(500).json(error.sqlMessage);
+      });
+  }
+}
+
+function editarUsuario(req, res) {
+  console.log("Tentando editar usuario...");
+
+  var idFuncionario = req.params.idFuncionario;
+  var nome = req.body.nome;
+  var email = req.body.email;
+  var cargo = req.body.cargo;
+  if (idFuncionario == undefined) {
+    res.status(404).send("ID nao encontrado!");
+  } else {
+    usuarioModel
+      .editarUsuario(nome, email, cargo, idFuncionario)
+      .then((resultado) => res.json(resultado))
+      .catch((error) => {
+        console.log(error);
+        console.log(
+          "\n Houve um erro ao tentar editar o usuario! Erro: ",
+          error.sqlMessage
+        );
+        res.status(500).json(error.sqlMessage);
+      });
+  }
+}
+
+function alterarSenhaGerente(req, res) {
+  console.log("Tentando editar usuario...");
+
+  var idFuncionario = req.params.idFuncionario;
+  var senha = req.body.senha;
+  if (idFuncionario == undefined) {
+    res.status(404).send("ID nao encontrado!");
+  } else {
+    usuarioModel
+      .alterarSenhaGerente(senha, idFuncionario)
+      .then((resultado) => res.json(resultado))
+      .catch((error) => {
+        console.log(error);
+        console.log(
+          "\n Houve um erro ao tentar editar o usuario! Erro: ",
+          error.sqlMessage
+        );
+        res.status(500).json(error.sqlMessage);
+      });
+  }
+}
+
+function alterarSenha(req, res) {
+  console.log("Tentando editar usuario...");
+
+  var idFuncionario = req.params.idFuncionario;
+  var senha = req.body.senha;
+  if (idFuncionario == undefined) {
+    res.status(404).send("ID nao encontrado!");
+  } else {
+    usuarioModel
+      .alterarSenha(senha, idFuncionario)
+      .then((resultado) => res.json(resultado))
+      .catch((error) => {
+        console.log(error);
+        console.log(
+          "\n Houve um erro ao tentar editar o usuario! Erro: ",
+          error.sqlMessage
+        );
+        res.status(500).json(error.sqlMessage);
+      });
+  }
+}
+
 module.exports = {
   entrar,
   cadastrar,
   listar,
   alterarSenha,
   deletar,
+  pegarDadosUsuario,
+  pegarDadosUsuarioGerente,
+  editarUsuario,
+  editarUsuarioGerente,
+  alterarSenhaGerente,
+  alterarSenha,
 };

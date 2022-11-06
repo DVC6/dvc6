@@ -5,11 +5,11 @@ E DESCOMENTAR AS QUE ESTÃO NAS LINHAS 62 ATÉ 149.
 --------------------------------------------------*/
 
 /* --------------USAUARIO------------- */
-if (sessionStorage == sessionStorage.NOME_HOSPITAL) {
-  nomeUsuario.innerHTML = sessionStorage.NOME_HOSPITAL;
-} else {
-  nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO;
-}
+// if (sessionStorage == sessionStorage.NOME_HOSPITAL) {
+//   nomeUsuario.innerHTML = sessionStorage.NOME_HOSPITAL;
+// } else {
+//   nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO;
+// }
 
 /* ---------------TOTEM--------------- */
 nomeTotem.innerHTML = sessionStorage.NOME_TOTEM;

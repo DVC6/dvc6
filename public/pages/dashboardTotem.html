@@ -28,8 +28,17 @@
         <div class="info">
             <p>Olá, <b><span style="font-size: 15px" id="nomeUsuario"></span></b>!</p>
         </div>
-        <div class="user">
-            <i class="fas fa-user-circle"></i>
+        <div class="action">
+            <div class="profile" onclick="menuToggle();">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="menu">
+                <h3><span class="nomeUser" id="nomeUsuario2"></span><br><span>Website DVC6</span></h3>
+                <ul>
+                    <li><i class="fas fa-user-alt"></i><a href="perfil.html">Meu Perfil</a></li>
+                    <li onclick="deslogar()"><i class="fas fa-sign-out-alt"></i><a href="#">Sair</a></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="sidebar">
@@ -40,12 +49,14 @@
                     <div>Dashboard</div>
                 </a>
             </li>
+            <span id="sideFuncionario">
             <li>
                 <a href="../pages/funcionario.html">
                     <i class="fas fa-users"></i>
                     <div>Funcionários</div>
                 </a>
             </li>
+            </span>
             <li>
                 <a href="feedback.html">
                     <i class="fas fa-comments"></i>
@@ -119,8 +130,8 @@
                         <th>Nome</th>
                         <th>Localização</th>
                         <th class="acao">Analytics</th>
-                        <th class="acao">Editar</th>
-                        <th class="acao">Excluir</th>
+                        <th id="editarthTotem" class="acao">Editar</th>
+                        <th id="excluirthTotem" class="acao">Excluir</th>
                     </tr>
                 </thead>
                 <tbody id="lista_totens">

@@ -410,6 +410,23 @@ td button i:first-child {
   }
 }
 
+@media screen and (max-width: 900px) {
+  .containerDashPai {
+    grid-auto-flow: inherit;
+    gap: 20px;
+  }
+  .containerDash2 {
+    padding: 0;
+  }
+  .containerDisco {
+    width: 25%;
+    justify-self: center;
+  }
+  .gauge {
+    font-size: 20px;
+  }
+}
+
 @media (max-width: 880px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
@@ -442,5 +459,12 @@ td button i:first-child {
   }
   #doughnut {
     padding: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .containerDisco {
+    width: 65%;
+    justify-self: center;
   }
 }

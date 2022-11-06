@@ -28,12 +28,15 @@
 .cardsManual .cardManual {
   padding: 20px;
   border-radius: 10px;
-  line-height: 30px;
+  line-height: 25px;
 }
 .cardManual h3,
 .cardManual h4 {
   color: #fa1e4e;
   line-height: 25px;
+}
+.cardManual h4 {
+  margin-top: 10px;
 }
 .cardManual p {
   font-weight: 500;
