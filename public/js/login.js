@@ -94,7 +94,6 @@ async function entrarFuncionario() {
     return;
   } else {
     try {
-      debugger;
       const response = await fetch(`${URL}/usuarios/autenticar`, {
         method: 'POST',
         headers: {
@@ -106,18 +105,29 @@ async function entrarFuncionario() {
         }),
       });
       console.log(response);
-      debugger;
       if (response.ok) {
-        debugger;
         console.log(
           response.json().then((json) => {
-            debugger;
+            if(json.cargo == 'recepcionista') {
+              sessionStorage.LOGIN_FUNCIONARIO = json.nome_funcionario;
+              sessionStorage.ID_FUNCIONARIO = json.id_funcionario;
+              sessionStorage.ID_HOSPITAL = json.fkHospital;
+              sessionStorage.CARGO = json.cargo;
+
+              mensagem_erro.innerHTML = 'Login realizado com sucesso';
+              cardErro.style.display = 'block';
+              console.log('ENTROU NA DASHBOARD DE PRE-CHECKIN')
+              setInterval(() => {
+                window.location.href = 'dashboardPreCheckin.html';
+              }, 2000);
+              return;
+            }
             console.log(json);
             console.log(JSON.stringify(json));
-            debugger;
             sessionStorage.LOGIN_FUNCIONARIO = json.nome_funcionario;
             sessionStorage.ID_FUNCIONARIO = json.id_funcionario;
             sessionStorage.ID_HOSPITAL = json.fkHospital;
+            sessionStorage.CARGO = json.cargo;
           })
         );
         mensagem_erro.innerHTML = 'Login realizado com sucesso';
