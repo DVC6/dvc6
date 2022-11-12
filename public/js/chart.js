@@ -227,7 +227,7 @@ async function get_dataRAM() {
     myChartMemoria.data.datasets[0].data.shift();
   }
   for (let i = 6; i >= 0; i--) {
-    let time = `${tempoRealRAM[i].hora}:${tempoRealRAM[i].minutos}:${tempoRealRAM[i].segundos}`;
+    let time = `${tempoRealRAM[i].hora}:${tempoRealRAM[i].minuto}:${tempoRealRAM[i].segundo}`;
     myChartMemoria.data.labels.push(time);
     myChartMemoria.data.datasets[0].data.push(
       parseFloat(tempoRealRAM[i].consumo)
@@ -246,7 +246,7 @@ async function get_dataCPU() {
     myChartCpu.data.datasets[0].data.shift();
   }
   for (let i = 6; i >= 0; i--) {
-    let time = `${tempoRealCPU[i].horas}:${tempoRealCPU[i].minutos}:${tempoRealCPU[i].segundos}`;
+    let time = `${tempoRealCPU[i].hora}:${tempoRealCPU[i].minuto}:${tempoRealCPU[i].segundo}`;
     myChartCpu.data.labels.push(time);
     myChartCpu.data.datasets[0].data.push(parseFloat(tempoRealCPU[i].consumo));
     myChartCpu.update();

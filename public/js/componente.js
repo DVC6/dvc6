@@ -15,11 +15,17 @@ function atualizarComponentes(idTotem) {
           for (var i = 0; i < resposta.length; i++) {
             var componente = resposta[i];
 
+            if (componente.modelo == null) {
+              var identificacao = "Modelo não identificado";
+            } else {
+              var identificacao = componente.modelo;
+            }
+
             listar_componentes.innerHTML += `
                       <tr>
                           <td>${componente.tipo}</td>
-                          <td>${componente.nome}</td>
-                          <td>${componente.medida_componente}</td>
+                          <td>${identificacao}</td>
+                          <td>${componente.medida}</td>
                       </tr>
                           `;
           }

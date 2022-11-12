@@ -93,6 +93,11 @@
   grid-gap: 15px;
   padding: 0px 0px 0px 15px;
 }
+#listar_componentes {
+  font-size: 12px;
+  font-weight: 600;
+  font-stretch: extra-condensed;
+}
 
 /* Chart começa aqui */
 

@@ -111,7 +111,7 @@ async function entrarFuncionario() {
             if(json.cargo == 'recepcionista') {
               sessionStorage.LOGIN_FUNCIONARIO = json.nome_funcionario;
               sessionStorage.ID_FUNCIONARIO = json.id_funcionario;
-              sessionStorage.ID_HOSPITAL = json.fkHospital;
+              sessionStorage.ID_HOSPITAL = json.fkhospital;
               sessionStorage.CARGO = json.cargo;
 
               mensagem_erro.innerHTML = 'Login realizado com sucesso';
@@ -126,7 +126,7 @@ async function entrarFuncionario() {
             console.log(JSON.stringify(json));
             sessionStorage.LOGIN_FUNCIONARIO = json.nome_funcionario;
             sessionStorage.ID_FUNCIONARIO = json.id_funcionario;
-            sessionStorage.ID_HOSPITAL = json.fkHospital;
+            sessionStorage.ID_HOSPITAL = json.fkhospital;
             sessionStorage.CARGO = json.cargo;
           })
         );
