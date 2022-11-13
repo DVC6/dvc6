@@ -16,16 +16,9 @@
 
 <body>
   <div class="idbody" id="idDados">
-    <div class="btnRelatorio">
-      <div class="btn">
-      <button id="new" onclick="abrirModal()">Filtro</button>
-      <button id="new" onclick="window.print()"><i class="fas fa-upload"></i> Imprimir</button>
-    </div>
-    <a href="dashboardHardwares2.html">Voltar</a>
-    </div>
     <div class="container" id="cadastroUsuarios">
       <div class="header" id="modalHeader">
-        <span>Relatário de consumo</span>
+        <span>Relatório de Consumo</span>
       </div>
       
       <div class="divTable" id="listaUsuarios">
@@ -48,14 +41,14 @@
       <div class="modal-container" id="novoRelatorio">
         <div class="modal">
           <form class="cads" method="dialog" id="form_cadusuario">
-                <div class="iconX">
-                  <i onclick="esconderModal()" class="fas fa-window-close"></i>
-                </div>
-                <label for="m-nome">Data</label>
-                <input id="input_data" type="date"  name="data" value="" required />
-                
-                <button id="btnSimples" onclick="periodoSimples()">Ativar</button>
-                <button id="btnComposto" onclick="peridoComposto()">Editar</button>
+            <div class="iconX">
+              <i onclick="esconderModal()" class="fas fa-window-close"></i>
+            </div>
+            <label for="m-nome">Data</label>
+            <input id="input_data" type="date"  name="data" value="" required />
+            
+            <button id="btnSimples" onclick="periodoSimples()">Ativar</button>
+            <button id="btnComposto" onclick="peridoComposto()">Editar</button>
               </form>
             </div>
           </div>
@@ -63,6 +56,13 @@
         </div>
         <div class="logo">
           <img class="imgLogo" src="../img/image.png">
+        </div>
+        <div class="btnRelatorio">
+          <div class="btn">
+          <button id="new" onclick="abrirModal()">Filtro</button>
+          <button id="new" onclick="window.print()"><i class="fas fa-upload"></i> Imprimir</button>
+        </div>
+        <a href="dashboardHardwares2.html">Voltar</a>
         </div>
       </div>
     </body>
