@@ -211,12 +211,15 @@ button {
 }
 
 #new {
-  font-size: 16px;
-  padding: 8px;
+  font-size: 12px;
+  padding: 5px;
   border-radius: 5px;
   border: none;
   color: white;
   background-color: #fa1e4e;
+  text-decoration: none;
+  align-self: center;
+  font-weight: 600;
 }
 
 .divTable {

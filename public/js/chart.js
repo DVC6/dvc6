@@ -201,16 +201,18 @@ async function get_dataDisco() {
   );
   ultimoDadoDisco = await ultimoDadoDisco.json();
   var discoUsado = await ultimoDadoDisco[0].consumo;
-  
+
   function setGaugeValue(gauge, value) {
-      if (value < 0 || value > 100) {
-          return;
-      } else if (value == undefined || value == "") {
-        value = 0;
-      }
-  
-      gauge.querySelector(".gauge__fill").style.transform = `rotate(${value / 200}turn)`;
-      gauge.querySelector(".gauge__cover").textContent = `${Math.round(value)}%`;
+    if (value < 0 || value > 100) {
+      return;
+    } else if (value == undefined || value == "") {
+      value = 0;
+    }
+
+    gauge.querySelector(".gauge__fill").style.transform = `rotate(${
+      value / 200
+    }turn)`;
+    gauge.querySelector(".gauge__cover").textContent = `${Math.round(value)}%`;
   }
 
   setGaugeValue(gaugeElement, discoUsado);
@@ -275,6 +277,10 @@ setInterval(() => {
   verificarIncidentes();
 }, 120000);
 
+setInterval(() => {
+  get_dataDisco();
+}, 120000);
+
 get_dataDisco();
 
 /*--DASHBOARD CHART JS STATIC--*/
@@ -301,7 +307,7 @@ get_dataDisco();
 //         borderWidth: 1,
 //         radius: 3,
 //         fill: true,
-        // tension: 0,
+// tension: 0,
 //       },
 //     ],
 //   },
@@ -356,7 +362,7 @@ get_dataDisco();
 //         borderWidth: 1,
 //         radius: 3,
 //         fill: true,
-        // tension: 0,
+// tension: 0,
 //       },
 //     ],
 //   },
