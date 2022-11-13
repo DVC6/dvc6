@@ -72,6 +72,21 @@ function periodoSimples(idTotem) {
           lista_dados.innerHTML = "";
           for (var i = 0; i < resposta.length; i++) {
             var dados = resposta[i];
+            
+            var ramvar = ""
+            var cpuvar = ""
+            var discovar = ""
+
+            if(dados.ram != null) {
+              var ramvar = dados.ram
+            }
+            if(dados.cpu != null) {
+              var cpuvar = dados.cpu
+            }
+            if(dados.disco != null) {
+              var discovar = dados.disco
+            }
+
 
             lista_dados.innerHTML += `
             <tr>
@@ -79,7 +94,9 @@ function periodoSimples(idTotem) {
                 <td>${dados.localizacao}</td>
                 <td>${dados.dia}</td>
                 <td>${dados.hora}</td>
-                <td>${dados.consumo}</td>
+                <td>${ramvar}</td>
+                <td>${cpuvar}</td>
+                <td>${discovar}</td>
             </tr>
                 `;
           }

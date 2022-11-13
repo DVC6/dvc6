@@ -105,7 +105,7 @@ tr {
 }
 
 tbody tr td {
-  vertical-align: text-top;
+  vertical-align: middle;
   padding: 6px;
   max-width: 50px;
 }
