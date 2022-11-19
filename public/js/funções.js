@@ -5,6 +5,7 @@ function validarSessao() {
   debugger;
   if (nomeFantasia != null) {
     var nome = nomeFantasia.split(" ");
+    sideFeedback.style.display = "none";
     nomeUsuario.innerHTML = `${nome[0]}`;
     nomeUsuario2.innerHTML = `${nome[0]}`;
   } else if (nomeFuncionario != null) {

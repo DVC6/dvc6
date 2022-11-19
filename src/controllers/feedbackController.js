@@ -1,11 +1,11 @@
 var feedbackModel = require('../models/feedbackModel')
 
 function enviar(req, res) {
-  const { starvalue, texto } = req.body;
+  const { starvalue, texto, idFuncionario } = req.body;
   console.log(req.body)
 
   feedbackModel
-    .enviar(starvalue, texto)
+    .enviar(starvalue, texto, idFuncionario)
     .then(function (resultado) {
       res.json(resultado);
 

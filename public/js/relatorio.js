@@ -30,15 +30,15 @@ function periodoSimples(idTotem) {
     return false;
   }
   if (dia.length < 2) {
-    console.log("dia está errada");
+    console.log("dia está errado");
     return false;
   }
   if (mes.length < 2) {
-    console.log("mes está errada");
+    console.log("mes está errado");
     return false;
   }
   if (ano.length < 4) {
-    console.log("ano está errada");
+    console.log("ano está errado");
     return false;
   }
 
