@@ -236,3 +236,19 @@ section {
     width: 100%;
   }
 }
+
+@media (max-width: 400px) {
+  .container .contactInfo ul.info li span:nth-child(2) {
+    font-size: 12px;
+  }
+  .container .contactInfo ul.sci {
+    flex-direction: column;
+  }
+  .container .contactInfo ul.sci li{
+    margin-left: 0;
+    margin-top: 15px;
+  }
+  .container .contactInfo ul.sci {
+    margin-top: 0;
+  }
+}

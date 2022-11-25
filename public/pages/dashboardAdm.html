@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="shortcut icon" href="../img/logo2.jpg" type="image/x-icon" />
     <link rel="stylesheet" href="../styles/dashboardAdm.css">
+    <link rel="stylesheet" href="../styles/top&sideBar.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <link rel="stylesheet"
-    href="https://fonts.sandbox.google.com/css?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<link rel="stylesheet"
-    href="https://fonts.sandbox.google.com/css?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        href="https://fonts.sandbox.google.com/css?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.sandbox.google.com/css?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <script src="../js/dashboard.js"></script>
     <script src="../js/login.js"></script>
+    <script src="../js/funções.js"></script>
     <!-- configurar e atualizar -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
@@ -21,68 +24,76 @@
     <title>Tela gerencial</title>
 </head>
 
-<body onload="validarSessao(), atualizarTotens()" class="corpo">
-    <!-- Start of dvc6 Zendesk Widget script -->
-    <script id="ze-snippet"
-        src="https://static.zdassets.com/ekr/snippet.js?key=a09dd733-6ca6-415b-b162-e8a1967ee841"> </script>
-    <!-- End of dvc6 Zendesk Widget script -->
+<body id="idbody"
+>
+<!-- onload="validarSessao()" -->
+<!-- atualizarTotens()"  -->
+<!-- class="corpo" -->
+
+<script>
+    window.fwSettings={
+    'widget_id':150000000973
+    };
+    !function(){if("function"!=typeof window.FreshworksWidget){var n=function(){n.q.push(arguments)};n.q=[],window.FreshworksWidget=n}}() 
+</script>
+<script type='text/javascript' src='https://widget.freshworks.com/widgets/150000000973.js' async defer></script>
 
     <div class="container6">
-        <aside>
-            <div class="top">
-                <div class="code">
-                    <img src="../img/logo.png" alt="logo">
-                </div>
-                <div class="close" id="close-btn">
-                    <span class="material-symbols-outlined">close</span>
-                </div>
+        <div class="topbar">
+            <div class="logo">
+                <img src="../img/image.png">
             </div>
-            <div class="sidebar">
-                <a href="#" class="active">
-                    <span class="material-symbols-outlined">grid_view</span>
-                    <h3>Dashboard</h3>
-                </a>
 
-                <a href="CadastroAdm.html">
-                    <span class="material-symbols-outlined">person_add</span>
-                    <h3>Cadastrar usuário</h3>
-                </a>
+            <input type="checkbox" id="mode" hidden>
+            <label for="mode"></label>
 
-                <a href="CadastroChave.html">
-                    <span class="material-symbols-outlined">key</span>
-                    <h3>Cadastrar Chave</h3>
-                </a>
-
-                <a href="Index.html">
-                    <span class="material-symbols-outlined">logout</span>
-                    <h3>Sair</h3>
-                </a>
+            <div class="info">
+                <p>Olá, <b><span style="font-size: 16px" id="nomeUsuario"></span></b>!</p>
             </div>
-        </aside>
-
+            <div class="user">
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li style="border-left: 2px solid #fa1e4e;">
+                    <a style="color: #fa1e4e;" href="#">
+                        <i class="fas fa-th-large"></i>
+                        <div>Dashboard</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="dashboardHardwares.html">
+                        <i class="fas fa-chart-area"></i>
+                        <div>Analytics</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="funcionario.html">
+                        <i class="fas fa-users"></i>
+                        <div>Funcionários</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="feedback.html">
+                        <i class="fas fa-comments"></i>
+                        <div>Feedback</div>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li onclick="deslogar()">
+                    <a href="#">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <div>Sair</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="container6">
         <main>
 
-            <div class="right">
-                <div class="top">
-                    <button class="menu-btn">
-                        <span class="material-symbols-outlined">menu</span>
-                    </button>
-                    <!-- <div class="theme-toggler">
-                        <span class="material-symbols-outlined active">light_mode</span>
-                        <span class="material-symbols-outlined">dark_mode</span>
-                    </div> -->
-                    <div class="profile">
-                        <div class="info">
-                            <p>Olá, <b><span id="nomeUsuario"></span></b>!</p>
-                        </div>
-                        <div class="photoProfile">
-                            <span class="material-symbols-outlined">account_circle</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h1 class="dash">Dashboard</h1>
+            <h2 class="dash">Dashboard</h2>
 
             <div class="date date3">
                 <h2 class="pe2" id="legendaRisco">Risco</h2>
@@ -124,7 +135,6 @@
                 </div>
             </div>
 
-
             <div class="recent-order">
                 <h2>Servidores</h2>
                 <table>
@@ -144,9 +154,6 @@
                     </tbody>
                 </table>
             </div>
-        </main>
-    </div>
-
 </body>
-
 </html>
+<script src="../js/mode.js"></script>

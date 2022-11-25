@@ -1,14 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+.main {
+  position: absolute;
+  top: 60px;
+  width: calc(100% - 260px);
+  left: 260px;
+  min-height: calc(100vh - 60px);
+}
 .bannerFeed {
   display: flex;
-  padding: 70px 0 0 0px;
   min-height: 100vh;
-  background-image: url(../img/new1-background.jpg);
+  /* background-image: url(../img/new1-background.jpg); */
+  background-color: #f5f5f5;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -49,10 +59,10 @@
 .avaliacao h1 {
   font-size: 50px;
   font-weight: 600;
-  color: #8c7db0;
+  /* color: #8c7db0; */
   padding-bottom: 20px;
 }
-.container {
+.containerFeed {
   position: relative;
   background: #1c1726;
   padding: 35px 65px;
@@ -60,16 +70,17 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  box-shadow: 0 7px 25px 0 rgb(0 0 0 / 8%);
 }
-.container .post {
+.containerFeed .post {
   display: none;
 }
-.container .text {
+.containerFeed .text {
   font-size: 18px;
   color: #8c7db0;
   font-weight: 600;
 }
-.container .edit {
+.containerFeed .edit {
   position: absolute;
   right: 12px;
   top: 10px;
@@ -81,10 +92,10 @@
   padding: 2px 5px;
   border-radius: 3px;
 }
-.container .edit:hover {
+.containerFeed .edit:hover {
   background-color: #b61235;
 }
-.container .star-widget input {
+.containerFeed .star-widget input {
   display: none;
 }
 .star-widget label {
@@ -94,7 +105,7 @@
   float: right;
   transition: all 0.2s ease;
 }
-input:not(:checked) ~ label:hover,
+/* input:not(:checked) ~ label:hover,
 input:not(:checked) ~ label:hover ~ label {
   color: #fa1e4e;
 }
@@ -104,7 +115,7 @@ input:checked ~ label {
 input#rate-5:checked ~ label {
   color: #ff4970;
   text-shadow: 0 0 20px #b40d31;
-}
+} */
 input#rate-1:checked ~ form header:before {
   content: "Eu simplesmente odeio 😠";
 }
@@ -120,7 +131,7 @@ input#rate-4:checked ~ form header:before {
 input#rate-5:checked ~ form header:before {
   content: "Eu simplesmente amo isso 😍";
 }
-.container form {
+.containerFeed form {
   display: none;
 }
 input:checked ~ form {
@@ -173,7 +184,13 @@ form .btn button {
 form .btn button:hover {
   background: #b61235;
 }
-@media (max-width: 500px) {
+@media (max-width: 1115px) {
+  .main {
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+}
+@media (max-width: 547px) {
   .text-box {
     padding: 0;
     align-items: center;
@@ -193,43 +210,65 @@ form .btn button:hover {
     margin-left: 0;
   }
   .text-box h1 {
-    font-size: 45px;
+    font-size: 40px;
   }
   .avaliacao h1 {
     font-size: 30px;
+    text-align: center;
   }
-  .container {
-    padding: 15px 8px;
+  .containerFeed {
+    padding: 35px 28px;
     width: 90%;
   }
   .star-widget label {
-    font-size: xx-large;
+    font-size: 34px;
+    padding: 4px 7px;
   }
   form header {
     font-size: 14px;
     display: flex;
     justify-content: center;
   }
-  .container .edit {
+  .containerFeed .edit {
     right: 5px;
     top: 5px;
     font-size: 7px;
   }
-  .container .text {
+  .containerFeed .text {
     font-size: 14px;
   }
 }
-@media (max-width: 280px) {
+@media (max-width: 400px) {
   .star-widget label {
-    font-size: 29px;
+    font-size: 25px;
     padding: 4px 7px;
   }
-  .container .edit {
+}
+@media (max-width: 300px) {
+  .star-widget label {
+    font-size: inherit;
+    padding: 4px 7px;
+  }
+  .containerFeed .edit {
     right: 5px;
     top: 5px;
     font-size: 6px;
   }
-  .container .text {
+  .containerFeed .text {
+    font-size: 12px;
+  }
+}
+@media (max-width: 280px) {
+  .star-widget label {
+    font-size: 12px;
+    padding: 4px 7px;
+  }
+  .containerFeed .edit {
+    right: 5px;
+    top: 5px;
+    font-size: 6px;
+  }
+  .containerFeed .text {
     font-size: 12px;
   }
 }

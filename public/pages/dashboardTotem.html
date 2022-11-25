@@ -1,1 +1,168 @@
-<!-- ESPAÇO PARA DESENVOLVIMENTO DA DASHBOARD DE MONITORAMENTO INDIVIDUAL -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/logo2.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="../styles/dashboardTotem.css">
+    <link rel="stylesheet" href="../styles/top&sideBar.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <script src="../js/funções.js"></script>
+    <script src="../js/deleteItem.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <title>DVC6 | Totens</title>
+</head>
+
+<body id="idbody" onload="validarSessao(), atualizarTotens(), qtdTotem(), deleteidTotem()">
+
+    <div class="topbar">
+        <div class="logo">
+            <img src="../img/image.png">
+        </div>
+        
+        <input type="checkbox" id="mode" hidden>
+        <label for="mode"></label>
+
+        <div class="info">
+            <p>Olá, <b><span style="font-size: 15px" id="nomeUsuario"></span></b>!</p>
+        </div>
+        <div class="action">
+            <div class="profile" onclick="menuToggle();">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="menu">
+                <h3><span class="nomeUser" id="nomeUsuario2"></span><br><span>Website DVC6</span></h3>
+                <ul>
+                    <li><i class="fas fa-user-alt"></i><a href="perfil.html">Meu Perfil</a></li>
+                    <li onclick="deslogar()"><i class="fas fa-sign-out-alt"></i><a href="#">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <ul>
+            <li id="funcionariosInfo">
+                <a class="lia" href="#">
+                    <i class="fas fa-th-large"></i>
+                    <div>Dashboard</div>
+                </a>
+            </li>
+            <span id="sideFuncionario">
+            <li>
+                <a href="../pages/funcionario.html">
+                    <i class="fas fa-users"></i>
+                    <div>Funcionários</div>
+                </a>
+            </li>
+            </span>
+            <span id="sideFeedback">
+                <li>
+                    <a href="feedback.html">
+                        <i class="fas fa-comments"></i>
+                        <div>Feedback</div>
+                    </a>
+                </li>
+            </span>
+            <li>
+                <a href="manual.html">
+                    <i class="fas fa-book"></i>
+                    <div>Manual</div>
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li onclick="deslogar()">
+                <a href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <div>Sair</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="divmain" class="main">
+        <div class="containerLista">
+            <div class="infoTotem">
+                <h2>Totens</h2>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-name">Total</div>
+                        <div class="number" id="qtd_totens"><span>0</span></div>
+                    </div>
+                    <div class="icon-box">
+                        <img style="width: 45px;" src="../img/kioskqtdtotem.png">
+                        <div class="card-name">Totens ativos</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-name">Total</div>
+                        <div class="number" id="idRAMacima90"><span>0</span></div>
+                    </div>
+                    <div class="icon-box">
+                        <img style="width: 45px;" src="../img/kioskqtdtotem.png">
+                        <div class="card-name">Totens ativos<br>acima de 90% de RAM</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-name">Total</div>
+                        <div class="number" id="idCPUacima90"><span>0</span></div>
+                    </div>
+                    <div class="icon-box">
+                        <img style="width: 45px;" src="../img/kioskqtdtotem.png">
+                        <div class="card-name">Totens ativos<br>acima de 90% de CPU</div>
+                    </div>
+                </div>
+            </div>
+      <div class="container" id="cadastroUsuarios">
+          <div class="header" id="modalHeader">
+            <span>Totens</span>
+          </div>
+          
+          <div class="divTable" id="listaTotens">
+              <table>
+                  <thead>
+                    <tr>
+                        <th>Totem</th>
+                        <th>Nome</th>
+                        <th>Localização</th>
+                        <th class="acao">Analytics</th>
+                        <th id="editarthTotem" class="acao">Editar</th>
+                        <th id="excluirthTotem" class="acao">Excluir</th>
+                    </tr>
+                </thead>
+                <tbody id="lista_totens">
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="modal-container" id="novoUsuario">
+            <div class="modal">
+              <form class="cads" method="dialog" id="form_cadusuario">
+                <div class="iconX">
+                    <i onclick="esconderModal()" class="fas fa-window-close"></i>
+                </div>
+                <label for="m-nome">Nome</label>
+                <input id="m-nome" type="text"  name="nome" value="" required />
+
+                <label for="m-funcao">Localização</label>
+                <input id="m-funcao" type="text" name="localizacao" value = "" required />
+        
+                <button id="btnSalvar" onclick="cadastrarUsuario()">Salvar</button>
+                <button id="btnEdit" onclick="editarTotem()">Editar</button>
+              </form>
+            </div>
+          </div>
+          
+        </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../js/mode.js"></script>

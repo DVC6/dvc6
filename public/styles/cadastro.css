@@ -15,6 +15,30 @@
   background-size: cover;
   padding: 115px 0 90px 0;
 }
+/* ---------configErro--------- */
+.alerta_erro {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  display: none;
+  background-color: #382e4e;
+  color: #beb6d2;
+  width: 165px;
+  position: fixed;
+  border-radius: 4px;
+  padding: 10px;
+  margin-right: -46%;
+  margin-top: -2%;
+  text-align: center;
+}
+
+.card_erro #mensagem_erro {
+  font-size: 12px;
+  font-weight: 600;
+}
+/* --------------------------- */
 .bannerCadastro {
   width: 70%;
   display: flex;
@@ -64,6 +88,100 @@
 .cardcadastroText {
   display: flex;
 }
+/* -------------NOVO CSS----------------------------------- */
+.form {
+  width: 51%;
+}
+.form2 {
+  width: 49%;
+}
+.hr,
+.hr2 {
+  border-bottom: 1px solid #2e273f;
+  margin-bottom: 15px;
+}
+.form-control {
+  padding-right: 6%;
+}
+.form-control,
+.form-control2 {
+  margin-bottom: 8px;
+  padding-bottom: 17px;
+  position: relative;
+}
+
+.form-control label,
+.form-control2 label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.form-control input,
+.form-control2 input {
+  border: none;
+  border-bottom: 1px solid #fa1e4e;
+  outline: none;
+  padding: 8px;
+  border-radius: 2px;
+  display: block;
+  font-family: inherit;
+  width: 100%;
+  background-color: #00000038;
+  color: rgba(255, 255, 255, 0.734);
+}
+
+.form-control input:focus::placeholder,
+.form-control2 input:focus::placeholder {
+  padding-left: 4px;
+  color: #fa1e4e;
+  transition: all 0.3s ease;
+}
+
+.form-control.success input,
+.form-control2.success input {
+  border-color: #2ecc71;
+}
+
+.form-control.error input,
+.form-control2.error input {
+  border-color: #fa1e4e;
+}
+
+.form-control i,
+.form-control2 i {
+  position: absolute;
+  top: 8px;
+  right: 20px;
+  visibility: hidden;
+}
+
+.form-control.success i.fa-check-circle,
+.form-control2.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle,
+.form-control2.error i.fa-exclamation-circle {
+  color: #fa1e4e;
+  visibility: visible;
+}
+
+.form-control small,
+.form-control2 small {
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.form-control.error small,
+.form-control2.error small {
+  color: #fa1e4e;
+  visibility: visible;
+  font-size: 12px;
+}
+/* ----------------------------------------------------- */
 .cardCadastro1 {
   width: 35%;
   display: flex;
@@ -145,6 +263,19 @@
   }
 }
 @media (max-width: 830px) {
+  .form {
+    width: 100%;
+  }
+  .form2 {
+    width: 100%;
+  }
+  .hr {
+    border-bottom: 0;
+    margin-bottom: 0;
+  }
+  .form-control {
+    padding-right: 0%;
+  }
   .boxCad2 {
     flex-direction: column;
   }
@@ -215,11 +346,24 @@
   }
 }
 @media (max-width: 500px) {
+  .boxCad2 {
+    width: 80%;
+  }
   .cadastro {
     padding: 70px 25px 0px 25px;
   }
+  .containerCadastro {
+    width: 100%;
+  }
   .footerlogoCad2 .sci {
     flex-direction: column;
+  }
+  .form-control i,
+  .form-control2 i {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    visibility: hidden;
   }
   .footerlogoCad2 span {
     color: #4a3e65;

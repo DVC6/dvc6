@@ -15,8 +15,32 @@
   background-size: cover;
   padding: 115px 0 90px 0;
 }
+/* ---------configErro--------- */
+.alerta_erro {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  display: none;
+  background-color: #382e4e;
+  color: #beb6d2;
+  width: 200px;
+  position: fixed;
+  border-radius: 4px;
+  padding: 10px;
+  margin-right: -40%;
+  margin-top: -2%;
+  text-align: center;
+}
+
+.card_erro #mensagem_erro {
+  font-size: 12px;
+  font-weight: 600;
+}
+/* --------------------------- */
 .bannerLogin {
-  width: 50%;
+  width: 60%;
   display: flex;
   justify-content: center;
   background-color: #1c1726;
@@ -47,7 +71,10 @@
 }
 .textBoasvindas {
   border-radius: 12px;
-  backdrop-filter: blur(12px);
+  background-color: #1c1726db;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(12px); */
   height: 100%;
   padding: 35px 20px;
 }
@@ -62,10 +89,10 @@
 .containerLogin {
   width: 50%;
 }
-.containerLogin form {
+.containerLogin .form {
   width: 100%;
   text-align: center;
-  padding: 45px 50px;
+  padding: 25px 50px;
 }
 .containerLogin h1 {
   color: #beb6d2;
@@ -87,10 +114,10 @@
   width: 100%;
   margin: 15px 0 10px 0;
 }
-form h1 {
+.form h1 {
   padding: 10px 0;
 }
-form .id {
+.form .id {
   position: relative;
 }
 .id i {
@@ -100,7 +127,7 @@ form .id {
   right: 20px;
   transform: translateY(-50%);
 }
-form input {
+.form input {
   width: 100%;
   height: 50px;
   margin: 11px 0;
@@ -113,24 +140,45 @@ form input {
   outline: none;
   color: #ffffff;
 }
-form button {
+/* -------- */
+.id small {
+  visibility: hidden;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+}
+
+.id.success input {
+  border-color: #fa1e4e;
+}
+
+.id.error small {
+  color: #fa1e4e;
+  visibility: visible;
+  font-size: 12px;
+}
+/* -------- */
+.form button {
   margin: 9px 0 9px 0;
   border: none;
   background: #fa1e4e;
   color: #beb6d2;
   padding: 8px 10px;
-  width: 50%;
+  width: 100%;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   border-radius: 5px;
 }
-form input:focus::placeholder {
+.form input + i {
+  color: #00000000;
+}
+.form input:focus::placeholder {
   padding-left: 4px;
   color: #fa1e4e;
   transition: all 0.3s ease;
 }
-form input:focus + i {
+.form input:focus + i {
   color: #fa1e4e;
   transition: all 0.3s ease;
 }
@@ -141,7 +189,12 @@ form input:focus + i {
   margin-top: 10px;
   display: flex;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1200px) {
+  .bannerLogin {
+    width: 80%;
+  }
+}
+@media (max-width: 750px) {
   .bannerLogin {
     padding: 0;
   }
@@ -151,7 +204,7 @@ form input:focus + i {
   .containerLogin {
     width: 100%;
   }
-  .containerLogin form {
+  .containerLogin .form {
     padding: 50px;
   }
   .containerLogin hr {
@@ -163,15 +216,15 @@ form input:focus + i {
   .bannerLogin {
     width: 80%;
   }
-  .containerLogin form {
+  .containerLogin .form {
     padding: 0;
   }
-  .containerLogin form {
+  .containerLogin .form {
     width: 100%;
     text-align: center;
     padding: 25px;
   }
-  form button {
+  .form button {
     font-size: 12px;
   }
   .footerlogoCad2 .sci a {
