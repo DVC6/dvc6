@@ -13,6 +13,7 @@ var hospitalRouter = require("./src/routes/hospitalRouter");
 var dashboardRouter = require("./src/routes/dashboardRouter");
 var usuarioRouter = require("./src/routes/usuarioRouter");
 var relatorioRouter = require("./src/routes/relatorioRouter");
+var preCheckinRouter = require('./src/routes/preCheckinRouter');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,6 +27,7 @@ app.use("/dashboard", dashboardRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/feedback", feedbackRouter);
 app.use("/relatorio", relatorioRouter);
+app.use('/pre-checkin', preCheckinRouter);
 
 app.listen(PORTA, function () {
   console.log(`Servidor do site está rodando rodando: http://localhost:${PORTA} \n
