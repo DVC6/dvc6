@@ -136,7 +136,8 @@ function listarComponentes(idTotem) {
     id_componente,
   id_totem, 
   tipo_componente.tipo, 
-  componente.modelo, 
+  componente.modelo,
+  componente.total_componente,
   tipo_componente.medida 
   from totem 
   join componente on totem.id_totem = componente.fktotem 

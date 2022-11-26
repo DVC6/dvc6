@@ -25,7 +25,7 @@ function atualizarComponentes(idTotem) {
                       <tr>
                           <td>${componente.tipo}</td>
                           <td>${identificacao}</td>
-                          <td>${componente.medida}</td>
+                          <td>${componente.total_componente} ${componente.medida}</td>
                       </tr>
                           `;
           }
