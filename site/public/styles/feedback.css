@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.main {
+  position: absolute;
+  top: 60px;
+  width: calc(100% - 260px);
+  left: 260px;
+  min-height: calc(100vh - 60px);
+}
+.bannerFeed {
+  display: flex;
+  min-height: 100vh;
+  /* background-image: url(../img/new1-background.jpg); */
+  background-color: #f5f5f5;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+}
+.containerIMG img {
+  border-radius: 20px;
+  fill-opacity: 20%;
+}
+.text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.text-box h1 {
+  font-size: 65px;
+  color: #fa1e4e;
+  margin-bottom: 15px;
+}
+.text-box p {
+  color: #8c7db0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: center;
+}
+.avaliacao {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  background-image: url(../img/3580eabc7ffc8362ce3e.44f63b5fe738.jpg);
+  background-size: cover;
+}
+.avaliacao h1 {
+  font-size: 50px;
+  font-weight: 600;
+  /* color: #8c7db0; */
+  padding-bottom: 20px;
+}
+.containerFeed {
+  position: relative;
+  background: #1c1726;
+  padding: 35px 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 7px 25px 0 rgb(0 0 0 / 8%);
+}
+.containerFeed .post {
+  display: none;
+}
+.containerFeed .text {
+  font-size: 18px;
+  color: #8c7db0;
+  font-weight: 600;
+}
+.containerFeed .edit {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  font-size: 10px;
+  color: #131019;
+  font-weight: 800;
+  cursor: pointer;
+  background-color: #fa1e4e;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+.containerFeed .edit:hover {
+  background-color: #b61235;
+}
+.containerFeed .star-widget input {
+  display: none;
+}
+.star-widget label {
+  font-size: 40px;
+  color: #444;
+  padding: 12px;
+  float: right;
+  transition: all 0.2s ease;
+}
+/* input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label {
+  color: #fa1e4e;
+}
+input:checked ~ label {
+  color: #fa1e4e;
+}
+input#rate-5:checked ~ label {
+  color: #ff4970;
+  text-shadow: 0 0 20px #b40d31;
+} */
+input#rate-1:checked ~ form header:before {
+  content: "Eu simplesmente odeio 😠";
+}
+input#rate-2:checked ~ form header:before {
+  content: "Eu não gosto 😒";
+}
+input#rate-3:checked ~ form header:before {
+  content: "Isso é incrível 😁";
+}
+input#rate-4:checked ~ form header:before {
+  content: "Eu apenas gosto 😎";
+}
+input#rate-5:checked ~ form header:before {
+  content: "Eu simplesmente amo isso 😍";
+}
+.containerFeed form {
+  display: none;
+}
+input:checked ~ form {
+  display: block;
+}
+form header {
+  width: 100%;
+  font-size: 18px;
+  color: #8c7da3;
+  font-weight: 600;
+  margin: 5px 0 20px 0;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+form .textarea {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+form .textarea textarea {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #eee;
+  border: none;
+  border-bottom: 1px solid #fa1e4e;
+  background: #1b1a1a9e;
+  padding: 10px;
+  font-size: 17px;
+  resize: none;
+}
+form .btn {
+  height: 45px;
+  width: 100%;
+  margin: 15px 0;
+}
+form .btn button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: #fa1e4e;
+  color: #000028;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: ponter;
+  transition: all 0.3s ease;
+}
+form .btn button:hover {
+  background: #b61235;
+}
+@media (max-width: 1115px) {
+  .main {
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+}
+@media (max-width: 547px) {
+  .text-box {
+    padding: 0;
+    align-items: center;
+  }
+  .text-box h1 {
+    font-size: 45px;
+  }
+  .text-box p {
+    font-size: 13px;
+  }
+  .text-box .p0,
+  .text-box .p1,
+  .text-box .p2,
+  .text-box .p3,
+  .text-box .p4,
+  .text-box .p5 {
+    margin-left: 0;
+  }
+  .text-box h1 {
+    font-size: 40px;
+  }
+  .avaliacao h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+  .containerFeed {
+    padding: 35px 28px;
+    width: 90%;
+  }
+  .star-widget label {
+    font-size: 34px;
+    padding: 4px 7px;
+  }
+  form header {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+  }
+  .containerFeed .edit {
+    right: 5px;
+    top: 5px;
+    font-size: 7px;
+  }
+  .containerFeed .text {
+    font-size: 14px;
+  }
+}
+@media (max-width: 400px) {
+  .star-widget label {
+    font-size: 25px;
+    padding: 4px 7px;
+  }
+}
+@media (max-width: 300px) {
+  .star-widget label {
+    font-size: inherit;
+    padding: 4px 7px;
+  }
+  .containerFeed .edit {
+    right: 5px;
+    top: 5px;
+    font-size: 6px;
+  }
+  .containerFeed .text {
+    font-size: 12px;
+  }
+}
+@media (max-width: 280px) {
+  .star-widget label {
+    font-size: 12px;
+    padding: 4px 7px;
+  }
+  .containerFeed .edit {
+    right: 5px;
+    top: 5px;
+    font-size: 6px;
+  }
+  .containerFeed .text {
+    font-size: 12px;
+  }
+}

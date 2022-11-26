@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.login {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(../img/background-banner.jpg);
+  background-position: center;
+  background-size: cover;
+  padding: 115px 0 90px 0;
+}
+/* ---------configErro--------- */
+.alerta_erro {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  display: none;
+  background-color: #382e4e;
+  color: #beb6d2;
+  width: 200px;
+  position: fixed;
+  border-radius: 4px;
+  padding: 10px;
+  margin-right: -40%;
+  margin-top: -2%;
+  text-align: center;
+}
+
+.card_erro #mensagem_erro {
+  font-size: 12px;
+  font-weight: 600;
+}
+/* --------------------------- */
+.bannerLogin {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  background-color: #1c1726;
+  border-radius: 12px;
+  padding: 20px;
+}
+.cardImg {
+  width: 50%;
+  background: url(../img/python\ programer.jpg);
+  background-position: center;
+  background-size: cover;
+  filter: hue-rotate(35deg);
+  border-radius: 8px;
+  padding: 35px 30px;
+}
+.containerText {
+  display: flex;
+  color: #beb6d2;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.containerText .col1 h4 {
+  margin-bottom: 20px;
+}
+.containerText .col1 h5 {
+  font-size: 13px;
+}
+.textBoasvindas {
+  border-radius: 12px;
+  background-color: #1c1726db;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(12px); */
+  height: 100%;
+  padding: 35px 20px;
+}
+.textBoasvindas span {
+  color: #beb6d2;
+  font-size: 13px;
+  font-weight: 600;
+}
+.textBoasvindas a {
+  color: #fa1e4e;
+}
+.containerLogin {
+  width: 50%;
+}
+.containerLogin .form {
+  width: 100%;
+  text-align: center;
+  padding: 25px 50px;
+}
+.containerLogin h1 {
+  color: #beb6d2;
+}
+.containerLogin span {
+  font-size: 12px;
+  color: #6d667c;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.containerLogin span a {
+  font-size: 12px;
+  color: #fa1e4e;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.containerLogin hr {
+  height: 1px;
+  width: 100%;
+  margin: 15px 0 10px 0;
+}
+.form h1 {
+  padding: 10px 0;
+}
+.form .id {
+  position: relative;
+}
+.id i {
+  position: absolute;
+  font-size: 20px;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+.form input {
+  width: 100%;
+  height: 50px;
+  margin: 11px 0;
+  border: none;
+  border-radius: 2px;
+  background: #00000038;
+  padding: 8px;
+  font-size: 14px;
+  border-bottom: 1px solid #fa1e4e;
+  outline: none;
+  color: #ffffff;
+}
+/* -------- */
+.id small {
+  visibility: hidden;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+}
+
+.id.success input {
+  border-color: #fa1e4e;
+}
+
+.id.error small {
+  color: #fa1e4e;
+  visibility: visible;
+  font-size: 12px;
+}
+/* -------- */
+.form button {
+  margin: 9px 0 9px 0;
+  border: none;
+  background: #fa1e4e;
+  color: #beb6d2;
+  padding: 8px 10px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.form input + i {
+  color: #00000000;
+}
+.form input:focus::placeholder {
+  padding-left: 4px;
+  color: #fa1e4e;
+  transition: all 0.3s ease;
+}
+.form input:focus + i {
+  color: #fa1e4e;
+  transition: all 0.3s ease;
+}
+.footerlogoCad2 {
+  text-align: left;
+}
+.footerlogoCad2 .sci {
+  margin-top: 10px;
+  display: flex;
+}
+@media (max-width: 1200px) {
+  .bannerLogin {
+    width: 80%;
+  }
+}
+@media (max-width: 750px) {
+  .bannerLogin {
+    padding: 0;
+  }
+  .cardImg {
+    display: none;
+  }
+  .containerLogin {
+    width: 100%;
+  }
+  .containerLogin .form {
+    padding: 50px;
+  }
+  .containerLogin hr {
+    height: 1px;
+    margin: 20px 0 20px 0;
+  }
+}
+@media (max-width: 550px) {
+  .bannerLogin {
+    width: 80%;
+  }
+  .containerLogin .form {
+    padding: 0;
+  }
+  .containerLogin .form {
+    width: 100%;
+    text-align: center;
+    padding: 25px;
+  }
+  .form button {
+    font-size: 12px;
+  }
+  .footerlogoCad2 .sci a {
+    margin-top: 12px;
+    height: 15px;
+  }
+}
+@media (max-width: 240px) {
+  .footerlogoCad2 .sci {
+    flex-direction: column;
+  }
+}

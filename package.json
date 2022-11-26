@@ -1,25 +1,9 @@
 {
-  "name": "projeto-dvc6",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "site-device",
+  "version": 0.0.1,
+  "private": true,
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon --exec node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "npm install"
-  },
-  "author": "Feito pelos DVC6 @ Bandtec Digital School",
-  "license": "MIT",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mariadb": "^3.0.1",
-    "mssql": "^7.1.3",
-    "mysql2": "^2.2.5",
-    "node-sessionstorage": "^1.0.0",
-    "nodemon": "^2.0.7",
-    "path": "^0.12.7",
-    "pdfkit": "^0.13.0"
+    "start": "node ./site/app.js",
+    "postinstall": "cd site && npm install"
   }
 }
