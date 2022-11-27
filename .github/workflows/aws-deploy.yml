@@ -29,7 +29,7 @@ jobs:
         with:
           switches: -avzr --delete
           path: ./*
-          remote_path: /var/www/device/
+          remote_path: /var/www/device/dvc6
           remote_host: ec2-44-213-21-126.compute-1.compute.amazonaws.com
           remote_user: ubuntu
           remote_key: "${{ secrets.SSH_PRIVATE_KEY }}"
