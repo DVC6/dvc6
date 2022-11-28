@@ -6,8 +6,6 @@ var texto = null;
 function atribuirNota(nota) {
   starvalue = nota;
 }
-const URL = "http://localhost:3334";
-
 async function enviar() {
   texto = input_texto.value;
   var idFuncionario = sessionStorage.ID_FUNCIONARIO;
@@ -22,7 +20,7 @@ async function enviar() {
 
   if (starvalue != null && texto != null) {
     try {
-      const response = await fetch(`${URL}/feedback/enviar`, {
+      const response = await fetch(`/feedback/enviar`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

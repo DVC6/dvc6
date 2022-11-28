@@ -11,8 +11,6 @@ const idlogradouro = document.getElementById('logradouro');
 const idcnpj = document.getElementById('cnpj');
 const idnumero = document.getElementById('numero');
 
-const URL = 'http://localhost:3334';
-
 async function cadastrar() {
   const nomeFantasia = idusername.value;
   const site = idsite.value;
@@ -108,7 +106,7 @@ async function cadastrar() {
     return;
   } else {
     try {
-      const response = await fetch(`${URL}/hospitais/cadastrar`, {
+      const response = await fetch(`/hospitais/cadastrar`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

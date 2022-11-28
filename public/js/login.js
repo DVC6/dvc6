@@ -1,8 +1,6 @@
 const idemail = document.getElementById('email');
 const idpassword = document.getElementById('password');
 
-const URL = 'http://localhost:3334';
-
 async function entrarAdmin() {
   checkEmail();
   checkPassword();
@@ -10,11 +8,9 @@ async function entrarAdmin() {
   const email = idemail.value;
   const senha = idpassword.value;
 
-
   if (email == undefined || email == '' || senha == undefined || senha == '') {
     cardErro.style.display = 'block';
-    mensagem_erro.innerHTML =
-      'Erro!<br>Preencha todos os campos corretamente';
+    mensagem_erro.innerHTML = 'Erro!<br>Preencha todos os campos corretamente';
     setInterval(sumirMensagem, 5000);
     return;
   } else if (
@@ -27,7 +23,7 @@ async function entrarAdmin() {
     return;
   } else {
     try {
-      const response = await fetch(`${URL}/hospitais/autenticar`, {
+      const response = await fetch(`/hospitais/autenticar`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -77,11 +73,9 @@ async function entrarFuncionario() {
   const email = idemail.value;
   const senha = idpassword.value;
 
-
   if (email == undefined || email == '' || senha == undefined || senha == '') {
     cardErro.style.display = 'block';
-    mensagem_erro.innerHTML =
-      'Erro!<br>Preencha todos os campos corretamente';
+    mensagem_erro.innerHTML = 'Erro!<br>Preencha todos os campos corretamente';
     setInterval(sumirMensagem, 5000);
     return;
   } else if (
@@ -94,7 +88,7 @@ async function entrarFuncionario() {
     return;
   } else {
     try {
-      const response = await fetch(`${URL}/usuarios/autenticar`, {
+      const response = await fetch(`/usuarios/autenticar`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -108,7 +102,7 @@ async function entrarFuncionario() {
       if (response.ok) {
         console.log(
           response.json().then((json) => {
-            if(json.cargo == 'recepcionista') {
+            if (json.cargo == 'recepcionista') {
               sessionStorage.LOGIN_FUNCIONARIO = json.nome_funcionario;
               sessionStorage.ID_FUNCIONARIO = json.id_funcionario;
               sessionStorage.ID_HOSPITAL = json.fkhospital;
@@ -116,7 +110,7 @@ async function entrarFuncionario() {
 
               mensagem_erro.innerHTML = 'Login realizado com sucesso';
               cardErro.style.display = 'block';
-              console.log('ENTROU NA DASHBOARD DE PRE-CHECKIN')
+              console.log('ENTROU NA DASHBOARD DE PRE-CHECKIN');
               setInterval(() => {
                 window.location.href = 'dashboardPreCheckin.html';
               }, 2000);
@@ -152,7 +146,6 @@ async function entrarFuncionario() {
     }
   }
 }
-
 
 function checkEmail() {
   const emailValue = idemail.value.trim();
