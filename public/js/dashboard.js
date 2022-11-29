@@ -5,7 +5,7 @@ var contadorAcimaRAM = 0;
 var contadorAcimaCPU = 0;
 
 function atualizarTotens(idHospital) {
-  debugger;
+  
   const nomeFantasia = sessionStorage.LOGIN_HOSPITAL;
   const nomeFuncionario = sessionStorage.LOGIN_FUNCIONARIO;
   var idHospital = sessionStorage.ID_HOSPITAL;

@@ -3,7 +3,7 @@ var router = express.Router();
 
 var hospitalController = require('../controllers/hospitalController');
 
-router.get('/listar', function (req, res) {
+router.get('/listar', (req, res) => {
   hospitalController.listar(req, res);
 });
 

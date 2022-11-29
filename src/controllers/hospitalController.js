@@ -1,15 +1,20 @@
 var hospitalModel = require('../models/hospitalModel');
 
 function listar(req, res) {
+  console.log('Listando totems');
+
   hospitalModel
     .listar()
     .then(function (resultado) {
       if (resultado.length > 0) {
+        res.status(200).json(resultado);
       } else {
-        res.status(404).send('Nenhum resultado encontrado!');
+        res.status(204).send('Nenhum resultado encontrado!');
       }
     })
     .catch(function (erro) {
+      console.log(erro);
+      console.log('Houve um erro ao listar os totems.', erro.sqlMessage);
       res.status(500).json(erro.sqlMessage);
     });
 }
@@ -49,7 +54,7 @@ function entrar(req, res) {
 }
 
 function cadastrar(req, res) {
-  console.table(req.body)
+  console.table(req.body);
   const {
     nomeFantasia,
     site,

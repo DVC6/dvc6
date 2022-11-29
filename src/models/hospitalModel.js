@@ -1,14 +1,11 @@
-var database = require("../database/config");
+var database = require('../database/config');
 
 function listar() {
-  console.log(
-    "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()"
-  );
-  var instrucao = `
-        SELECT * from hospital;
+  const query = `
+        SELECT * FROM hospital;
     `;
-  console.log("Executando a instrução SQL: \n" + instrucao);
-  return database.executar(instrucao);
+
+  return database.executar(query);
 }
 
 function entrar(email, senha) {
@@ -18,9 +15,9 @@ function entrar(email, senha) {
     senha
   );
   var instrucao = `
-        SELECT * FROM hospital WHERE email = '${email}' AND senha = '${senha}';
+        SELECT * FROM hospital;
     `;
-  console.log("Executando a instrução SQL: \n" + instrucao);
+  console.log('Executando a instrução SQL: \n' + instrucao);
   return database.executar(instrucao);
 }
 
@@ -53,12 +50,12 @@ function cadastrar(
     cnpj,
     numero
   );
-  console.log("O SITE: " + site);
+  console.log('O SITE: ' + site);
   var instrucao = `
 INSERT INTO hospital (nome_fantasia, cnpj, email, senha, site, logradouro, numero, cidade, estado, bairro, telefone, cep)
 VALUES ('${nomeFantasia}', '${cnpj}', '${email}', '${senha}', '${site}', '${logradouro}', '${numero}', '${cidade}', '${estado}', '${bairro}', '${telefone}', '${cep}');
     `;
-  console.log("Executando a instrução SQL: \n" + instrucao);
+  console.log('Executando a instrução SQL: \n' + instrucao);
   return database.executar(instrucao);
 }
 
@@ -67,7 +64,7 @@ function alterarSenha(senha, email) {
         UPDATE hospital SET senha = '${senha}' WHERE email = '${email}';
     `;
 
-  console.log("Executando a instrucao SQL: \n" + instrucao);
+  console.log('Executando a instrucao SQL: \n' + instrucao);
   return database.executar(instrucao);
 }
 
@@ -76,7 +73,7 @@ function deletar(email) {
         DELETE FROM hospital WHERE email = '${email}'
     `;
 
-  console.log("Executando a instrucao SQL: \n" + query);
+  console.log('Executando a instrucao SQL: \n' + query);
   return database.executar(query);
 }
 
