@@ -2,7 +2,6 @@ function validarSessao() {
   const nomeFantasia = sessionStorage.LOGIN_HOSPITAL;
   const nomeFuncionario = sessionStorage.LOGIN_FUNCIONARIO;
 
-  debugger;
   if (nomeFantasia != null) {
     var nome = nomeFantasia.split(" ");
     sideFeedback.style.display = "none";

@@ -13,7 +13,7 @@ function abrirModal() {
 }
 
 function periodoSimples(idTotem) {
-  debugger;
+  
   var formulario = new URLSearchParams(
     new FormData(document.getElementById("form_cadusuario"))
   );
@@ -48,7 +48,7 @@ function periodoSimples(idTotem) {
   })
     .then(function (resposta) {
       console.log("resposta: ", resposta);
-      debugger;
+      
       if (resposta.ok) {
         if (resposta.status == 204) {
           var feed = document.getElementById("lista_dados");
@@ -68,7 +68,7 @@ function periodoSimples(idTotem) {
             throw "Nenhum resultado encontrado!!";
           }
           console.log("Dados recebidos: ", JSON.stringify(resposta));
-          debugger;
+          
           lista_dados.innerHTML = "";
           for (var i = 0; i < resposta.length; i++) {
             var dados = resposta[i];
