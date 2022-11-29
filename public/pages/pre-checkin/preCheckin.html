@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="../../styles/preCheckin.css">
   <link rel="shortcut icon" href="../../img/logo2.jpg" type="image/x-icon">
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <script src="../../js/pre-checkin/httpListagemHospitais.js"></script>
+
   <title>Pré Check-in</title>
 </head>
 
@@ -37,15 +39,6 @@
             <div>
               <label>Email</label>
               <input type="email" name="email" class="input_email" placeholder="email@gmail.com" required />
-              <span class="error"></span>
-            </div>
-          </div>
-
-          <div class="content_wrap content_right">
-            <div>
-              <label>RG</label>
-              <input type="text" name="rg" class="input_rg" placeholder="00.000.000-0" minlength="0" max="12"
-                pattern="\d{2}\.?\d{3}\.?\d{3}-?\d{1}" required />
               <span class="error"></span>
             </div>
 
@@ -82,6 +75,13 @@
               <option value="visita">Visita</option>
               <option value="marcar consulta">Marcar consulta</option>
               <option value="pegar exame">Pegar exame</option>
+            </select>
+          </div>
+
+          <div class="combobox_info">
+            <label>Selecione o hospital</label>
+            <select id="select_hospitais_precheckin" required>
+              <option value="">Selecione</option>
             </select>
           </div>
 
