@@ -15,7 +15,7 @@ function entrar(email, senha) {
     senha
   );
   var instrucao = `
-        SELECT * FROM hospital;
+        SELECT * FROM hospital WHERE email = '${email}' AND senha = '${senha}';
     `;
   console.log('Executando a instrução SQL: \n' + instrucao);
   return database.executar(instrucao);
