@@ -275,11 +275,11 @@ setInterval(() => {
 
 setInterval(() => {
   verificarIncidentes();
-}, 120000);
+}, 10000);
 
 setInterval(() => {
   get_dataDisco();
-}, 120000);
+}, 10000);
 
 get_dataDisco();
 
